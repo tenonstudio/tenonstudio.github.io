@@ -14,9 +14,10 @@
     if (lang !== "zh" && lang !== "en") return;
     root.dataset.lang = lang;
     root.lang = lang === "zh" ? "zh-Hans" : "en";
-    document.title = titles[lang];
+    document.title = (lang === "zh" ? root.dataset.titleZh : root.dataset.titleEn) || titles[lang];
     var meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", descriptions[lang]);
+    var pageDescription = lang === "zh" ? root.dataset.descriptionZh : root.dataset.descriptionEn;
+    if (meta) meta.setAttribute("content", pageDescription || descriptions[lang]);
     langButtons.forEach(function (button) {
       button.setAttribute("aria-pressed", String(button.dataset.setLang === lang));
     });

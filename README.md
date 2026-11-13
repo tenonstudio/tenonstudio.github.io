@@ -1,6 +1,6 @@
 # Tenon Studio
 
-A static, dependency-free studio website for Tenon, collecting the macOS apps Flip and Porthole.
+A static, dependency-free studio website for Tenon, with product pages for Flip, Porthole, and Porthole for Chrome.
 
 ## Preview
 
@@ -33,11 +33,12 @@ StudioSite/
 
 ## Current links
 
-- Flip → https://gamepunk.github.io/Flip/
-- Porthole → https://gamepunk.github.io/magic-mirror/
-- GitHub → https://github.com/gamepunk
+- Flip → /apps/flip/ (download still points to the existing site)
+- Porthole → /apps/porthole/ (download still points to the existing site)
+- Porthole for Chrome → /apps/porthole-for-chrome/
+- GitHub → https://github.com/tenonstudio
 
-The two product links point at the existing app sites. When the studio site gets its own domain, these can move to `/apps/flip` and `/apps/magic-mirror`.
+All product cards link to in-site pages under `apps/`. Download buttons still point at the existing app sites until the new releases are hosted under Tenon.
 
 ## Deploy
 
