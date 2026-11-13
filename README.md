@@ -1,4 +1,4 @@
-# Tenon Studio
+# Tenon / 榫卯 — studio site
 
 A static, dependency-free studio website for Tenon, with product pages for Flip, Porthole, and Porthole for Chrome.
 
