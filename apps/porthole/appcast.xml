@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>Porthole</title>
+        <link>https://tenonstudio.github.io/apps/porthole/</link>
+        <description>Porthole 更新源</description>
+        <language>zh-cn</language>
+        <item>
+            <title>Porthole 0.0.6</title>
+            <sparkle:version>0.0.6.398</sparkle:version>
+            <sparkle:shortVersionString>0.0.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <pubDate>Sat, 14 Nov 2026 03:49:12 +0800</pubDate>
+            <enclosure url="https://tenonstudio.github.io/apps/porthole/downloads/Porthole-0.0.6.zip"
+                       length="2167410" type="application/octet-stream"
+                       sparkle:edSignature="IWOKLhUHn82MxtQj1WtzyeiNd2E9RAlEANe9/zfVbLo59CB+542XGGO0dg5DtI6eduUQ1vkwgbM6TbTcyCv7BA==" />
+        </item>
+    </channel>
+</rss>
+<!-- sparkle-signatures:
+edSignature: SIH3KLWSaf1gryZzux17aLz1HYbd39NfWkKjM+TX+ROMZTeZoyULT1P6OzSKoe9mKfQM3f0f3Nt6uLYsjOMIDw==
+length: 1007
+-->
