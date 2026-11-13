@@ -1,4 +1,4 @@
-# Tenon / 榫卯 — studio site
+# Tenon Studio
 
 A static, dependency-free studio website for Tenon, collecting the macOS apps Flip and Porthole.
 
