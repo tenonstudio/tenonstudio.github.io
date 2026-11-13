@@ -6,8 +6,8 @@
     zh: "Tenon 榫卯 — 刚好合上的软件。"
   };
   var descriptions = {
-    en: "Tenon is an independent software studio making small, precise tools for macOS. Makers of Flip and Magic Mirror.",
-    zh: "Tenon 榫卯是一间独立软件工作室，做小而精确的 macOS 工具。作品包括 Flip 与 Magic Mirror。"
+    en: "Tenon is an independent software studio making small, precise tools for macOS. Makers of Flip and Porthole.",
+    zh: "Tenon 榫卯是一间独立软件工作室，做小而精确的 macOS 工具。作品包括 Flip 与 Porthole。"
   };
 
   function setLanguage(lang) {

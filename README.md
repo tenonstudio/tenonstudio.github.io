@@ -1,6 +1,6 @@
 # Tenon / 榫卯 — studio site
 
-A static, dependency-free studio website for Tenon, collecting the macOS apps Flip and Magic Mirror.
+A static, dependency-free studio website for Tenon, collecting the macOS apps Flip and Porthole.
 
 ## Preview
 
@@ -34,7 +34,7 @@ StudioSite/
 ## Current links
 
 - Flip → https://gamepunk.github.io/Flip/
-- Magic Mirror → https://gamepunk.github.io/magic-mirror/
+- Porthole → https://gamepunk.github.io/magic-mirror/
 - GitHub → https://github.com/gamepunk
 
 The two product links point at the existing app sites. When the studio site gets its own domain, these can move to `/apps/flip` and `/apps/magic-mirror`.
@@ -47,7 +47,7 @@ Suggested production shape:
 
 - `tenon.studio` → this site
 - `flip.tenon.studio` or existing app URL → Flip
-- `magic-mirror.tenon.studio` or existing app URL → Magic Mirror
+- `magic-mirror.tenon.studio` or existing app URL → Porthole
 
 Check domain, GitHub organization, and trademark availability before committing to a public domain.
 

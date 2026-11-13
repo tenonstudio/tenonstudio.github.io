@@ -1,7 +1,7 @@
 {
   "name": "Tenon",
   "short_name": "Tenon",
-  "description": "Small, precise tools for macOS. Makers of Flip and Magic Mirror.",
+  "description": "Small, precise tools for macOS. Makers of Flip and Porthole.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f2eee6",
