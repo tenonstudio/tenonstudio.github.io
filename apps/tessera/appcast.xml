@@ -1,24 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Tessera</title>
-        <link>https://tenonstudio.github.io/apps/tessera/</link>
-        <description>Tessera 更新源</description>
-        <language>zh-cn</language>
         <item>
-            <title>Tessera 0.1.0</title>
+            <title>0.1.0</title>
+            <pubDate>Sat, 14 Nov 2026 03:51:38 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/tessera/</link>
             <sparkle:version>1</sparkle:version>
             <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
-            <pubDate>Sat, 14 Nov 2026 03:49:12 +0800</pubDate>
-            <sparkle:releaseNotesLink>https://tenonstudio.github.io/apps/tessera/downloads/Tessera-0.1.0.html</sparkle:releaseNotesLink>
-            <enclosure url="https://tenonstudio.github.io/apps/tessera/downloads/Tessera-0.1.0.zip"
-                       length="4313649" type="application/octet-stream"
-                       sparkle:edSignature="Rqyr0yE7EpmICKJkXtEXify57Nr8GlTBIw9YQPQH5hZXjjxo4BDwKT9nyPe2A/L9Lg0pEbuu925lq0LO3/AKBg==" />
+            <sparkle:releaseNotesLink>https://tenonstudio.github.io/apps/tessera/Tessera-0.1.0.html</sparkle:releaseNotesLink>
+            <enclosure url="https://tenonstudio.github.io/apps/tessera/downloads/Tessera-0.1.0.zip" length="4313649" type="application/octet-stream" sparkle:edSignature="fJaOtbh3WhUhNR5rROg9AwfQ4SEvVF/I5Hq2jhqV50T+jcQKdA1UGc/j2csZcSUzbFTLR6KFO1QhvQmwEIY0Aw=="/>
         </item>
     </channel>
 </rss>
-<!-- sparkle-signatures:
-edSignature: 4zGR0wkKsh052NUuBNB216jhYh/VSMoAaYGaOflwwlTqSH4ARwEyV9ZrezULddOQgdNMMIsf/eaGkXRUIsxcDg==
-length: 1130
--->

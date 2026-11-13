@@ -589,3 +589,38 @@
     margin-top: 8px;
   }
 }
+
+/* Tessera product visual */
+.app-visual-tessera .tessera-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  width: min(100%, 380px);
+  aspect-ratio: 1.16;
+  margin: 0 auto;
+  padding: 22px;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #171512;
+  box-shadow: 0 28px 60px rgba(23, 21, 18, 0.24);
+}
+
+.app-visual-tessera .tessera-tile {
+  border-radius: 10px;
+  background: #f3a6a0;
+  opacity: 0.9;
+}
+
+.app-visual-tessera .tessera-tile:nth-child(4n + 1) { background: #e8a59e; }
+.app-visual-tessera .tessera-tile:nth-child(4n + 2) { background: #f4c9a8; }
+.app-visual-tessera .tessera-tile:nth-child(4n + 3) { background: #79c99e; }
+.app-visual-tessera .tessera-tile:nth-child(4n) { background: #8fc6d8; }
+.app-visual-tessera .tessera-tile:nth-child(5n) { border-radius: 50%; }
+.app-visual-tessera .tessera-tile:nth-child(7n) { transform: rotate(12deg) scale(0.92); }
+
+@media (max-width: 720px) {
+  .app-visual-tessera .tessera-stage {
+    width: 100%;
+  }
+}

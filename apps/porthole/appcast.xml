@@ -1,23 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Porthole</title>
-        <link>https://tenonstudio.github.io/apps/porthole/</link>
-        <description>Porthole 更新源</description>
-        <language>zh-cn</language>
         <item>
-            <title>Porthole 0.0.6</title>
+            <title>0.0.6</title>
+            <pubDate>Sat, 14 Nov 2026 03:51:38 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/porthole/</link>
             <sparkle:version>0.0.6.398</sparkle:version>
             <sparkle:shortVersionString>0.0.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <pubDate>Sat, 14 Nov 2026 03:49:12 +0800</pubDate>
-            <enclosure url="https://tenonstudio.github.io/apps/porthole/downloads/Porthole-0.0.6.zip"
-                       length="2167410" type="application/octet-stream"
-                       sparkle:edSignature="IWOKLhUHn82MxtQj1WtzyeiNd2E9RAlEANe9/zfVbLo59CB+542XGGO0dg5DtI6eduUQ1vkwgbM6TbTcyCv7BA==" />
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://tenonstudio.github.io/apps/porthole/downloads/Porthole-0.0.6.zip" length="2167410" type="application/octet-stream" sparkle:edSignature="N7/Zfh6PxlUsZS9HiiZRu2uJK5ogiKNxB7WUy7qdRxavjpyO7uDT6Tt5VvLc2bNOjdCYoSctwUjpUEAEVMYWCw=="/>
         </item>
     </channel>
 </rss>
-<!-- sparkle-signatures:
-edSignature: SIH3KLWSaf1gryZzux17aLz1HYbd39NfWkKjM+TX+ROMZTeZoyULT1P6OzSKoe9mKfQM3f0f3Nt6uLYsjOMIDw==
-length: 1007
--->
