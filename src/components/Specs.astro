@@ -1,0 +1,13 @@
+---
+import type { App } from '../data/apps';
+import Text from './Text.astro';
+const { app } = Astro.props as { app: App };
+---
+<section class="spec-grid">
+  {app.specs.map((spec) => (
+    <div class="spec-card">
+      <span class="spec-label"><Text en={spec.label.en} zh={spec.label.zh} /></span>
+      <span class="spec-value is-preline"><Text en={spec.value.en} zh={spec.value.zh} /></span>
+    </div>
+  ))}
+</section>

@@ -1,0 +1,22 @@
+---
+import { apps } from '../data/apps';
+import Text from './Text.astro';
+const { current } = Astro.props;
+const related = apps.filter((app) => app.slug !== current);
+---
+<section class="related section">
+  <div class="shell">
+  <div class="section-head section-head-compact">
+    <p class="eyebrow"><Text en="More from Tenon" zh="Tenon 的其他产品" /></p>
+  </div>
+  <div class="related-grid">
+    {related.map((app) => (
+      <a class="related-card" href={`/apps/${app.slug}/`}>
+        <img src={app.icon} alt="" width="48" height="48" loading="lazy" />
+        <div><h3>{app.name}</h3><p><Text en={app.tagline.en} zh={app.tagline.zh} /></p></div>
+        <span aria-hidden="true">↗</span>
+      </a>
+    ))}
+  </div>
+  </div>
+</section>

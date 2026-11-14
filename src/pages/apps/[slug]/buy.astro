@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Text from '../../../components/Text.astro';
+import { apps } from '../../../data/apps';
+
+export function getStaticPaths() {
+  return apps.filter((app) => app.buy).map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+---
+<BaseLayout title={`Buy ${app.name} — Tenon`} description={`Buy a lifetime license for ${app.name}.`} image={app.icon}>
+  <section class="buy-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
+    <a class="back-link" href={`/apps/${app.slug}/`}><span aria-hidden="true">←</span> <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} /></a>
+    <div class="buy-layout">
+      <div class="buy-copy">
+        <img class="buy-icon" src={app.icon} alt="" width="82" height="82" />
+        <p class="eyebrow"><Text en="Lifetime license" zh="终身授权" /></p>
+        <h1><Text en={`Keep ${app.name}.`} zh={`让 ${app.name} 留下来。`} /></h1>
+        <p><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
+        <ul class="buy-points">
+          <li><Text en="14-day full-featured trial" zh="14 天全功能试用" /></li>
+          <li><Text en="One-time payment, no subscription" zh="一次付款，不是订阅" /></li>
+          <li><Text en="Use on up to 3 Macs" zh="最多 3 台 Mac" /></li>
+          <li><Text en="Free updates included" zh="包含免费更新" /></li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <span class="price-label"><Text en="One-time purchase" zh="一次买断" /></span>
+        <div class="price">US$9.99</div>
+        <p><Text en="Lifetime license for 3 Macs." zh="3 台 Mac 的终身授权。" /></p>
+        <button class="button button-dark button-full" type="button" disabled><Text en="Checkout opening soon" zh="购买即将开放" /></button>
+        <p class="fine-print"><Text en="Secure checkout via Lemon Squeezy. Link coming soon." zh="将通过 Lemon Squeezy 安全结账，链接即将上线。" /></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Text from '../../components/Text.astro';
+import AppVisual from '../../components/AppVisual.astro';
+import FeatureGrid from '../../components/FeatureGrid.astro';
+import Specs from '../../components/Specs.astro';
+import DownloadPanel from '../../components/DownloadPanel.astro';
+import RelatedApps from '../../components/RelatedApps.astro';
+import { apps } from '../../data/apps';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+---
+<BaseLayout
+  title={`${app.name} — Tenon`}
+  description={`${app.name}: ${app.tagline.en}`}
+  image={app.icon}
+  current="apps"
+>
+  <article class="app-detail" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
+    <div class="shell">
+      <a class="back-link" href="/#apps"><span aria-hidden="true">←</span> <Text en="All apps" zh="全部应用" /></a>
+    </div>
+
+    <header class="detail-hero shell">
+      <div class="detail-copy">
+        <p class="eyebrow">
+          <span>{app.index}</span><span class="eyebrow-sep">/</span><Text en={app.category.en} zh={app.category.zh} />
+          <span class="meta-platform">{app.platform}</span>
+        </p>
+        <div class="detail-title-row">
+          <img class="detail-icon" src={app.icon} alt="" width="96" height="96" />
+          <h1>{app.name}</h1>
+        </div>
+        <p class="detail-tagline"><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
+        <p class="detail-description"><Text en={app.description.en} zh={app.description.zh} /></p>
+        <div class="detail-actions">
+          <a class="button button-dark" href={app.download}><Text en={`Download ${app.name}`} zh={`下载 ${app.name}`} /> <span aria-hidden="true">↓</span></a>
+          {app.buy && <a class="text-link" href={app.buy}><Text en="License" zh="授权" /> <span aria-hidden="true">→</span></a>}
+          {app.slug === 'porthole' && <a class="text-link" href="/apps/porthole-for-chrome/"><Text en="Chrome extension" zh="Chrome 扩展" /> <span aria-hidden="true">↗</span></a>}
+          {app.source && <a class="text-link" href={app.source} target="_blank" rel="noopener"><Text en="Source" zh="源码" /> <span aria-hidden="true">↗</span></a>}
+        </div>
+        <p class="detail-note"><Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" /></p>
+      </div>
+      <AppVisual app={app} />
+    </header>
+
+    <FeatureGrid app={app} />
+    <section class="shell"><Specs app={app} /></section>
+    <div class="shell"><DownloadPanel app={app} /></div>
+    <RelatedApps current={app.slug} />
+  </article>
+</BaseLayout>

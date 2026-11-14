@@ -1,0 +1,42 @@
+---
+import type { App } from '../data/apps';
+import Text from './Text.astro';
+const { app, featured = false } = Astro.props as { app: App; featured?: boolean };
+---
+<a
+  href={`/apps/${app.slug}/`}
+  class:list={['app-card', `app-card-${app.slug}`, { 'app-card-featured': featured }]}
+  style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}
+>
+  <div class="app-card-top">
+    <span class="app-index">{app.index}</span>
+    <Text en={app.category.en} zh={app.category.zh} class="app-category" />
+    <span class="app-platform">{app.platform}</span>
+  </div>
+  <div class="app-card-main">
+    <img class="app-card-icon" src={app.icon} alt="" width="74" height="74" loading="lazy" />
+    <div class="app-card-copy">
+      <h3>{app.name}</h3>
+      <p class="app-card-tagline"><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
+    </div>
+    <span class="app-card-arrow" aria-hidden="true">↗</span>
+  </div>
+  {featured && (
+    <div class="app-card-preview" aria-hidden="true">
+      <div class="mini-window">
+        <div class="mini-bar"><span class="traffic"><i></i><i></i><i></i></span><span>Flip</span><span>•••</span></div>
+        <div class="mini-row"><span class="mini-glyph">◐</span><span>Dark mode</span><span class="mini-toggle on"></span></div>
+        <div class="mini-row"><span class="mini-glyph">✦</span><span>Keep awake</span><span class="mini-toggle on"></span></div>
+        <div class="mini-row"><span class="mini-glyph">▦</span><span>Hide desktop</span><span class="mini-toggle"></span></div>
+      </div>
+    </div>
+  )}
+  <p class="app-card-deck"><Text en={app.deck.en} zh={app.deck.zh} /></p>
+  <div class="app-card-bottom">
+    <div class="tag-list">
+      {app.tags.map((tag) => <span class="tag"><Text en={tag.en} zh={tag.zh} /></span>)}
+    </div>
+    <span class="app-card-link"><Text en="Explore" zh="了解" /> <span aria-hidden="true">→</span></span>
+  </div>
+  <div class="app-card-glow" aria-hidden="true"></div>
+</a>

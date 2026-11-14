@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Text from '../../../components/Text.astro';
+import { apps } from '../../../data/apps';
+import { termsFor } from '../../../data/legal';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+const doc = termsFor(app);
+---
+<BaseLayout title={`${doc.title.en} — ${app.name}`} description={doc.lead.en} image={app.icon}>
+  <article class="legal shell">
+    <a class="back-link" href={`/apps/${app.slug}/`}><span aria-hidden="true">←</span> <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} /></a>
+    <p class="eyebrow"><Text en="Legal" zh="法律信息" /></p>
+    <h1><Text en={doc.title.en} zh={doc.title.zh} /></h1>
+    <p class="legal-lead"><Text en={doc.lead.en} zh={doc.lead.zh} /></p>
+    <p class="legal-updated"><Text en={doc.updated.en} zh={doc.updated.zh} /></p>
+    <div class="legal-body">
+      {doc.sections.map((section) => (
+        <section>
+          <h2><Text en={section.title.en} zh={section.title.zh} /></h2>
+          <p><Text en={section.body.en} zh={section.body.zh} /></p>
+        </section>
+      ))}
+    </div>
+  </article>
+</BaseLayout>

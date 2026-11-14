@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Text from '../../../components/Text.astro';
+import RelatedApps from '../../../components/RelatedApps.astro';
+
+const features = [
+  { title: { en: 'Smart select', zh: '智能选择' }, body: { en: 'Hover and click any element, or drag a custom region. Whole-page mode is there when you need it.', zh: '悬停点击任意元素，或拖拽自定义区域；需要时也可以镜像整个页面。' } },
+  { title: { en: 'Multi-select', zh: '多选模式' }, body: { en: 'Mirror several elements at once, sharing one floating window.', zh: '一次镜像多个元素，共用同一个悬浮窗。' } },
+  { title: { en: 'Cross-page', zh: '跨网页' }, body: { en: 'Bring elements from different pages into one floating view for comparison.', zh: '把不同页面的内容放进同一个悬浮窗，方便对比。' } },
+  { title: { en: 'Scroll to zoom', zh: '滚轮缩放' }, body: { en: 'Scroll over a mirror to zoom in or out while the source keeps rendering live.', zh: '在镜像上滚动即可缩放，来源仍然实时渲染。' } },
+  { title: { en: 'Picture-in-Picture', zh: '画中画' }, body: { en: 'A small always-on-top window that follows you across tabs and apps.', zh: '一个小巧的置顶窗口，切换标签页和应用也不会消失。' } },
+  { title: { en: 'No account', zh: '无需账号' }, body: { en: 'Free, no license key, no account. Install it and start mirroring.', zh: '免费，无需激活码或账号，安装即可使用。' } }
+];
+const chromeURL = 'https://chromewebstore.google.com/detail/magic-mirror/jfapgohnocglaaminogpmjgabkokgnfl';
+---
+<BaseLayout title="Porthole for Chrome — Tenon" description="Mirror any part of a web page into a floating, live window." image="/assets/porthole-icon.png">
+  <article class="app-detail chrome-page" style="--app-accent:#5b7cfa;--app-soft:#dfe6ff;">
+    <div class="shell"><a class="back-link" href="/apps/porthole/"><span aria-hidden="true">←</span> <Text en="Porthole for macOS" zh="Porthole macOS 版" /></a></div>
+    <header class="detail-hero shell">
+      <div class="detail-copy">
+        <p class="eyebrow"><span>02</span><span class="eyebrow-sep">/</span><Text en="Browser extension" zh="浏览器扩展" /><span class="meta-platform">Chrome · Edge</span></p>
+        <div class="detail-title-row">
+          <img class="detail-icon" src="/assets/porthole-icon.png" alt="" width="96" height="96" />
+          <h1><span data-lang="en">Porthole<br /><span class="muted-word">for Chrome</span></span><span data-lang="zh">Porthole<br /><span class="muted-word">Chrome 版</span></span></h1>
+        </div>
+        <p class="detail-tagline"><Text en="A floating window into any webpage." zh="为网页任意区域，开一扇悬浮的窗。" /></p>
+        <p class="detail-description"><Text en="Select an element, drag a region, or mirror a whole page into a Picture-in-Picture window. Porthole for Chrome keeps live web content visible while you work elsewhere." zh="选择元素、拖拽区域，或把整个页面放进画中画窗口。Porthole for Chrome 让网页内容一直可见，同时你可以继续做别的事。" /></p>
+        <div class="detail-actions">
+          <a class="button button-dark" href={chromeURL} target="_blank" rel="noopener"><Text en="Install for Chrome" zh="安装 Chrome 扩展" /> <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="/apps/porthole/"><Text en="Porthole for macOS" zh="Porthole macOS 版" /> <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="detail-note"><Text en="Free · No account · Chrome and Edge" zh="免费 · 无需账号 · Chrome 和 Edge" /></p>
+      </div>
+      <div class="app-art chrome-art" aria-hidden="true">
+        <div class="app-art-glow"></div>
+        <div class="chrome-browser">
+          <div class="chrome-toolbar"><span class="traffic"><i></i><i></i><i></i></span><span class="chrome-address">tenonstudio.github.io</span></div>
+          <div class="chrome-page-body"><span></span><span></span><span></span><span class="short"></span></div>
+        </div>
+        <div class="chrome-pip"><span class="chrome-pip-bar"></span><div class="chrome-chart"><i></i><i></i><i></i><i></i></div><small>live · 60 fps</small></div>
+      </div>
+    </header>
+
+    <section class="section section-features">
+      <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow"><Text en="What it does" zh="它能做什么" /></p>
+        <div class="heading-row">
+          <h2><Text en="Keep a piece of the web beside you." zh="把网页的一角留在身边。" /></h2>
+          <p class="heading-note"><Text en="For reference material: a chart, a chat, a score, or a paragraph you need while writing somewhere else." zh="适合参考资料：行情、聊天、比分，或写作时需要一直看着的一段内容。" /></p>
+        </div>
+      </div>
+      <div class="feature-grid">
+        {features.map((feature, index) => (
+          <article class="feature-card">
+            <span class="feature-index">{String(index + 1).padStart(2, '0')}</span>
+            <h3><Text en={feature.title.en} zh={feature.title.zh} /></h3>
+            <p><Text en={feature.body.en} zh={feature.body.zh} /></p>
+          </article>
+        ))}
+      </div>
+      </div>
+    </section>
+
+    <section class="spec-grid shell">
+      <div class="spec-card"><span class="spec-label"><Text en="Browser" zh="浏览器" /></span><span class="spec-value is-preline"><Text en="Chrome\nChromium Edge" zh="Chrome\nChromium 内核 Edge" /></span></div>
+      <div class="spec-card"><span class="spec-label"><Text en="Price" zh="价格" /></span><span class="spec-value is-preline"><Text en="Free\nNo account" zh="免费\n无需账号" /></span></div>
+      <div class="spec-card"><span class="spec-label"><Text en="Rendering" zh="渲染" /></span><span class="spec-value is-preline"><Text en="Local\nNo uploads" zh="本地\n不上传" /></span></div>
+    </section>
+
+    <div class="shell"><section class="download-panel" style="--app-accent:#5b7cfa;--app-soft:#dfe6ff;">
+      <div class="download-copy">
+        <p class="eyebrow"><Text en="Chrome Web Store" zh="Chrome 应用商店" /></p>
+        <h2><Text en="Open a window into the web." zh="给网页开一扇窗。" /></h2>
+        <p><Text en="Install Porthole for Chrome and mirror any part of a page in a floating window." zh="安装 Porthole for Chrome，把网页任意区域放进悬浮窗。" /></p>
+        <div class="download-actions"><a class="button button-dark" href={chromeURL} target="_blank" rel="noopener"><Text en="Install extension" zh="安装扩展" /> <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <img class="download-icon" src="/assets/porthole-icon.png" alt="" width="120" height="120" />
+    </section></div>
+
+    <RelatedApps current="porthole" />
+  </article>
+</BaseLayout>

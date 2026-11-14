@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Text from '../components/Text.astro';
+import AppCard from '../components/AppCard.astro';
+import { apps } from '../data/apps';
+---
+<BaseLayout
+  title="Tenon — Software that fits."
+  description="Tenon is an independent software studio making small, precise tools for macOS: Flip, Porthole, and Tessera."
+  current="apps"
+>
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span><Text en="Independent software studio · 2026" zh="独立软件工作室 · 2026" /></p>
+      <h1 class="hero-title">
+        <span data-lang="en">Tools that<br /><em>simply fit.</em></span>
+        <span data-lang="zh">刚好合上的<br /><em>软件。</em></span>
+      </h1>
+      <p class="hero-lead">
+        <Text
+          en="Tenon makes quiet, carefully built software for macOS. No dashboards to manage, no accounts to create — just small tools that stay out of the way."
+          zh="Tenon 榫卯做安静、认真打磨的 macOS 软件。没有要管理的仪表盘，没有要注册的账号——只有不挡路的小工具。"
+        />
+      </p>
+      <div class="hero-actions">
+        <a class="button button-dark" href="#apps"><Text en="Explore the apps" zh="看看应用" /> <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="#studio"><Text en="The studio" zh="关于工作室" /> <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <div class="hero-stage" aria-hidden="true">
+      <div class="stage-glow"></div>
+      <div class="stage-grid"></div>
+      <div class="stage-card stage-flip">
+        <img src="/assets/flip-icon.png" alt="" width="62" height="62" />
+        <span>Flip</span>
+        <small>Control, quietly.</small>
+      </div>
+      <div class="stage-card stage-porthole">
+        <img src="/assets/porthole-icon.png" alt="" width="62" height="62" />
+        <span>Porthole</span>
+        <small>Always in sight.</small>
+      </div>
+      <div class="stage-card stage-tessera">
+        <img src="/assets/tessera-icon.png" alt="" width="62" height="62" />
+        <span>Tessera</span>
+        <small>A living desktop.</small>
+      </div>
+      <span class="stage-label stage-label-top">JOINERY FOR SOFTWARE</span>
+      <span class="stage-label stage-label-bottom">THREE TOOLS · ONE WORKSHOP</span>
+    </div>
+  </section>
+
+  <section class="section shell" id="apps">
+    <div class="section-head">
+      <p class="eyebrow"><Text en="Selected work / 作品" zh="精选作品 / SELECTED WORK" /></p>
+      <div class="heading-row">
+        <h2><Text en="Three apps, one workshop." zh="三款 App，一间工坊。" /></h2>
+        <p class="heading-note"><Text en="Built for macOS. Designed to disappear into your day." zh="为 macOS 而做，设计目标是融进你的一天。" /></p>
+      </div>
+    </div>
+    <div class="app-grid">
+      {apps.map((app) => <AppCard app={app} featured={app.featured} />)}
+    </div>
+  </section>
+
+  <section class="studio-band" id="studio">
+    <div class="shell studio-inner">
+      <p class="eyebrow eyebrow-light"><Text en="Tenon / 榫卯" zh="榫卯 / TENON" /></p>
+      <blockquote>
+        <span data-lang="en">A small joint.<br /><em>Quiet software.</em></span>
+        <span data-lang="zh">一个小小的榫，<br /><em>一种安静的软件。</em></span>
+      </blockquote>
+      <div class="studio-copy">
+        <p>
+          <Text
+            en="A tenon is a small piece of wood that joins two parts without a nail. No noise, no excess — it simply fits. That is the kind of software we want to make."
+            zh="榫，是让两块木头不用钉子也能咬合的小结构。没有噪音，没有多余——只是刚好合上。我们想做这样的软件。"
+          />
+        </p>
+        <p class="studio-note">
+          <Text en="Tenon is an independent studio led by Tao Wang, making careful tools for the Mac since 2024." zh="Tenon 榫卯是由 Tao Wang 主理的独立工作室，从 2024 年开始做认真的 Mac 工具。" />
+        </p>
+      </div>
+      <div class="studio-values">
+        <div><span>01</span><h3><Text en="Precise" zh="精确" /></h3><p><Text en="One job, done properly." zh="一件事，认真做。" /></p></div>
+        <div><span>02</span><h3><Text en="Quiet" zh="安静" /></h3><p><Text en="Present only when needed." zh="需要时出现，做完就退后。" /></p></div>
+        <div><span>03</span><h3><Text en="Useful" zh="有用" /></h3><p><Text en="Every switch earns its place." zh="每个开关都有存在的理由。" /></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing shell">
+    <p class="eyebrow"><Text en="More parts, fitting together" zh="还有更多零件，正在合上" /></p>
+    <h2><Text en="There is more on the bench." zh="工作台上，还有更多。" /></h2>
+    <p><Text en="New tools are being fitted together. Until then, you can find what we are working on at GitHub." zh="新的工具正在合上。在那之前，可以在 GitHub 看到我们正在做的事。" /></p>
+    <a class="text-link" href="https://github.com/tenonstudio" target="_blank" rel="noopener"><Text en="Follow on GitHub" zh="在 GitHub 关注" /> <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import type { App } from '../data/apps';
+import Text from './Text.astro';
+const { app } = Astro.props as { app: App };
+---
+<section class="section section-features">
+  <div class="shell">
+  <div class="section-head">
+    <p class="eyebrow"><Text en="What it does" zh="它能做什么" /></p>
+    <div class="heading-row">
+      <h2><Text en={`A closer look at ${app.name}.`} zh={`再近一点看 ${app.name}。`} /></h2>
+      <p class="heading-note"><Text en={app.deck.en} zh={app.deck.zh} /></p>
+    </div>
+  </div>
+  <div class="feature-grid">
+    {app.features.map((feature, index) => (
+      <article class="feature-card">
+        <span class="feature-index">{String(index + 1).padStart(2, '0')}</span>
+        <h3><Text en={feature.title.en} zh={feature.title.zh} /></h3>
+        <p><Text en={feature.body.en} zh={feature.body.zh} /></p>
+      </article>
+    ))}
+  </div>
+  </div>
+</section>

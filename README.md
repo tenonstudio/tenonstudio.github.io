@@ -1,59 +1,32 @@
-# Tenon / 榫卯 — studio site
+# tenonstudio.github.io
 
-A static, dependency-free studio website for Tenon, with product pages for Flip, Porthole, and Porthole for Chrome.
-
-## Preview
-
-```bash
-python3 -m http.server 8765 --directory StudioSite
-open http://127.0.0.1:8765/
-```
-
-English preview:
-
-```text
-http://127.0.0.1:8765/?lang=en
-```
-
-Mobile preview: Chrome DevTools device mode, or resize the window below 640px.
+The Tenon / 榫卯 studio site, built with Astro and deployed to GitHub Pages.
 
 ## Structure
 
 ```text
-StudioSite/
-├── index.html          # single-page studio site
-├── styles.css          # editorial layout, light/dark, responsive
-├── script.js           # language switch, reveal-on-scroll, sticky header
-├── assets/
-│   ├── flip-icon.png
-│   ├── magic-mirror-icon.png
-│   └── tenon-favicon.svg
-└── preview/            # design-review screenshots
+src/
+├── components/     shared UI (header, footer, app cards, art)
+├── data/           app and legal content
+├── layouts/        BaseLayout
+├── pages/          routes
+└── styles/         global design system
+public/             icons, downloads, appcasts, static assets
+scripts/            post-build route fixes
 ```
 
-## Current links
+## Development
 
-- Flip → /apps/flip/ (download still points to the existing site)
-- Porthole → /apps/porthole/ (download still points to the existing site)
-- Porthole for Chrome → /apps/porthole-for-chrome/
-- GitHub → https://github.com/tenonstudio
+```bash
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # static output in dist/
+npm run preview
+```
 
-All product cards link to in-site pages under `apps/`. Download buttons still point at the existing app sites until the new releases are hosted under Tenon.
+The site is localized in English and Simplified Chinese through the existing
+`data-lang` toggle. It follows the visitor's browser language and remembers an
+explicit choice.
 
-## Deploy
-
-The folder can be deployed as-is to Cloudflare Pages, Netlify, Vercel, or GitHub Pages.
-
-Suggested production shape:
-
-- `tenon.studio` → this site
-- `flip.tenon.studio` or existing app URL → Flip
-- `magic-mirror.tenon.studio` or existing app URL → Porthole
-
-Check domain, GitHub organization, and trademark availability before committing to a public domain.
-
-## Notes
-
-- Language defaults to the browser language, can be forced with `?lang=en` or `?lang=zh`, and persists in `localStorage`.
-- The Flip icon is still sourced from the existing Flip packaging assets; replace it with the final original studio/app artwork before a commercial launch.
-- No analytics, no newsletter backend, no cookies.
+GitHub Pages is deployed from `dist/` by `.github/workflows/deploy.yml`.
+The old hand-written pages were replaced by Astro components and content data.

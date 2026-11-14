@@ -1,0 +1,30 @@
+---
+import Text from './Text.astro';
+import { apps } from '../data/apps';
+---
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Tenon">
+        <img class="brand-mark" src="/assets/brand/tenon-avatar-64.png" alt="" width="30" height="30" />
+        <span class="brand-name">tenon</span><span class="brand-cn">榫卯</span>
+      </a>
+      <p><Text en="Small software for macOS, made to fit." zh="为 macOS 做的小软件，刚好合上。" /></p>
+    </div>
+    <div class="footer-col">
+      <h4><Text en="Apps" zh="应用" /></h4>
+      {apps.map((app) => <a href={`/apps/${app.slug}/`}>{app.name}</a>)}
+      <a href="/apps/porthole-for-chrome/"><Text en="Porthole for Chrome" zh="Porthole Chrome 版" /></a>
+    </div>
+    <div class="footer-col">
+      <h4><Text en="Legal" zh="法律" /></h4>
+      <a href="/apps/flip/privacy.html"><Text en="Privacy" zh="隐私" /></a>
+      <a href="/apps/flip/terms.html"><Text en="Terms" zh="条款" /></a>
+    </div>
+    <div class="footer-col footer-meta">
+      <h4><Text en="Studio" zh="工作室" /></h4>
+      <a href="https://github.com/tenonstudio" target="_blank" rel="noopener">GitHub ↗</a>
+      <p>© 2026 Tenon</p>
+    </div>
+  </div>
+</footer>

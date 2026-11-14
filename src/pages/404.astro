@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Text from '../components/Text.astro';
+---
+<BaseLayout title="Not found — Tenon" description="This page could not be found.">
+  <section class="not-found shell">
+    <p class="eyebrow"><Text en="404" zh="404" /></p>
+    <h1><Text en="This piece does not fit." zh="这块零件合不上。" /></h1>
+    <p><Text en="The page you are looking for does not exist, or it moved." zh="你要找的页面不存在，或者已经移动。" /></p>
+    <a class="button button-dark" href="/"><Text en="Back to Tenon" zh="回到 Tenon" /> <span aria-hidden="true">→</span></a>
+  </section>
+</BaseLayout>

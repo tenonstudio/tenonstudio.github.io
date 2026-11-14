@@ -1,0 +1,37 @@
+---
+import type { App } from '../data/apps';
+import Text from './Text.astro';
+const { app } = Astro.props as { app: App };
+---
+<div class:list={['app-art', `app-art-${app.slug}`]} style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`} aria-hidden="true">
+  <div class="app-art-glow"></div>
+  {app.slug === 'flip' && (
+    <div class="flip-shell">
+      <div class="flip-bar"><span class="traffic"><i></i><i></i><i></i></span><span>Flip</span><span class="flip-bar-menu">•••</span></div>
+      <div class="flip-line"><span class="flip-line-icon">◐</span><div><b>Dark mode</b><small>Manual</small></div><span class="toggle on"></span></div>
+      <div class="flip-line"><span class="flip-line-icon">✦</span><div><b>Keep awake</b><small>Indefinitely</small></div><span class="toggle on"></span></div>
+      <div class="flip-line"><span class="flip-line-icon">▦</span><div><b>Hide desktop</b><small>Clean space</small></div><span class="toggle"></span></div>
+      <div class="flip-line"><span class="flip-line-icon">◌</span><div><b>Mute mic</b><small>Input muted</small></div><span class="toggle"></span></div>
+    </div>
+  )}
+  {app.slug === 'porthole' && (
+    <div class="porthole-layers">
+      <div class="porthole-back"><span class="porthole-dot"></span><span class="porthole-line"></span><span class="porthole-line short"></span></div>
+      <div class="porthole-mirror">
+        <span class="porthole-window-title"><i></i><i></i><i></i> Live window</span>
+        <div class="porthole-chart"><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="porthole-source">source · 60 fps</span>
+      </div>
+      <span class="porthole-label"><Text en="Click-through" zh="点击穿透" /></span>
+    </div>
+  )}
+  {app.slug === 'tessera' && (
+    <div class="tessera-canvas">
+      <div class="tessera-ring ring-a"></div>
+      <div class="tessera-ring ring-b"></div>
+      <div class="tessera-ring ring-c"></div>
+      <div class="tessera-tile t1"></div><div class="tessera-tile t2"></div><div class="tessera-tile t3"></div>
+      <span class="tessera-code">p5.js · 30 fps</span>
+    </div>
+  )}
+</div>
