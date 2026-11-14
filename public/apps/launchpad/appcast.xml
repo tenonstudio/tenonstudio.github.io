@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.3.12</title>
-            <pubDate>Sun, 15 Nov 2026 03:59:59 +0800</pubDate>
+            <title>0.3.13</title>
+            <pubDate>Sun, 15 Nov 2026 04:02:57 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>28</sparkle:version>
-            <sparkle:shortVersionString>0.3.12</sparkle:shortVersionString>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>0.3.13</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.3.12</h2>
+            <description><![CDATA[<h2>Launchpad 0.3.13</h2>
 <ul>
-  <li>Horizontal page swipes now complete the full page slide before swapping pages, eliminating the mid-swipe jump.</li>
-  <li>Page direction now follows the visual displacement for trackpad, wheel and mouse-drag paging.</li>
-  <li>Vertical scroll mode uses a row-aligned viewport: whole rows only, no labels clipped at the window edge.</li>
+  <li>The search field no longer takes keyboard focus when Launchpad opens or a folder closes.</li>
+  <li>Arrow keys and keyboard paging work immediately; clicking the search field still focuses it normally.</li>
+  <li>Clearing a query from the clear button keeps the existing, explicit refocus behavior.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.12.zip" length="5638385" type="application/octet-stream" sparkle:edSignature="h5C6TVdXBhfLtJSbYWi+74ZRFxbCG6NK/ob+bmURHyYPTAKp5pNwNF/JaW+ZKd4OrltI1CYzJOS8OukkNz/hAA=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.13.zip" length="5637733" type="application/octet-stream" sparkle:edSignature="W7nCyvLHpmLd0vxKnq89JyE2vJ/gJVNsD3TfSi5YFRhpDSMyKNNWYt6c6izZfNHqPZ7ra0YhltIQ4YWcX7aPCw=="/>
         </item>
     </channel>
 </rss>
