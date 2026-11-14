@@ -3,6 +3,22 @@
     <channel>
         <title>Bubble</title>
         <item>
+            <title>0.3.15</title>
+            <pubDate>Sat, 14 Nov 2026 23:00:39 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/bubble/</link>
+            <sparkle:version>20261114.19</sparkle:version>
+            <sparkle:shortVersionString>0.3.15</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble-0.3.15.zip" length="4796039" type="application/octet-stream" sparkle:edSignature="KRrKuVtiZNC3cnXL4F9M0wqY2M5J3wgUjNSb2N+s6rFQ/wKH7WLjJqQou1I5rNHz3bJ/SC/wcLjnmqLTatjmCg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.19-20261114.18.delta" sparkle:deltaFrom="20261114.18" length="107466" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="/bHTMfp5S9M9XDTlezR8H/AHyqgpAb7ig/t9aITpzVDZGZm01ccxj8EKpDPMFa8jKNkh9nWn3Xw683fGRtqCDw=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.19-20261114.17.delta" sparkle:deltaFrom="20261114.17" length="261494" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="8wMGziRlTAL29Ha5mkuAyVKz0deW4/h/4TESe+WrBDbRa8zzKNV3FDKbbeX4hUj9RqId9K1e8ferCaVQA/KxAg=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.19-20261114.16.delta" sparkle:deltaFrom="20261114.16" length="307306" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="p/q1lKjozfj/k8pyLCzRvbEthlK3KrACFq9r3bAvHuoKg8AoYIJRJWg9WyRG/C6ZhzCnHCaKtf4CvpLQg44aAg=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.19-20261114.15.delta" sparkle:deltaFrom="20261114.15" length="300742" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="uz7DLGP2qpAg4cuXJoY4wezgk6dpfXBGhWALvCji7s/cU+0Jx/GxgPozKd4ZkUCfsQEcCD0EiRiDp7ZKMqu4Aw=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.19-20261114.14.delta" sparkle:deltaFrom="20261114.14" length="359694" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="plMDW6j24kY+HYLqaB8RS7EtNFRAZvpL1Bhf8Z1pKpvgbHxPKIlnEX82/vP26XgUJtxcfvr84h65DKVoFbQmAw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.3.14</title>
             <pubDate>Sat, 14 Nov 2026 22:57:11 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/bubble/</link>
@@ -32,22 +48,6 @@
                 <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.17-20261114.14.delta" sparkle:deltaFrom="20261114.14" length="342070" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="ny+jsosM3k0Cg0rZ7ERf50mThBttCu8KRjOiP+jequ50r7zEfpX0mFrhudKASPqpK8w9aBtRy/3+Ry7XePnBBQ=="/>
                 <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.17-20261114.13.delta" sparkle:deltaFrom="20261114.13" length="347370" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Rm8qi3R+GaxWXXgmiF4s4+rj7FcvaPQq10gZjsyDT7EoFYeAX2LNz6IwoLDh3XmBKDt1sxVcFvbDRWWPmiU3Cg=="/>
                 <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.17-20261114.12.delta" sparkle:deltaFrom="20261114.12" length="393786" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="DCvFxRGK95k2GdXQhVHfoVhogBcJeAwE78vTOX+DGE3PlnvKaAykb9CvW/jbwAUCTkmM+o8FKQ8XzwhiLvetDA=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>0.3.12</title>
-            <pubDate>Sat, 14 Nov 2026 22:36:40 +0800</pubDate>
-            <link>https://tenonstudio.github.io/apps/bubble/</link>
-            <sparkle:version>20261114.16</sparkle:version>
-            <sparkle:shortVersionString>0.3.12</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble-0.3.12.zip" length="4793072" type="application/octet-stream" sparkle:edSignature="NxUGR0yMU6CMDY7H0f1Jv7x8YG5jJk2MSz3CDK2YkFfodSDdf3lIbadCd+Guo1GEWnu8RFVE55+mvOkhsg/JCw=="/>
-            <sparkle:deltas>
-                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.16-20261114.15.delta" sparkle:deltaFrom="20261114.15" length="118942" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="F6LqA1HuwvAs6WV7cvF9flxg2Ey1+FXHthcdSFrO6ZG9pwWpieNZb0bHwCnWdlU0SpD7ffdU7qn5styII/iJAw=="/>
-                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.16-20261114.14.delta" sparkle:deltaFrom="20261114.14" length="323338" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="hDFZpdF4haasEqGvgTz7/bmE05o7Tkilez4cEP3KDxUxT9f3a9HcyA0fGJEwJX9wS0NMtuVxW80bxlS9IPvqBQ=="/>
-                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.16-20261114.13.delta" sparkle:deltaFrom="20261114.13" length="293138" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="glZH6+wpeant5riOwmyuAvyR1lcmkf+1IJe3vRmrjcJ3i+I719SgiY3zX54XFEXye/iIsVoRjLJh2FRGSIOjAg=="/>
-                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.16-20261114.12.delta" sparkle:deltaFrom="20261114.12" length="381974" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="peY5ccxqvX07qTA6gPmDqZ7HRaOLc26rCrGRtAWgznQlt0f7la7HjyALXBV89gVJ6HNNLp/iERi+5PssZ2eVAQ=="/>
-                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.16-20261114.11.delta" sparkle:deltaFrom="20261114.11" length="377586" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="rq9QtVKUrAu5fI0DLwjdcGqKEMtaIQk802aF3T4TOq2ONP8GVf2bOdCtaCm+a3dSQ4Qf6e/mDkzT+HPyfjnYAQ=="/>
             </sparkle:deltas>
         </item>
         <item>
