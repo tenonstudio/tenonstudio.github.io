@@ -9,7 +9,7 @@
             <sparkle:version>20261114.4</sparkle:version>
             <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble-0.3.0.zip" length="6471532" type="application/octet-stream" sparkle:edSignature="16oxlR3vBHXdDCSMcjg75kadwSQPL+cjwmGFBxaaIO/zQoA4F7h4CkZfne3zaWivJksRs7rozm3h682if7ASAA=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble-0.3.0.zip" length="6471532" type="application/octet-stream" sparkle:edSignature="GrgYZit6WhN5xx/DqcoBnz+h1cY6XcmOznt3szmjihkfBBcpSQI3thsOu0cJB3i1sysEetAT8hmzyamG1XnPBg=="/>
         </item>
     </channel>
 </rss>
