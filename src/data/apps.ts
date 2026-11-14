@@ -210,7 +210,7 @@ export const apps: App[] = [
     icon: '/assets/bubble-icon.png',
     accent: '#5f6dff',
     accentSoft: '#e8eaff',
-    download: '/apps/bubble/downloads/Bubble-0.3.1.dmg',
+    download: '/apps/bubble/downloads/Bubble-0.3.2.dmg',
     appcast: '/apps/bubble/appcast.xml',
     free: true
   }
