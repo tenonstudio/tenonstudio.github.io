@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porthole — Tenon</title>
+  <meta name="theme-color" content="#f2eee6">
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(location.search);
+        var saved = params.get("lang") || localStorage.getItem("tenon-lang");
+        var lang = saved || ((navigator.language || "en").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+        document.documentElement.dataset.lang = lang;
+        document.documentElement.lang = lang === "zh" ? "zh-Hans" : "en";
+      } catch (error) {}
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <link rel="icon" href="../../assets/brand/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../app.css">
+</head>
+<body class="app-detail-page">
+  <a class="skip-link" href="#main"><span data-lang="en">Skip to content</span><span data-lang="zh">跳到正文</span></a>
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Tenon">
+      <img class="brand-mark" src="../../assets/brand/tenon-avatar-64.png" alt="" width="30" height="30">
+      <span class="brand-name">tenon</span><span class="brand-cn">榫卯</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="../../#apps"><span data-lang="en">Apps</span><span data-lang="zh">应用</span></a>
+      <a href="../../#studio"><span data-lang="en">Studio</span><span data-lang="zh">工作室</span></a>
+      <a class="nav-external" href="https://github.com/tenonstudio" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">/</span><button type="button" data-set-lang="zh" aria-pressed="false">中</button>
+    </div>
+  </header>
+  <main id="main" class="app-page-main">
+    <a class="detail-back" href="../"><span aria-hidden="true">←</span> <span data-lang="en">Back to Porthole</span><span data-lang="zh">返回 Porthole</span></a>
+    <section class="app-page-hero"><div class="detail-copy">
+      <p class="detail-eyebrow"><span class="dot"></span> <span data-lang="en">Legal</span><span data-lang="zh">法律信息</span></p>
+      <h1><span data-lang="en">Terms of Use</span><span data-lang="zh">使用条款</span></h1>
+      <p class="detail-lead"><span data-lang="en">These terms cover your use of Porthole.</span><span data-lang="zh">这些条款适用于你对 Porthole 的使用。</span></p>
+      <h2><span data-lang="en">License</span><span data-lang="zh">授权</span></h2>
+      <p><span data-lang="en">A valid license grants a non-exclusive, non-transferable right to use Porthole on the number of Macs stated at purchase. The trial is provided for evaluation.</span><span data-lang="zh">有效授权授予你在购买时注明的 Mac 数量上使用 Porthole 的非独占、不可转让权利。试用版仅供评估。</span></p>
+      <h2><span data-lang="en">Restrictions</span><span data-lang="zh">限制</span></h2>
+      <p><span data-lang="en">Do not redistribute, resell, or sublicense the app or license keys. Do not remove proprietary notices.</span><span data-lang="zh">不得重新分发、转售或再授权 App 或 License Key，也不得移除所有权声明。</span></p>
+      <h2><span data-lang="en">Third-party components</span><span data-lang="zh">第三方组件</span></h2>
+      <p><span data-lang="en">The app includes third-party open-source components. Their licenses and notices are provided with the app.</span><span data-lang="zh">App 包含第三方开源组件，其许可证和声明随 App 提供。</span></p>
+      <h2><span data-lang="en">No warranty</span><span data-lang="zh">免责声明</span></h2>
+      <p><span data-lang="en">The app is provided “as is,” without warranties of merchantability, fitness for a particular purpose, or non-infringement, to the extent permitted by law.</span><span data-lang="zh">在法律允许的范围内，App 按“现状”提供，不附带适销性、特定用途适用性或不侵权保证。</span></p>
+      <h2><span data-lang="en">Changes</span><span data-lang="zh">变更</span></h2>
+      <p><span data-lang="en">We may update these terms as the app evolves. The current version is always published on this page.</span><span data-lang="zh">随着 App 发展，我们可能更新这些条款。当前版本始终发布在本页。</span></p>
+    </div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-brand"><a class="brand" href="../../" aria-label="Tenon"><img class="brand-mark" src="../../assets/brand/tenon-avatar-64.png" alt="" width="30" height="30"><span class="brand-name">tenon</span><span class="brand-cn">榫卯</span></a><p><span data-lang="en">Small software for macOS,<br>made to fit.</span><span data-lang="zh">为 macOS 做的小软件，<br>刚好合上。</span></p></div>
+    <div class="footer-col"><h4><span data-lang="en">Apps</span><span data-lang="zh">应用</span></h4><a href="../../flip/">Flip</a><a href="../../porthole/">Porthole</a><a href="../../tessera/">Tessera</a></div>
+    <div class="footer-col"><h4><span data-lang="en">Legal</span><span data-lang="zh">法律</span></h4><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+    <div class="footer-bottom"><span>© 2026 tenon</span><span><span data-lang="en">Independent software studio</span><span data-lang="zh">独立软件工作室</span></span></div>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>
