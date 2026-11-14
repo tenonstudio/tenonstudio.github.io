@@ -1,77 +1,98 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Text from '../components/Text.astro';
-import AppVisual from '../components/AppVisual.astro';
-import { apps } from '../data/apps';
+import { apps, appBySlug } from '../data/apps';
 
-const flipImage = '/assets/screenshots/flip-settings.png';
+const flip = appBySlug.flip;
+const porthole = appBySlug.porthole;
+const tessera = appBySlug.tessera;
 ---
 <BaseLayout
   title="Tenon — Small software for macOS"
-  description="Three small, precise macOS tools from Tenon: Flip, Porthole, and Tessera."
+  description="Flip, Porthole, and Tessera. Three focused macOS apps from Tenon."
+  image="/assets/screenshots/flip-settings.png"
 >
-  <section class="studio-hero shell">
-    <p class="eyebrow"><span class="eyebrow-dot"></span><Text en="Independent software studio" zh="独立软件工作室" /></p>
-    <h1><Text en="Three small tools." zh="三件小工具。" /><br /><em><Text en="One quieter Mac." zh="一台更安静的 Mac。" /></em></h1>
-    <p class="studio-hero-lead"><Text en="Flip, Porthole, and Tessera. Three focused apps for the things a Mac should do without getting in the way." zh="Flip、Porthole 和 Tessera。三个专注的 App，让 Mac 做好该做的事，同时不挡路。" /></p>
-    <div class="app-index">
-      {apps.map((app) => (
-        <a class="app-index-card" href={`/apps/${app.slug}/`} style={`--app-accent:${app.accent};`}>
-          <img src={app.icon} alt="" width="58" height="58" />
-          <span class="app-index-copy">
-            <b>{app.name}</b>
-            <small><Text en={app.category.en} zh={app.category.zh} /></small>
-          </span>
-          <span class="app-index-arrow" aria-hidden="true">↗</span>
-        </a>
-      ))}
-    </div>
-  </section>
+  <div class="chrome-home">
+    <section class="chrome-hero shell">
+      <div class="chrome-mark">
+        <img src="/assets/brand/tenon-avatar-128.png" alt="" width="72" height="72" />
+      </div>
+      <h1><Text en="Small tools, built for the Mac." zh="专为 Mac 打造的小工具。" /></h1>
+      <p><Text en="Flip, Porthole, and Tessera. Focused apps that do one thing well — and stay out of the way." zh="Flip、Porthole 和 Tessera。专注做好一件事，然后安静地退到一边。" /></p>
+      <div class="chrome-actions">
+        <a class="chrome-button" href="#apps"><Text en="Explore the apps" zh="探索应用" /> <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="chrome-fineprint"><Text en="Built for macOS · 14-day trials · One-time licenses" zh="为 macOS 打造 · 14 天试用 · 买断授权" /></p>
+    </section>
 
-  <div class="showcase-list shell">
-    {apps.map((app, index) => (
-      <article class:list={['showcase', { 'showcase-reverse': index % 2 === 1 }]} style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
-        <header class="showcase-head">
-          <div class="showcase-title">
-            <img src={app.icon} alt="" width="88" height="88" />
-            <div>
-              <p class="showcase-meta"><span>{app.index}</span> / <Text en={app.category.en} zh={app.category.zh} /> <span class="showcase-platform">{app.platform}</span></p>
-              <h2>{app.name}</h2>
+    <section class="chrome-stage" aria-label="Tenon apps">
+      <div class="chrome-side chrome-side-left" aria-hidden="true">
+        <img src={porthole.icon} alt="" width="54" height="54" />
+        <span>Porthole</span>
+        <small>Window mirroring</small>
+      </div>
+      <div class="chrome-main-shot">
+        <div class="chrome-shot-bar"><span class="traffic"><i></i><i></i><i></i></span><span>Flip</span><span>Settings</span></div>
+        <img class="chrome-shot-settings" src="/assets/screenshots/flip-settings.png" alt="Flip settings" width="1200" height="960" />
+        <img class="chrome-shot-panel" src="/assets/screenshots/flip-panel.png" alt="Flip menu bar panel" width="680" height="1332" />
+      </div>
+      <div class="chrome-side chrome-side-right" aria-hidden="true">
+        <img src={tessera.icon} alt="" width="54" height="54" />
+        <span>Tessera</span>
+        <small>Generative wallpaper</small>
+      </div>
+    </section>
+
+    <section class="chrome-section shell" id="apps">
+      <div class="chrome-section-head">
+        <h2><Text en="Explore" zh="探索" /> <span class="chrome-pill"><Text en="three apps" zh="三款应用" /></span></h2>
+        <p><Text en="Three small pieces of software, each with a clear job." zh="三款小软件，每款都有明确的工作。" /></p>
+      </div>
+      <div class="chrome-cards">
+        {apps.map((app) => (
+          <a class:list={['chrome-card', `chrome-card-${app.slug}`]} href={`/apps/${app.slug}/`}>
+            <div class="chrome-card-top"><img src={app.icon} alt="" width="74" height="74" /><span>{app.platform}</span></div>
+            <h3>{app.name}</h3>
+            <p><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
+            <div class="chrome-card-bottom">
+              <span class="chrome-card-tags">{app.tags.slice(0, 2).map((tag) => <span><Text en={tag.en} zh={tag.zh} /></span>)}</span>
+              <span class="chrome-card-arrow" aria-hidden="true">↗</span>
             </div>
-          </div>
-          <p class="showcase-tagline"><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
-        </header>
-        <div class="showcase-body">
-          <div class="showcase-copy">
-            <p class="showcase-description"><Text en={app.description.en} zh={app.description.zh} /></p>
-            <ul class="showcase-features">
-              {app.features.slice(0, 3).map((feature) => (
-                <li>
-                  <b><Text en={feature.title.en} zh={feature.title.zh} /></b>
-                  <span><Text en={feature.body.en} zh={feature.body.zh} /></span>
-                </li>
-              ))}
-            </ul>
-            <div class="showcase-actions">
-              <a class="button button-dark" href={`/apps/${app.slug}/`}><Text en={`Explore ${app.name}`} zh={`了解 ${app.name}`} /> <span aria-hidden="true">→</span></a>
-              <a class="text-link" href={app.download}><Text en="Download" zh="下载" /> <span aria-hidden="true">↓</span></a>
-            </div>
-          </div>
-          <div class="showcase-visual">
-            {app.slug === 'flip' ? (
-              <img class="showcase-photo" src={flipImage} alt="Flip settings" width="1200" height="960" loading="lazy" />
-            ) : (
-              <AppVisual app={app} />
-            )}
-          </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="chrome-promo shell">
+      <div class="chrome-promo-card chrome-promo-blue">
+        <div>
+          <span class="chrome-kicker"><Text en="Private by design" zh="本地优先" /></span>
+          <h2><Text en="Your data stays on your Mac." zh="你的数据留在 Mac 上。" /></h2>
+          <p><Text en="No account. No dashboard. Your settings and scripts stay local." zh="不需要账号，没有仪表盘。设置和脚本都留在本机。" /></p>
         </div>
-      </article>
-    ))}
-  </div>
+        <img src={flip.icon} alt="" width="110" height="110" />
+      </div>
+      <div class="chrome-promo-card chrome-promo-yellow">
+        <div>
+          <span class="chrome-kicker"><Text en="Try before you buy" zh="先试后买" /></span>
+          <h2><Text en="14 days with every feature." zh="14 天，全部功能。" /></h2>
+          <p><Text en="Then keep the app with a one-time license. No subscription." zh="之后一次买断留下它，不是订阅。" /></p>
+        </div>
+        <span class="chrome-badge">14<span>d</span></span>
+      </div>
+    </section>
 
-  <section class="studio-mini shell" id="studio">
-    <p class="eyebrow"><Text en="Tenon" zh="榫卯" /></p>
-    <h2><Text en="Small, precise software — made to fit." zh="小而精确的软件，刚好合上。" /></h2>
-    <p><Text en="Tenon is an independent studio making careful tools for the Mac. No dashboards, no accounts, no noise — just the things you actually reach for." zh="Tenon 榫卯是一家独立工作室，为 Mac 做认真的工具。没有仪表盘，没有账号，没有噪音——只有你每天真的会用到的东西。" /></p>
-  </section>
+    <section class="chrome-section chrome-section-last shell">
+      <div class="chrome-section-head">
+        <h2><Text en="Made by Tenon." zh="由 Tenon 制作。" /></h2>
+        <p><Text en="An independent software studio making quiet, careful tools for macOS." zh="一家独立软件工作室，为 macOS 做安静、认真的工具。" /></p>
+      </div>
+      <div class="chrome-links">
+        <a href="/apps/flip/"><Text en="Flip" zh="Flip" /> <span>→</span></a>
+        <a href="/apps/porthole/"><Text en="Porthole" zh="Porthole" /> <span>→</span></a>
+        <a href="/apps/tessera/"><Text en="Tessera" zh="Tessera" /> <span>→</span></a>
+        <a href="/apps/flip/help/"><Text en="Scripting guides" zh="脚本指南" /> <span>→</span></a>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
