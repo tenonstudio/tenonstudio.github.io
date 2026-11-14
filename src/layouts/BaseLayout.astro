@@ -39,8 +39,8 @@ const ogImage = new URL(image, Astro.site);
         try {
           const params = new URLSearchParams(location.search);
           const saved = params.get('lang') || localStorage.getItem('tenon-lang');
-          const lang = saved || ((navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en');
-          document.documentElement.dataset.lang = lang;
+          const lang = saved || 'en';
+          document.documentElement.dataset.lang = lang === 'zh' ? 'zh' : 'en';
           document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
         } catch {}
       })();
