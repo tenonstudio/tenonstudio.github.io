@@ -16,9 +16,6 @@ const { current } = Astro.props;
       <a href="/#studio" class:list={{ active: current === 'studio' }}>
         <Text en="Studio" zh="工作室" />
       </a>
-      <a href="/help/" class:list={{ active: current === 'help' }}>
-        <Text en="Help" zh="帮助" />
-      </a>
     </nav>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-set-lang="en" aria-pressed="true">EN</button>

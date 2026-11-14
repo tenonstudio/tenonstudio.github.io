@@ -1,6 +1,6 @@
 ---
-import HelpLayout from '../../layouts/HelpLayout.astro';
-import Text from '../../components/Text.astro';
+import HelpLayout from '../../../../layouts/HelpLayout.astro';
+import Text from '../../../../components/Text.astro';
 
 const sections = [
   { id: 'overview', en: 'Overview', zh: '概览' },
@@ -22,6 +22,7 @@ const sections = [
     zh: '一个壁纸脚本就是一个可编辑的 .js 文件：前面是一小段 JSON 元数据，后面是 p5.js 草图。Tessera 会在桌面背后实时运行它。'
   }}
   sections={sections}
+  backHref="/apps/tessera/"
 >
   <section id="overview">
     <h2><Text en="Overview" zh="概览" /></h2>

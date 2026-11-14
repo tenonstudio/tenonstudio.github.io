@@ -40,6 +40,7 @@ const { app } = Astro.props;
           <a class="button button-dark" href={app.download}><Text en={`Download ${app.name}`} zh={`下载 ${app.name}`} /> <span aria-hidden="true">↓</span></a>
           {app.buy && <a class="text-link" href={app.buy}><Text en="License" zh="授权" /> <span aria-hidden="true">→</span></a>}
           {app.slug === 'porthole' && <a class="text-link" href="/apps/porthole-for-chrome/"><Text en="Chrome extension" zh="Chrome 扩展" /> <span aria-hidden="true">↗</span></a>}
+          {(app.slug === 'flip' || app.slug === 'tessera') && <a class="text-link" href={`/apps/${app.slug}/help/`}><Text en="Scripting guide" zh="脚本指南" /> <span aria-hidden="true">→</span></a>}
         </div>
         <p class="detail-note"><Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" /></p>
       </div>
@@ -53,7 +54,7 @@ const { app } = Astro.props;
           <p class="eyebrow"><Text en="Scripting guide" zh="脚本指南" /></p>
           <h2><Text en={app.slug === 'flip' ? 'Write your own Flip commands.' : 'Write your own Tessera wallpapers.'} zh={app.slug === 'flip' ? '写自己的 Flip 命令。' : '写自己的 Tessera 壁纸。'} /></h2>
         </div>
-        <a class="button button-dark" href={`/help/${app.slug}/`}><Text en="Read the guide" zh="阅读指南" /> <span aria-hidden="true">→</span></a>
+        <a class="button button-dark" href={`/apps/${app.slug}/help/`}><Text en="Read the guide" zh="阅读指南" /> <span aria-hidden="true">→</span></a>
       </section>
     )}
     <section class="shell"><Specs app={app} /></section>

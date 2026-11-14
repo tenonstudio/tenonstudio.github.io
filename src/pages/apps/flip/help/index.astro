@@ -1,6 +1,6 @@
 ---
-import HelpLayout from '../../layouts/HelpLayout.astro';
-import Text from '../../components/Text.astro';
+import HelpLayout from '../../../../layouts/HelpLayout.astro';
+import Text from '../../../../components/Text.astro';
 
 const sections = [
   { id: 'overview', en: 'Overview', zh: '概览' },
@@ -23,6 +23,7 @@ const sections = [
     zh: '把一个本地 shell 脚本变成 Flip 面板里的开关、一次性动作或选项菜单。不需要账号、服务器或 App Store 审核。'
   }}
   sections={sections}
+  backHref="/apps/flip/"
 >
   <section id="overview">
     <h2><Text en="Overview" zh="概览" /></h2>
