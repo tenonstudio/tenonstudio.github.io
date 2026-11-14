@@ -183,7 +183,7 @@ export const apps: App[] = [
     index: '05',
     name: 'Bubble',
     category: { en: 'Selection actions', zh: '划词操作栏' },
-    platform: 'macOS 14+',
+    platform: 'macOS 12+',
     tagline: { en: 'Your favourite actions, right where you select.', zh: '选中文本，操作就在指尖。' },
     description: {
       en: 'Bubble brings a compact native action bar to any selected text. Search, cut, copy, paste, open links, run shortcuts, or launch your own extensions without leaving the app you are already in. It ships with its own extension ecosystem and a one-click migration path for PopClip extensions.',
@@ -202,7 +202,7 @@ export const apps: App[] = [
       { title: { en: 'Local by default', zh: '本地优先' }, body: { en: 'Extensions, settings, and action history stay on your Mac. No account, no subscription, no in-app purchase.', zh: '扩展、设置和操作记录都保存在本机。无需账号、无订阅、无内购。' } }
     ],
     specs: [
-      { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 14+\nUniversal', zh: 'macOS 14+\nUniversal' } },
+      { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 12+\nUniversal', zh: 'macOS 12+\nUniversal' } },
       { label: { en: 'License', zh: '授权' }, value: { en: 'Free\nNo account', zh: '免费\n无需账号' } },
       { label: { en: 'Updates', zh: '更新' }, value: { en: 'Sparkle\nSelf-updating', zh: 'Sparkle\n自动更新' } }
     ],
@@ -210,7 +210,7 @@ export const apps: App[] = [
     icon: '/assets/bubble-icon.png',
     accent: '#5f6dff',
     accentSoft: '#e8eaff',
-    download: '/apps/bubble/downloads/Bubble-0.3.0.dmg',
+    download: '/apps/bubble/downloads/Bubble-0.3.1.dmg',
     appcast: '/apps/bubble/appcast.xml',
     free: true
   }
