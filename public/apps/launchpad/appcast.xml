@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.3.5</title>
-            <pubDate>Sat, 14 Nov 2026 19:26:07 +0800</pubDate>
+            <title>0.3.6</title>
+            <pubDate>Sat, 14 Nov 2026 19:57:01 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>21</sparkle:version>
-            <sparkle:shortVersionString>0.3.5</sparkle:shortVersionString>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>0.3.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.3.5</h2>
+            <description><![CDATA[<h2>Launchpad 0.3.6</h2>
 <ul>
-  <li>New page can be created with Command-N or the page-dot context menu.</li>
-  <li>Empty current page can be deleted from the page-dot context menu.</li>
-  <li>Gesture conflict warning, live paging, and LaunchNow import.</li>
+  <li>Compact window matched to LaunchOS: 844×663 frame, true behind-window glass, adaptive light/dark material.</li>
+  <li>Search row, 7×5 grid, icon-label spacing, corner radius and page dots tuned to the reference.</li>
+  <li>New pages remain available from the page-dot context menu and Command-N.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.5.zip" length="5573810" type="application/octet-stream" sparkle:edSignature="TnQMyF0IJtAnkc6b1KA4BCvzbhovuN48nUMXJu2lX4vuimS6VXvccHHqlJAbhNrMnm6X5SieXwP3ixghQQr6AA=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.6.zip" length="5584615" type="application/octet-stream" sparkle:edSignature="EHxebJ3ge5uWF5HFzMvq8p7+AR+Ot/F/ylnrqEx1dggXHSGWgWQ+Dhmc4J1fFcJxtru313Cg9buksdu6cJB4BQ=="/>
         </item>
     </channel>
 </rss>
