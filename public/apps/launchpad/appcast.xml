@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.1.7</title>
-            <pubDate>Sat, 14 Nov 2026 18:29:31 +0800</pubDate>
+            <title>0.2.0</title>
+            <pubDate>Sat, 14 Nov 2026 18:36:12 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>8</sparkle:version>
-            <sparkle:shortVersionString>0.1.7</sparkle:shortVersionString>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.1.7</h2>
+            <description><![CDATA[<h2>Launchpad 0.2.0</h2>
 <ul>
-  <li>Press Esc while dragging an app to cancel the pending drop.</li>
-  <li>LaunchOS and LaunchNext layout import, live page dragging, and pinch-out to close.</li>
-  <li>Sparkle updates and the signed GitHub Pages / Homebrew build.</li>
+  <li>Experimental global trackpad pinch via a CGEventTap, opt-in and requiring Accessibility permission.</li>
+  <li>Rakefile-based build, test, lint, DMG and release workflow.</li>
+  <li>LaunchOS and LaunchNext layout migration, live page dragging, and Esc drag cancellation.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.1.7.zip" length="5369460" type="application/octet-stream" sparkle:edSignature="z5MufquPqB7llutC/52IipGa0q8lp5tkXei6mAisFLYtoKIQKjC6ijnQPlEXhCzlxQGPcb7QaqBi9QO9DUrIBw=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.0.zip" length="5427198" type="application/octet-stream" sparkle:edSignature="ztZLYvq7lIVO7wAvIaJwRDTc5Stl0bK8olUxSXUuRfzimakw9Ec/Hz6XvXB/5gkieWqydrxmCYCwFWmyeGgWCg=="/>
         </item>
     </channel>
 </rss>
