@@ -605,3 +605,61 @@ body { background: var(--bg); }
   .cta-apple .button { margin-left: 0; width: 100%; }
   .studio-mini { padding-top: 66px; padding-bottom: 80px; }
 }
+
+/* Three-app Apple-style home */
+.studio-hero { padding-top: 94px; padding-bottom: 64px; }
+.studio-hero h1 { max-width: 980px; font-size: clamp(54px, 7.6vw, 104px); line-height: .88; letter-spacing: -.078em; margin-bottom: 24px; }
+.studio-hero h1 em { color: #635bff; font-style: normal; }
+.studio-hero-lead { max-width: 650px; color: var(--muted); font-size: 17px; line-height: 1.62; margin-bottom: 38px; }
+.app-index { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.app-index-card { display: flex; align-items: center; gap: 13px; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+.app-index-card:hover { transform: translateY(-2px); box-shadow: 0 14px 35px rgba(20,20,50,.07); }
+.app-index-card img { width: 52px; height: 52px; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,.12); }
+.app-index-copy { display: flex; flex-direction: column; min-width: 0; }
+.app-index-copy b { font-size: 20px; line-height: 1.1; letter-spacing: -.04em; }
+.app-index-copy small { margin-top: 2px; color: var(--muted); font-size: 10px; }
+.app-index-arrow { margin-left: auto; color: var(--muted); font-size: 16px; }
+.showcase-list { border-top: 1px solid var(--line); }
+.showcase { padding: 82px 0 88px; border-bottom: 1px solid var(--line); }
+.showcase-head { max-width: 900px; margin-bottom: 40px; }
+.showcase-title { display: flex; align-items: center; gap: 18px; }
+.showcase-title img { width: 86px; height: 86px; border-radius: 21px; box-shadow: 0 12px 28px rgba(0,0,0,.14); }
+.showcase-meta { display: flex; align-items: center; gap: 7px; margin: 0 0 4px; color: var(--muted); font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .05em; }
+.showcase-meta > span:first-child { color: var(--app-accent); }
+.showcase-platform { margin-left: 10px; color: var(--muted-light); }
+.showcase-title h2 { margin: 0; font-size: clamp(44px, 5vw, 66px); line-height: .9; letter-spacing: -.07em; }
+.showcase-tagline { margin: 24px 0 0; max-width: 720px; font-size: clamp(22px, 2.5vw, 31px); line-height: 1.18; font-weight: 560; letter-spacing: -.035em; }
+.showcase-body { display: grid; grid-template-columns: .84fr 1.16fr; gap: 66px; align-items: center; }
+.showcase-reverse .showcase-body { grid-template-columns: 1.16fr .84fr; }
+.showcase-reverse .showcase-copy { order: 2; }
+.showcase-reverse .showcase-visual { order: 1; }
+.showcase-description { color: var(--muted); font-size: 15px; line-height: 1.7; }
+.showcase-features { list-style: none; padding: 0; margin: 26px 0 0; border-top: 1px solid var(--line); }
+.showcase-features li { display: grid; grid-template-columns: 150px 1fr; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.showcase-features b { font-size: 12px; font-weight: 600; }
+.showcase-features span { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.showcase-actions { display: flex; align-items: center; gap: 22px; margin-top: 26px; flex-wrap: wrap; }
+.showcase-visual { min-width: 0; }
+.showcase-photo { display: block; width: 100%; height: auto; border-radius: 20px; border: 1px solid var(--line); box-shadow: 0 24px 55px rgba(20,20,50,.1); background: #fff; }
+.showcase-visual .app-art { min-height: 410px; border-radius: 22px; }
+@media (max-width: 980px) {
+  .studio-hero { padding-top: 68px; }
+  .app-index { grid-template-columns: 1fr; }
+  .showcase { padding: 58px 0 64px; }
+  .showcase-body, .showcase-reverse .showcase-body { grid-template-columns: 1fr; gap: 34px; }
+  .showcase-reverse .showcase-copy, .showcase-reverse .showcase-visual { order: initial; }
+  .showcase-visual .app-art { min-height: 360px; }
+}
+@media (max-width: 700px) {
+  .studio-hero { padding-top: 48px; padding-bottom: 42px; }
+  .studio-hero h1 { font-size: clamp(48px, 13.5vw, 70px); }
+  .studio-hero-lead { font-size: 15px; margin-bottom: 26px; }
+  .app-index-card { padding: 12px; }
+  .showcase-title { gap: 12px; }
+  .showcase-title img { width: 64px; height: 64px; border-radius: 16px; }
+  .showcase-title h2 { font-size: 44px; }
+  .showcase-tagline { margin-top: 16px; font-size: 21px; }
+  .showcase-features li { grid-template-columns: 1fr; gap: 3px; }
+  .showcase-actions { gap: 16px; }
+  .showcase-visual .app-art { min-height: 300px; }
+}
