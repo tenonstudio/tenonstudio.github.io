@@ -28,7 +28,6 @@ export type App = {
   download: string;
   appcast?: string;
   buy?: string;
-  source?: string;
   featured?: boolean;
 };
 
@@ -140,8 +139,7 @@ export const apps: App[] = [
     accentSoft: '#e0f8fb',
     download: '/apps/tessera/downloads/Tessera-0.1.0.dmg',
     appcast: '/apps/tessera/appcast.xml',
-    buy: '/apps/tessera/buy/',
-    source: 'https://github.com/tenonstudio/tessera'
+    buy: '/apps/tessera/buy/'
   }
 ];
 

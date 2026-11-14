@@ -40,7 +40,6 @@ const { app } = Astro.props;
           <a class="button button-dark" href={app.download}><Text en={`Download ${app.name}`} zh={`下载 ${app.name}`} /> <span aria-hidden="true">↓</span></a>
           {app.buy && <a class="text-link" href={app.buy}><Text en="License" zh="授权" /> <span aria-hidden="true">→</span></a>}
           {app.slug === 'porthole' && <a class="text-link" href="/apps/porthole-for-chrome/"><Text en="Chrome extension" zh="Chrome 扩展" /> <span aria-hidden="true">↗</span></a>}
-          {app.source && <a class="text-link" href={app.source} target="_blank" rel="noopener"><Text en="Source" zh="源码" /> <span aria-hidden="true">↗</span></a>}
         </div>
         <p class="detail-note"><Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" /></p>
       </div>

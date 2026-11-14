@@ -7,7 +7,7 @@ Primary studio mark: **Tenon T**.
 | File | Use |
 |---|---|
 | `tenon-avatar.svg` | editable source |
-| `tenon-avatar-1024.png` | GitHub organization avatar / press |
+| `tenon-avatar-1024.png` | Studio avatar / press |
 | `tenon-avatar-512.png` | app / profile / social |
 | `tenon-avatar-256.png` | general web |
 | `tenon-avatar-192.png` | PWA icon |
@@ -35,8 +35,8 @@ Primary studio mark: **Tenon T**.
 
 - Keep at least 10% clear space around the mark.
 - Use the mark on the dark ink background; do not recolor the brass stem.
-- The avatar is designed to survive GitHub's circular crop.
-- Use `tenon-og.png` for GitHub social preview, link previews, and press material.
+- The avatar is designed to remain readable inside a circular crop.
+- Use `tenon-og.png` for social previews, link previews, and press material.
 
 The selected direction is A: a cream T-bar with a brass tenon stem. The two alternates are kept for reference only.
 
