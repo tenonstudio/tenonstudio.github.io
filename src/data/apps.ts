@@ -177,6 +177,42 @@ export const apps: App[] = [
     download: '/apps/launchpad/downloads/Launchpad-0.1.4.dmg',
     appcast: '/apps/launchpad/appcast.xml',
     free: true
+  },
+  {
+    slug: 'bubble',
+    index: '05',
+    name: 'Bubble',
+    category: { en: 'Selection actions', zh: '划词操作栏' },
+    platform: 'macOS 14+',
+    tagline: { en: 'Your favourite actions, right where you select.', zh: '选中文本，操作就在指尖。' },
+    description: {
+      en: 'Bubble brings a compact native action bar to any selected text. Search, cut, copy, paste, open links, run shortcuts, or launch your own extensions without leaving the app you are already in. It ships with its own extension ecosystem and a one-click migration path for PopClip extensions.',
+      zh: 'Bubble 把一条紧凑的原生操作栏带到选中的文字旁边。搜索、剪切、复制、粘贴、打开链接、运行快捷指令，或执行自己的扩展，不用离开当前 App。它有自己的扩展生态，也能一键迁移 PopClip 扩展。'
+    },
+    deck: {
+      en: 'A PopClip-style selection bar with a native extension ecosystem, global shortcut, app and website rules, and a bar you can make your own.',
+      zh: 'PopClip 风格的划词操作栏，配原生扩展生态、全局快捷键、App/网站规则，以及可以按自己喜好调整的外观。'
+    },
+    features: [
+      { title: { en: 'Immediate actions', zh: '即选即用' }, body: { en: 'Search, Cut, Copy, Paste, Open Link, Dictionary, Reveal in Finder, and spelling live in a small bar beside the selection.', zh: '搜索、剪切、复制、粘贴、打开链接、词典、在访达中显示和拼写检查都在选区旁的小栏里。' } },
+      { title: { en: 'Native extensions', zh: '原生扩展' }, body: { en: 'Install .bubbleext packages with declarative actions, JavaScript, shell, AppleScript, Shortcuts, or Services. Permissions are declared in the manifest.', zh: '安装 .bubbleext 扩展，支持声明式动作、JavaScript、Shell、AppleScript、快捷指令或服务。权限在清单中声明。' } },
+      { title: { en: 'PopClip migration', zh: 'PopClip 迁移' }, body: { en: 'Existing .popclipext packages are detected, converted, and installed as native Bubble extensions on first use.', zh: '已有的 .popclipext 扩展会被识别、转换，并在首次使用时安装为原生 Bubble 扩展。' } },
+      { title: { en: 'App and website rules', zh: 'App 与网站规则' }, body: { en: 'Exclude apps or domains where Bubble should stay quiet. The global shortcut still works when you need it.', zh: '排除不希望 Bubble 自动出现的 App 或域名；需要时全局快捷键仍然可用。' } },
+      { title: { en: 'Make it yours', zh: '按你的方式' }, body: { en: 'Choose the bar size, style, and position; drag actions into your own order and hide the ones you do not use.', zh: '调整操作栏大小、样式和位置；拖动操作排序，隐藏不用的项目。' } },
+      { title: { en: 'Local by default', zh: '本地优先' }, body: { en: 'Extensions, settings, and action history stay on your Mac. No account, no subscription, no in-app purchase.', zh: '扩展、设置和操作记录都保存在本机。无需账号、无订阅、无内购。' } }
+    ],
+    specs: [
+      { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 14+\nUniversal', zh: 'macOS 14+\nUniversal' } },
+      { label: { en: 'License', zh: '授权' }, value: { en: 'Free\nNo account', zh: '免费\n无需账号' } },
+      { label: { en: 'Updates', zh: '更新' }, value: { en: 'Sparkle\nSelf-updating', zh: 'Sparkle\n自动更新' } }
+    ],
+    tags: [{ en: 'Selection bar', zh: '划词操作栏' }, { en: 'Native extensions', zh: '原生扩展' }, { en: 'PopClip migration', zh: 'PopClip 迁移' }],
+    icon: '/assets/bubble-icon.png',
+    accent: '#5f6dff',
+    accentSoft: '#e8eaff',
+    download: '/apps/bubble/downloads/Bubble-0.3.0.dmg',
+    appcast: '/apps/bubble/appcast.xml',
+    free: true
   }
 ];
 

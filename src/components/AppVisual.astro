@@ -14,6 +14,18 @@ const { app } = Astro.props as { app: App };
       <div class="flip-line"><span class="flip-line-icon">◌</span><div><b>Mute mic</b><small>Input muted</small></div><span class="toggle"></span></div>
     </div>
   )}
+  {app.slug === 'bubble' && (
+    <div class="bubble-demo">
+      <div class="bubble-selected">We selected <mark>this sentence</mark> right here.</div>
+      <div class="bubble-bar">
+        <span class="bubble-search">⌕</span>
+        <span>Cut</span>
+        <span>Copy</span>
+        <span class="bubble-active">Paste</span>
+        <span class="bubble-more">•••</span>
+      </div>
+    </div>
+  )}
   {app.slug === 'porthole' && (
     <div class="porthole-layers">
       <div class="porthole-back"><span class="porthole-dot"></span><span class="porthole-line"></span><span class="porthole-line short"></span></div>
@@ -35,3 +47,59 @@ const { app } = Astro.props as { app: App };
     </div>
   )}
 </div>
+
+<style>
+  .bubble-demo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 38px;
+  }
+  .bubble-selected {
+    max-width: 300px;
+    padding: 12px 16px;
+    border: 1px solid rgba(20, 20, 35, .08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .88);
+    box-shadow: 0 18px 40px rgba(30, 35, 80, .1);
+    color: #2a2a35;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .bubble-selected mark {
+    padding: 0 3px;
+    border-radius: 3px;
+    background: color-mix(in srgb, var(--app-accent) 20%, white);
+    color: var(--app-accent);
+  }
+  .bubble-bar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 5px;
+    border-radius: 10px;
+    background: #2b2b2f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 16px 36px rgba(18, 18, 30, .24);
+  }
+  .bubble-bar span {
+    padding: 5px 9px;
+    border-radius: 5px;
+  }
+  .bubble-bar .bubble-search {
+    padding-inline: 8px 5px;
+  }
+  .bubble-bar .bubble-active {
+    background: var(--app-accent);
+  }
+  .bubble-bar .bubble-more {
+    color: rgba(255, 255, 255, .55);
+    letter-spacing: 1px;
+  }
+</style>

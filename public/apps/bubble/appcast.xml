@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Bubble</title>
+        <item>
+            <title>0.3.0</title>
+            <pubDate>Sat, 14 Nov 2026 18:16:59 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/bubble/</link>
+            <sparkle:version>20261114.4</sparkle:version>
+            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble-0.3.0.zip" length="6471532" type="application/octet-stream" sparkle:edSignature="16oxlR3vBHXdDCSMcjg75kadwSQPL+cjwmGFBxaaIO/zQoA4F7h4CkZfne3zaWivJksRs7rozm3h682if7ASAA=="/>
+        </item>
+    </channel>
+</rss>
