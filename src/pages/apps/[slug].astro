@@ -42,7 +42,11 @@ const { app } = Astro.props;
           {app.slug === 'porthole' && <a class="text-link" href="/apps/porthole-for-chrome/"><Text en="Chrome extension" zh="Chrome 扩展" /> <span aria-hidden="true">↗</span></a>}
           {(app.slug === 'flip' || app.slug === 'tessera') && <a class="text-link" href={`/apps/${app.slug}/help/`}><Text en="Scripting guide" zh="脚本指南" /> <span aria-hidden="true">→</span></a>}
         </div>
-        <p class="detail-note"><Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" /></p>
+        <p class="detail-note">
+          {app.free
+            ? <Text en="Free · Universal · macOS" zh="免费 · Universal · macOS" />
+            : <Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" />}
+        </p>
       </div>
       <AppVisual app={app} />
     </header>

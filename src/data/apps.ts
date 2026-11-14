@@ -28,6 +28,7 @@ export type App = {
   download: string;
   appcast?: string;
   buy?: string;
+  free?: boolean;
   featured?: boolean;
 };
 
@@ -140,6 +141,42 @@ export const apps: App[] = [
     download: '/apps/tessera/downloads/Tessera-0.1.0.dmg',
     appcast: '/apps/tessera/appcast.xml',
     buy: '/apps/tessera/buy/'
+  },
+  {
+    slug: 'launchpad',
+    index: '04',
+    name: 'Launchpad',
+    category: { en: 'Application launcher', zh: '应用启动台' },
+    platform: 'macOS 26+',
+    tagline: { en: 'The Launchpad macOS left behind, rebuilt for macOS 26.', zh: 'macOS 26 移除的启动台，重新做回来。' },
+    description: {
+      en: 'Launchpad restores the full-screen app grid that macOS 26 removed. Search with pinyin, organize apps into folders, page or scroll through everything, and open it from a shortcut, hot corner, or the menu bar.',
+      zh: 'Launchpad 把 macOS 26 移除的全屏应用网格重新做回来。支持拼音搜索、文件夹整理、分页或滚动浏览，也能用快捷键、触发角或菜单栏打开。'
+    },
+    deck: {
+      en: 'A native launcher for macOS 26 — folders, pinyin search, compact glass mode, and keyboard-first navigation.',
+      zh: '为 macOS 26 打造的原生启动台——文件夹、拼音搜索、小窗玻璃模式和键盘优先导航。'
+    },
+    features: [
+      { title: { en: 'Full-screen or compact', zh: '全屏或小窗' }, body: { en: 'Use the classic full-screen grid or a rounded floating glass window with the Dock still visible.', zh: '使用经典全屏网格，或保留 Dock 的圆角浮动玻璃小窗。' } },
+      { title: { en: 'Pinyin search', zh: '拼音搜索' }, body: { en: 'Search by app name, full pinyin, or pinyin initials, with instant keyboard selection.', zh: '按应用名、全拼或拼音首字母搜索，键盘即时选择。' } },
+      { title: { en: 'Folders and pages', zh: '文件夹与分页' }, body: { en: 'Drag apps into folders, reorder across pages, and expand folders with a matched-geometry animation.', zh: '把应用拖进文件夹、跨页排序，文件夹以 matched-geometry 动画展开。' } },
+      { title: { en: 'Multi-select', zh: '多选' }, body: { en: 'Command-click, Shift-range, or drag a box; hide apps or move them into folders in batches.', zh: '⌘ 点选、Shift 连选或拖框，批量隐藏应用或移入文件夹。' } },
+      { title: { en: 'Your triggers', zh: '你的触发方式' }, body: { en: 'Open with a global shortcut, F4, a hot corner, the Dock, or the menu bar.', zh: '用全局快捷键、F4、触发角、Dock 或菜单栏打开。' } },
+      { title: { en: 'Free and native', zh: '免费且原生' }, body: { en: 'Built with SwiftUI and AppKit. No account, no ads, and your layout stays on your Mac.', zh: 'SwiftUI + AppKit 原生实现。无需账号、无广告，布局保存在本机。' } }
+    ],
+    specs: [
+      { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 26+\nUniversal', zh: 'macOS 26+\nUniversal' } },
+      { label: { en: 'Price', zh: '价格' }, value: { en: 'Free', zh: '免费' } },
+      { label: { en: 'Updates', zh: '更新' }, value: { en: 'Sparkle\nSelf-updating', zh: 'Sparkle\n自动更新' } }
+    ],
+    tags: [{ en: 'Native launcher', zh: '原生启动台' }, { en: 'Pinyin search', zh: '拼音搜索' }, { en: 'Folders', zh: '文件夹' }],
+    icon: '/assets/launchpad-icon.png',
+    accent: '#4f7cff',
+    accentSoft: '#e8efff',
+    download: '/apps/launchpad/downloads/Launchpad-0.1.0.dmg',
+    appcast: '/apps/launchpad/appcast.xml',
+    free: true
   }
 ];
 
