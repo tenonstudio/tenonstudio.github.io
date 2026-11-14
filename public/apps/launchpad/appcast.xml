@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.2.4</title>
-            <pubDate>Sat, 14 Nov 2026 18:51:11 +0800</pubDate>
+            <title>0.2.5</title>
+            <pubDate>Sat, 14 Nov 2026 18:53:29 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>13</sparkle:version>
-            <sparkle:shortVersionString>0.2.4</sparkle:shortVersionString>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>0.2.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.2.4</h2>
+            <description><![CDATA[<h2>Launchpad 0.2.5</h2>
 <ul>
-  <li>Explicit page-break model with empty pages that persist across launches.</li>
-  <li>Drop an app on the trailing New Page target to create a page.</li>
-  <li>Delete an empty trailing page from its empty-state button.</li>
+  <li>Launchpad, LaunchOS, and LaunchNext imports now preserve page boundaries.</li>
+  <li>Explicit empty pages remain navigable and persist across launches.</li>
+  <li>New Page drop target and empty-page deletion from 0.2.4.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.4.zip" length="5514278" type="application/octet-stream" sparkle:edSignature="4YUnY7zZVn+X+ukjwkuARPK/6ecqheyORX+CrPFWBRcJ9s7p2tJ9JbS+qOM859SNqgNgIguIaV3jIHga1EvACQ=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.5.zip" length="5514710" type="application/octet-stream" sparkle:edSignature="93LkJ+qmegkK2EAdZCVsJooqmr6H/yko8m1aMyEL7CMdl5TdLqMjA3yJtcJSD+ZmNgy8hHPLsbWWaHmeaosZCg=="/>
         </item>
     </channel>
 </rss>
