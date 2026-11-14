@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.1.1</title>
-            <pubDate>Sat, 14 Nov 2026 18:11:09 +0800</pubDate>
+            <title>0.1.2</title>
+            <pubDate>Sat, 14 Nov 2026 18:13:46 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>0.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.1.1</h2>
+            <description><![CDATA[<h2>Launchpad 0.1.2</h2>
 <ul>
-  <li>Drag horizontally from an empty area to turn pages with the mouse.</li>
-  <li>Folder batch merge, app icon styles, and matched-geometry folder expansion from 0.1.0.</li>
-  <li>Sparkle updates, English / Simplified Chinese, and the macOS 26 compact glass window.</li>
+  <li>New Glass Intensity slider for the full-screen veil, compact window, and folder panel.</li>
+  <li>Mouse drag paging from empty areas, plus the 0.1.1 launcher features.</li>
+  <li>Sparkle updates and the same signed GitHub Pages / Homebrew distribution.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.1.1.zip" length="5214046" type="application/octet-stream" sparkle:edSignature="dvhS9En9BakGXMQuPpXgOleM6b9X6ZXP8mzz5zho971zpLvItRgj5uZj5CfL4AAHwE39mRPcITUzobH42EVSCQ=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.1.2.zip" length="5219973" type="application/octet-stream" sparkle:edSignature="Xjp9buWbwYRaq6AX3cHR6+h992c71/iMeDCCqbsSkVeGCRjuNEhaJYPBECpnItRxk4P9xjAhC+uZRjEkDl2rCg=="/>
         </item>
     </channel>
 </rss>
