@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.3.3</title>
-            <pubDate>Sat, 14 Nov 2026 19:19:00 +0800</pubDate>
+            <title>0.3.4</title>
+            <pubDate>Sat, 14 Nov 2026 19:22:38 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>19</sparkle:version>
-            <sparkle:shortVersionString>0.3.3</sparkle:shortVersionString>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>0.3.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.3.3</h2>
+            <description><![CDATA[<h2>Launchpad 0.3.4</h2>
 <ul>
-  <li>Page indicator gained a + button for creating an explicit new page.</li>
-  <li>Trackpad gesture settings now show whether the CGEventTap engine is actually running.</li>
-  <li>Live paging, calendar icon refresh, and LaunchNow import.</li>
+  <li>Trackpad gesture settings warn when macOS already owns the selected pinch gesture.</li>
+  <li>Gesture engine active/waiting status in settings.</li>
+  <li>Live trackpad paging, page + button, calendar refresh, and LaunchNow import.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.3.zip" length="5557554" type="application/octet-stream" sparkle:edSignature="wjryPp+AOEirLCIo9g4/d4ErhvsLGgu9y/HRjlasoSfoMG6pCSgKmYgt3qPf36eP7UtLJroIGnWG8s/RYsVeBA=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.4.zip" length="5567860" type="application/octet-stream" sparkle:edSignature="RnC5gpqRC6ONszx5kuX9uayh8yAczWmSlZm+66ZFTWlyEo6yhmtfmz2kUNmTF1fHVKtiv8SgtFV8t1tVu7gpCw=="/>
         </item>
     </channel>
 </rss>
