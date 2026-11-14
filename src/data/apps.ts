@@ -102,7 +102,7 @@ export const apps: App[] = [
     icon: '/assets/porthole-icon.png',
     accent: '#ff6259',
     accentSoft: '#ffe8e5',
-    download: '/apps/porthole/downloads/Porthole-0.0.6.dmg',
+    download: '/apps/porthole/downloads/Porthole-0.0.7.dmg',
     appcast: '/apps/porthole/appcast.xml',
     buy: '/apps/porthole/buy/'
   },
