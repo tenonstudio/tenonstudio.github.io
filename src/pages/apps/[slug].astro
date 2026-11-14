@@ -47,6 +47,15 @@ const { app } = Astro.props;
     </header>
 
     <FeatureGrid app={app} />
+    {(app.slug === 'flip' || app.slug === 'tessera') && (
+      <section class="doc-callout shell">
+        <div>
+          <p class="eyebrow"><Text en="Scripting guide" zh="脚本指南" /></p>
+          <h2><Text en={app.slug === 'flip' ? 'Write your own Flip commands.' : 'Write your own Tessera wallpapers.'} zh={app.slug === 'flip' ? '写自己的 Flip 命令。' : '写自己的 Tessera 壁纸。'} /></h2>
+        </div>
+        <a class="button button-dark" href={`/help/${app.slug}/`}><Text en="Read the guide" zh="阅读指南" /> <span aria-hidden="true">→</span></a>
+      </section>
+    )}
     <section class="shell"><Specs app={app} /></section>
     <div class="shell"><DownloadPanel app={app} /></div>
     <RelatedApps current={app.slug} />

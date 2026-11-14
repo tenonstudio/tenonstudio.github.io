@@ -1,0 +1,176 @@
+---
+import HelpLayout from '../../layouts/HelpLayout.astro';
+import Text from '../../components/Text.astro';
+
+const sections = [
+  { id: 'overview', en: 'Overview', zh: '概览' },
+  { id: 'quick-start', en: 'Quick start', zh: '快速开始' },
+  { id: 'metadata', en: 'Metadata', zh: '元数据' },
+  { id: 'controls', en: 'Controls', zh: '自定义控件' },
+  { id: 'runtime', en: 'p5.js runtime', zh: 'p5.js 运行时' },
+  { id: 'pointer', en: 'Pointer and network', zh: '指针与网络' },
+  { id: 'editing', en: 'Editing and reloading', zh: '编辑与重载' },
+  { id: 'troubleshooting', en: 'Troubleshooting', zh: '排查' }
+];
+---
+<HelpLayout
+  app="Tessera"
+  icon="/assets/tessera-icon.png"
+  title={{ en: 'Tessera wallpaper scripts', zh: 'Tessera 壁纸脚本' }}
+  lead={{
+    en: 'A wallpaper script is one editable .js file: a small JSON metadata block followed by a p5.js sketch. Tessera runs it live behind your desktop.',
+    zh: '一个壁纸脚本就是一个可编辑的 .js 文件：前面是一小段 JSON 元数据，后面是 p5.js 草图。Tessera 会在桌面背后实时运行它。'
+  }}
+  sections={sections}
+>
+  <section id="overview">
+    <h2><Text en="Overview" zh="概览" /></h2>
+    <p><Text en="Tessera provides the host window and a bundled p5.js 1.x runtime. Your file supplies the sketch and its metadata. Nothing needs to be compiled or installed." zh="Tessera 提供宿主窗口和内置的 p5.js 1.x 运行时。你的文件提供草图与元数据，不需要编译或安装任何东西。" /></p>
+    <p><Text en="User scripts live in ~/.config/tessera/scripts. Built-in sketches can be opened from Tessera and saved as local copies, but built-in wallpapers themselves are not edited." zh="用户脚本位于 ~/.config/tessera/scripts。可以从 Tessera 打开内置草图并存成本地副本，但内置壁纸本身不会被修改。" /></p>
+  </section>
+
+  <section id="quick-start">
+    <h2><Text en="Quick start" zh="快速开始" /></h2>
+    <p><Text en="Create a starter file from the command line, or use Create New Script in Tessera's wallpaper page." zh="可以在命令行创建起始文件，也可以在 Tessera 的壁纸页点击“新建脚本”。" /></p>
+    <pre><code>{`wall init my-wallpaper.js \\
+  --name "My Wallpaper" \\
+  --id com.example.my-wallpaper
+
+wall validate my-wallpaper.js
+wall inspect my-wallpaper.js`}</code></pre>
+    <p><Text en="The id must use reverse-domain form. The builtin. prefix is reserved. Save the file in ~/.config/tessera/scripts so Tessera can discover it." zh="id 必须使用反向域名格式，builtin. 前缀保留给内置壁纸。把文件保存到 ~/.config/tessera/scripts，Tessera 就能发现它。" /></p>
+  </section>
+
+  <section id="metadata">
+    <h2><Text en="Metadata" zh="元数据" /></h2>
+    <p><Text en="The file must begin with a metadata block inside a JavaScript comment. It must end within the first 64 KB." zh="文件开头必须有一个 JavaScript 注释中的元数据块，并且必须在前 64 KB 内结束。" /></p>
+    <pre><code>{`/* ==Wallpaper==
+{
+  "formatVersion": 1,
+  "id": "com.example.wallpaper",
+  "name": "Example Wallpaper",
+  "version": "1.0.0",
+  "author": { "name": "Your Name" },
+  "description": "",
+  "license": "MIT",
+  "runtime": {
+    "name": "p5js",
+    "compatibility": "1.x"
+  },
+  "capabilities": ["pointer"],
+  "settings": {
+    "fps": true,
+    "speed": false,
+    "scale": false,
+    "brightness": false,
+    "theme": false
+  },
+  "controls": []
+}
+==/Wallpaper== */`}</code></pre>
+    <div class="doc-table-wrap"><table class="doc-table">
+      <thead><tr><th><Text en="Field" zh="字段" /></th><th><Text en="Meaning" zh="含义" /></th></tr></thead>
+      <tbody>
+        <tr><td><code>id</code></td><td><Text en="Stable reverse-DNS identifier; do not reuse another wallpaper's id." zh="固定的反向域名标识；不要复用其他壁纸的 id。" /></td></tr>
+        <tr><td><code>name / version</code></td><td><Text en="Display name and semantic version." zh="显示名称和语义化版本。" /></td></tr>
+        <tr><td><code>author.name</code></td><td><Text en="Author or studio name." zh="作者或工作室名称。" /></td></tr>
+        <tr><td><code>capabilities</code></td><td><Text en="pointer and/or network." zh="pointer 和/或 network。" /></td></tr>
+        <tr><td><code>settings</code></td><td><Text en="Which global controls this sketch responds to." zh="这个草图响应哪些全局控制项。" /></td></tr>
+        <tr><td><code>controls</code></td><td><Text en="Custom sliders, toggles, and selects." zh="自定义滑块、开关和单选项。" /></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="controls">
+    <h2><Text en="Controls" zh="自定义控件" /></h2>
+    <p><Text en="Controls are declared in metadata and rendered in the wallpaper's options. Values are read from wallpaperSettings.custom by key." zh="控件在元数据中声明，并显示在壁纸的选项里。脚本通过 key 从 wallpaperSettings.custom 读取值。" /></p>
+    <pre><code>{`"controls": [
+  {
+    "key": "palette",
+    "title": "Palette",
+    "type": "select",
+    "defaultValue": "aurora",
+    "options": [
+      { "label": "Aurora", "value": "aurora" },
+      { "label": "Ocean", "value": "ocean" },
+      { "label": "Monochrome", "value": "monochrome" }
+    ]
+  },
+  {
+    "key": "size",
+    "title": "Dot size",
+    "type": "slider",
+    "defaultValue": 160,
+    "min": 40,
+    "max": 360,
+    "step": 10
+  },
+  {
+    "key": "trails",
+    "title": "Trails",
+    "type": "toggle",
+    "defaultValue": true
+  }
+]`}</code></pre>
+    <p><Text en="select is single-choice. defaultValue must exactly match one option value. Slider min must be lower than max, and step must be positive." zh="select 是单选。defaultValue 必须与某个选项值完全一致。滑块的 min 必须小于 max，step 必须为正数。" /></p>
+    <pre><code>{`const custom = wallpaperSettings.custom ?? {};
+const palette = custom.palette ?? "aurora";
+const size = Number(custom.size ?? 160);
+const trails = custom.trails !== false;`}</code></pre>
+  </section>
+
+  <section id="runtime">
+    <h2><Text en="p5.js runtime" zh="p5.js 运行时" /></h2>
+    <p><Text en="Write normal p5.js global-mode functions. setup runs once; draw runs continuously at the configured frame rate. Use windowResized to match the desktop size." zh="使用普通的 p5.js 全局模式函数。setup 执行一次；draw 按设置的帧率持续执行。用 windowResized 适配桌面尺寸。" /></p>
+    <pre><code>{`function setup() {
+  createCanvas(windowWidth, windowHeight);
+}
+
+function draw() {
+  background(12, 14, 22);
+  circle(width / 2, height / 2, 160);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}`}</code></pre>
+    <p><Text en="Tessera supplies a window.wallpaper host object. applySettings is called when settings change; setPointer receives mouse coordinates; setPaused and handleInput are optional hooks." zh="Tessera 提供 window.wallpaper 宿主对象。设置变化时调用 applySettings；setPointer 接收鼠标坐标；setPaused 和 handleInput 是可选钩子。" /></p>
+    <pre><code>{`window.wallpaper = {
+  applySettings(value) {
+    Object.assign(wallpaperSettings, value);
+  },
+  setPointer(x, y) {
+    pointer.x = x;
+    pointer.y = y;
+  },
+  setPaused(paused) {
+    paused ? noLoop() : loop();
+  },
+  handleInput(event) {},
+  regenerate() {}
+};`}</code></pre>
+  </section>
+
+  <section id="pointer">
+    <h2><Text en="Pointer and network" zh="指针与网络" /></h2>
+    <p><Text en="Add pointer to capabilities if the sketch reacts to the mouse. Add network only if it actually needs to fetch remote resources; network access is disclosed in the manifest and verified before loading." zh="如果草图响应鼠标，把 pointer 加入 capabilities。只有确实需要访问远程资源时才加入 network；网络访问会在 manifest 中声明，并在加载前校验。" /></p>
+    <div class="doc-note"><Text en="Network access is a privacy decision. Prefer local assets and avoid sending desktop or pointer data to a remote server." zh="网络访问是隐私决定。优先使用本地资源，不要把桌面或指针数据发送到远程服务器。" /></div>
+  </section>
+
+  <section id="editing">
+    <h2><Text en="Editing and reloading" zh="编辑与重载" /></h2>
+    <p><Text en="Edit the file in your own editor, save it, then return to Tessera. The wallpaper list refreshes automatically; use Reload Wallpaper from the menu to restart the running sketch." zh="在自己的编辑器里修改并保存，然后回到 Tessera。壁纸列表会自动刷新；使用菜单里的“重载壁纸”重新启动当前草图。" /></p>
+    <p><Text en="Changing the name in metadata updates the list on the next refresh. Changing the id creates a different wallpaper identity; avoid changing it after sharing the file." zh="修改元数据里的 name 会在下次刷新时更新列表。修改 id 会产生不同的壁纸身份；分享文件后不要再改。" /></p>
+  </section>
+
+  <section id="troubleshooting">
+    <h2><Text en="Troubleshooting" zh="排查" /></h2>
+    <ul>
+      <li><Text en="Wallpaper not listed: check the metadata markers, id, and that the file is in ~/.config/tessera/scripts." zh="壁纸没有列出：检查元数据标记、id，以及文件是否在 ~/.config/tessera/scripts。" /></li>
+      <li><Text en="Validation error: run wall validate and fix the reported metadata or script issue." zh="验证错误：运行 wall validate，根据提示修复元数据或脚本。" /></li>
+      <li><Text en="Blank canvas: ensure p5.js global mode functions exist and the canvas is sized to windowWidth/windowHeight." zh="画布空白：确认存在 p5.js 全局模式函数，并按 windowWidth/windowHeight 设置画布。" /></li>
+      <li><Text en="Options missing: every select needs options and a matching defaultValue; duplicate keys are rejected." zh="选项缺失：每个 select 都需要 options 和匹配的 defaultValue；重复 key 会被拒绝。" /></li>
+      <li><Text en="Changes not showing: save, return to Tessera, then use Reload Wallpaper." zh="修改不显示：保存后回到 Tessera，再使用“重载壁纸”。" /></li>
+    </ul>
+  </section>
+</HelpLayout>
