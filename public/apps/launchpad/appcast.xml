@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.2.2</title>
-            <pubDate>Sat, 14 Nov 2026 18:42:11 +0800</pubDate>
+            <title>0.2.3</title>
+            <pubDate>Sat, 14 Nov 2026 18:46:34 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>11</sparkle:version>
-            <sparkle:shortVersionString>0.2.2</sparkle:shortVersionString>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>0.2.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.2.2</h2>
+            <description><![CDATA[<h2>Launchpad 0.2.3</h2>
 <ul>
-  <li>Global pinch now drives live launcher scale/opacity while the gesture progresses.</li>
-  <li>Folder batch move, LaunchOS/LaunchNext migration, and Esc drag cancellation.</li>
-  <li>Rake build, test, lint, DMG, and release workflow.</li>
+  <li>Drag insertion indicator previews where a dropped app will land.</li>
+  <li>Refresh Icons action clears the icon cache and reloads tiles.</li>
+  <li>Gesture progress, folder batch move, and LaunchOS / LaunchNext migration.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.2.zip" length="5448302" type="application/octet-stream" sparkle:edSignature="GUmu+VmxHDWwH01uTHIEQbJUBtWHkB033yNRYT0XHnQvFumy2xa2l9xVKYE4dv3Du0lwo4CphX/H/J6dQrcsAA=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.3.zip" length="5463029" type="application/octet-stream" sparkle:edSignature="XzxRWX9VmDQdX2XSflNhjmBC31l3xN3sUGgp7Oqb9epV+70XDALv6XLhXMWInG5d/XKv9zqNFy6Cs5rSySTHDw=="/>
         </item>
     </channel>
 </rss>
