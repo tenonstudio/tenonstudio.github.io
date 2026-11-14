@@ -1,77 +1,132 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Text from '../components/Text.astro';
-import { apps } from '../data/apps';
+import { apps, appBySlug } from '../data/apps';
 
-const copy = {
-  flip: {
-    en: 'Low power, dark mode, keep awake, cleanup, Focus, and your own commands — one quiet panel for the Mac.',
-    zh: '低电量、深色模式、保持唤醒、清理、专注，以及你自己的命令——一个安静的 Mac 面板。'
-  },
-  porthole: {
-    en: 'Turn any window or screen region into a real-time floating mirror. Keep a chart, chat, or reference in sight.',
-    zh: '把任意窗口或屏幕区域变成实时悬浮镜像。行情、聊天或参考资料，一直留在视线里。'
-  },
-  tessera: {
-    en: 'Generative p5.js sketches that live behind your desktop. Pick a theme, or open the source and make it yours.',
-    zh: '运行在桌面背后的 p5.js 生成艺术。选一个主题，或者打开源码改成自己的。'
-  }
-} as const;
+const flip = appBySlug.flip;
+const porthole = appBySlug.porthole;
+const tessera = appBySlug.tessera;
 ---
 <BaseLayout
   title="Tenon — Small software for macOS"
-  description="Tenon is an independent software studio making small, precise tools for macOS: Flip, Porthole, and Tessera."
+  description="Tenon makes small, precise macOS tools. Meet Flip, Porthole, and Tessera."
+  image="/assets/screenshots/flip-settings.png"
 >
-  <section class="home-intro shell">
-    <p class="eyebrow"><span class="eyebrow-dot"></span><Text en="Independent software studio" zh="独立软件工作室" /></p>
-    <h1><Text en="Small software, made to fit." zh="小而精确的软件，刚好合上。" /></h1>
-    <p class="hero-lead"><Text en="Quiet tools for macOS. No dashboards, no accounts — just the things you actually reach for, built with care." zh="为 macOS 做的安静工具。没有仪表盘，没有账号——只有你每天真的会用到的东西，认真做。" /></p>
-  </section>
-
-  <section class="product-stack shell" id="apps">
-    {apps.map((app) => (
-      <article class:list={['product-banner', `banner-${app.slug}`]} style={`--app-accent:${app.accent};`}>
-        <div class="banner-art" aria-hidden="true">
-          <span class="banner-glow"></span>
-          <img src={app.icon} alt="" width="220" height="220" loading="eager" />
-        </div>
-        <div class="banner-copy">
-          <p class="banner-category"><span>{app.index}</span> / <Text en={app.category.en} zh={app.category.zh} /> <span class="banner-platform">{app.platform}</span></p>
-          <h2>{app.name}</h2>
-          <p class="banner-tagline"><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
-          <p class="banner-body"><Text en={copy[app.slug as keyof typeof copy].en} zh={copy[app.slug as keyof typeof copy].zh} /></p>
-          <div class="banner-actions">
-            <a class="banner-button" href={`/apps/${app.slug}/`}><Text en="Learn more" zh="了解更多" /> <span aria-hidden="true">→</span></a>
-            <a class="banner-button banner-button-quiet" href={app.download}><Text en="Download" zh="下载" /> <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-      </article>
-    ))}
-  </section>
-
-  <section class="studio-band" id="studio">
-    <div class="shell studio-inner">
-      <p class="eyebrow eyebrow-light"><Text en="Tenon" zh="榫卯" /></p>
-      <blockquote>
-        <span data-lang="en">A small joint.<br /><em>Quiet software.</em></span>
-        <span data-lang="zh">一个小小的榫，<br /><em>一种安静的软件。</em></span>
-      </blockquote>
-      <div class="studio-copy">
-        <p><Text en="A tenon joins two pieces of wood without a nail. No noise, no excess — it simply fits. That is the kind of software we want to make: small, precise, and content to stay out of your way." zh="榫，是让两块木头不用钉子也能咬合的小结构。没有噪音，没有多余——只是刚好合上。我们想做这样的软件：小而精确，安静地不挡路。" /></p>
-        <p class="studio-note"><Text en="Tenon is an independent studio led by Tao Wang, making careful tools for the Mac since 2024." zh="Tenon 榫卯是由 Tao Wang 主理的独立工作室，从 2024 年开始做认真的 Mac 工具。" /></p>
+  <section class="fhero shell">
+    <div class="fhero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span><Text en="Flip for macOS" zh="Flip for macOS" /></p>
+      <h1><Text en="Every switch." zh="所有开关。" /><br /><em><Text en="One quiet panel." zh="一个安静的面板。" /></em></h1>
+      <p class="fhero-lead"><Text en="Flip gathers the toggles, shortcuts, and tiny scripts you use every day into one menu-bar panel. Open it with a shortcut, move with the arrow keys, press Return." zh="Flip 把每天要用的系统开关、快捷键和小脚本收进一个菜单栏面板。快捷键打开，方向键选择，回车执行。" /></p>
+      <div class="fhero-actions">
+        <a class="button button-dark" href="/apps/flip/downloads/Flip-0.29.20.dmg"><Text en="Download for macOS" zh="下载 macOS 版" /> <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="/apps/flip/"><Text en="Explore Flip" zh="了解 Flip" /> <span aria-hidden="true">→</span></a>
       </div>
-      <div class="studio-values">
-        <div><span>01</span><h3><Text en="Precise" zh="精确" /></h3><p><Text en="One job, done properly." zh="一件事，认真做。" /></p></div>
-        <div><span>02</span><h3><Text en="Quiet" zh="安静" /></h3><p><Text en="Present only when needed." zh="需要时出现，做完就退后。" /></p></div>
-        <div><span>03</span><h3><Text en="Useful" zh="有用" /></h3><p><Text en="Every switch earns its place." zh="每个开关都有存在的理由。" /></p></div>
+      <p class="fhero-meta"><Text en="macOS 12+ · 14-day trial · One-time purchase" zh="macOS 12+ · 14 天试用 · 买断授权" /></p>
+    </div>
+
+    <div class="fhero-visual" aria-label="Flip settings and menu panel">
+      <div class="fhero-blob"></div>
+      <div class="fhero-window">
+        <img src="/assets/screenshots/flip-settings.png" alt="Flip settings" width="1200" height="960" />
       </div>
+      <div class="fhero-panel">
+        <img src="/assets/screenshots/flip-panel.png" alt="Flip menu bar panel" width="680" height="1332" />
+      </div>
+      <span class="fhero-caption">Flip 0.29 · macOS</span>
     </div>
   </section>
 
-  <section class="closing shell">
-    <p class="eyebrow"><Text en="More parts, fitting together" zh="还有更多零件，正在合上" /></p>
-    <h2><Text en="There is more on the bench." zh="工作台上，还有更多。" /></h2>
-    <p><Text en="New tools are being fitted together. In the meantime, make one of the existing apps part of your day." zh="新的工具正在合上。在那之前，先让现有的 App 融进你的一天。" /></p>
-    <a class="text-link" href="#apps"><Text en="Back to the apps" zh="回到应用" /> <span aria-hidden="true">↑</span></a>
+  <div class="trust-row shell">
+    <span><Text en="33 controls" zh="33 个控制项" /></span>
+    <span><Text en="Keyboard-first" zh="键盘优先" /></span>
+    <span><Text en="Custom commands" zh="自定义命令" /></span>
+    <span><Text en="Local by default" zh="默认本地" /></span>
+  </div>
+
+  <section class="apple-section shell">
+    <div class="apple-heading">
+      <p class="eyebrow"><Text en="One panel" zh="一个面板" /></p>
+      <h2><Text en="Everything you reach for, one shortcut away." zh="每天要用的东西，一个快捷键就到。" /></h2>
+      <p><Text en="Flip is not another dashboard. It is a short list of the things you actually change during a day, with the same switch for each one." zh="Flip 不是另一个仪表盘。它是一份你每天真的会动的开关清单，每个开关都按同样的方式工作。" /></p>
+    </div>
+    <div class="apple-shot">
+      <img src="/assets/screenshots/flip-settings.png" alt="Flip general settings" width="1200" height="960" loading="lazy" />
+      <span class="shot-label"><Text en="Settings" zh="设置" /></span>
+    </div>
+  </section>
+
+  <section class="split-feature shell">
+    <div class="split-copy">
+      <p class="eyebrow"><Text en="Keyboard first" zh="键盘优先" /></p>
+      <h2><Text en="Open. Move. Act." zh="打开。移动。执行。" /></h2>
+      <p><Text en="Record a global shortcut to open Flip, then use the arrow keys to move through the panel. Return or Space fires the highlighted switch. Your hands never leave the keyboard." zh="录制全局快捷键打开 Flip，用方向键移动，回车或空格执行当前开关。手不用离开键盘。" /></p>
+      <ul class="check-list">
+        <li><Text en="Global shortcut to open the panel" zh="全局快捷键打开面板" /></li>
+        <li><Text en="Arrow-key navigation" zh="方向键导航" /></li>
+        <li><Text en="Per-control shortcuts for direct actions" zh="为直接动作单独录制快捷键" /></li>
+      </ul>
+    </div>
+    <div class="split-shot">
+      <img src="/assets/screenshots/flip-shortcuts.png" alt="Flip shortcuts settings" width="1200" height="960" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="split-feature split-feature-reverse shell">
+    <div class="split-shot">
+      <img src="/assets/screenshots/flip-commands.png" alt="Flip custom commands" width="1200" height="960" loading="lazy" />
+    </div>
+    <div class="split-copy">
+      <p class="eyebrow"><Text en="Make it yours" zh="改成你的" /></p>
+      <h2><Text en="A panel that fits your day." zh="一个合你日常的面板。" /></h2>
+      <p><Text en="Choose what appears in the panel, drag it into your own order, and add custom commands when you need something more than a switch. A custom command is one small file — a one-shot action, an on/off script, or a choice." zh="选择面板里出现什么，拖动成自己的顺序；需要更复杂的动作时，加一个自定义命令。一个命令就是一个小文件：一次性动作、开关脚本，或一组选项。" /></p>
+      <ul class="check-list">
+        <li><Text en="Show only the controls you use" zh="只显示你用的控制项" /></li>
+        <li><Text en="Reordering by drag" zh="拖动调整顺序" /></li>
+        <li><Text en="Custom actions and presets" zh="自定义动作和预设" /></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="apple-section shell">
+    <div class="apple-heading apple-heading-center">
+      <p class="eyebrow"><Text en="The rest of the workshop" zh="工坊里的其他工具" /></p>
+      <h2><Text en="Two more tools, same quiet philosophy." zh="另外两件工具，同一种安静的做法。" /></h2>
+    </div>
+    <div class="app-tiles">
+      <a class="app-tile" href="/apps/porthole/" style={`--tile-accent:${porthole.accent}`}>
+        <img src={porthole.icon} alt="" width="72" height="72" loading="lazy" />
+        <div class="app-tile-copy">
+          <span class="app-tile-platform">{porthole.platform}</span>
+          <h3>{porthole.name}</h3>
+          <p><Text en={porthole.tagline.en} zh={porthole.tagline.zh} /></p>
+        </div>
+        <span class="app-tile-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="app-tile" href="/apps/tessera/" style={`--tile-accent:${tessera.accent}`}>
+        <img src={tessera.icon} alt="" width="72" height="72" loading="lazy" />
+        <div class="app-tile-copy">
+          <span class="app-tile-platform">{tessera.platform}</span>
+          <h3>{tessera.name}</h3>
+          <p><Text en={tessera.tagline.en} zh={tessera.tagline.zh} /></p>
+        </div>
+        <span class="app-tile-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cta-apple shell">
+    <img src={flip.icon} alt="" width="80" height="80" loading="lazy" />
+    <div>
+      <p class="eyebrow"><Text en="Try Flip" zh="试用 Flip" /></p>
+      <h2><Text en="Make the Mac feel smaller." zh="让 Mac 轻一点。" /></h2>
+      <p><Text en="14 days, every control. Keep it with a lifetime license." zh="14 天，全部控制项。喜欢的话，买断留下。" /></p>
+    </div>
+    <a class="button button-light" href="/apps/flip/downloads/Flip-0.29.20.dmg"><Text en="Download Flip" zh="下载 Flip" /> <span aria-hidden="true">↓</span></a>
+  </section>
+
+  <section class="studio-mini shell" id="studio">
+    <p class="eyebrow"><Text en="Tenon" zh="榫卯" /></p>
+    <h2><Text en="Small, precise software — made to fit." zh="小而精确的软件，刚好合上。" /></h2>
+    <p><Text en="Tenon is an independent studio making careful tools for the Mac. No dashboards, no accounts, no noise — just the things you actually reach for." zh="Tenon 榫卯是一家独立工作室，为 Mac 做认真的工具。没有仪表盘，没有账号，没有噪音——只有你每天真的会用到的东西。" /></p>
   </section>
 </BaseLayout>
