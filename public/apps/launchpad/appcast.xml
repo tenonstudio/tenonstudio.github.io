@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.2.6</title>
-            <pubDate>Sat, 14 Nov 2026 18:55:57 +0800</pubDate>
+            <title>0.3.0</title>
+            <pubDate>Sat, 14 Nov 2026 19:03:44 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>15</sparkle:version>
-            <sparkle:shortVersionString>0.2.6</sparkle:shortVersionString>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.2.6</h2>
+            <description><![CDATA[<h2>Launchpad 0.3.0</h2>
 <ul>
-  <li>Visual app icon style picker with live generated previews.</li>
-  <li>LaunchNext backups can be imported by choosing a .launchnext folder.</li>
-  <li>Page-preserving Launchpad / LaunchOS / LaunchNext migration.</li>
+  <li>Live drag reordering: the grid reorders as the pointer crosses another tile, with Esc rollback.</li>
+  <li>Explicit page breaks, page-preserving imports, and New Page drop target.</li>
+  <li>Global pinch progress, LaunchNext/LaunchOS migration, and Rake-based release automation.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.6.zip" length="5529699" type="application/octet-stream" sparkle:edSignature="huIAHAFOS84YnXGijEPXGCzk8+l4LRMMKtONQwSXgrOsXMUvs24296XeKleqN1WZT29j+8ofVonoNtwn2mjIDQ=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.0.zip" length="5539455" type="application/octet-stream" sparkle:edSignature="bsC1THDwPn+qnoJ9xb/3l3HkgBYXvlkQAyMd/vCyRZZ46NrdEhBqZ+h8dQ55dTScylA/qhvHe0X+btZZs2cwBQ=="/>
         </item>
     </channel>
 </rss>
