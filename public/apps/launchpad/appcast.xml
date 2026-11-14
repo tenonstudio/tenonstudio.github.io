@@ -3,20 +3,21 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.3.7</title>
-            <pubDate>Sat, 14 Nov 2026 20:08:10 +0800</pubDate>
+            <title>0.3.8</title>
+            <pubDate>Sat, 14 Nov 2026 20:30:35 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>23</sparkle:version>
-            <sparkle:shortVersionString>0.3.7</sparkle:shortVersionString>
+            <sparkle:version>24</sparkle:version>
+            <sparkle:shortVersionString>0.3.8</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.3.7</h2>
+            <description><![CDATA[<h2>Launchpad 0.3.8</h2>
 <ul>
-  <li>Search placeholder now uses an explicit Tahoe blue-white color instead of the system brown placeholder.</li>
-  <li>Replaced the menu-style ellipsis with a custom icon sized to match the magnifier.</li>
-  <li>Search menu uses a custom popover so the icon stays crisp and correctly sized.</li>
+  <li>Native visual-language pass: SF Pro typography instead of rounded custom fonts.</li>
+  <li>Semantic primary/secondary colors and system materials replace decorative blue borders, hand-drawn icons and colored gradients.</li>
+  <li>Neutral selection, folder, empty-state and drop-target surfaces; softer native shadows.</li>
+  <li>Search uses native SF Symbols with a standard 40pt control and semantic placeholder color.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.7.zip" length="5615078" type="application/octet-stream" sparkle:edSignature="4YKBzOfnNoCBEmXXwZLb+IUSvYcwVDDNC90F5Bi1Use408R2xsvHz/DzCS1w+d1tYXhC5zzI++b+L8eBCwIQBQ=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.8.zip" length="5596930" type="application/octet-stream" sparkle:edSignature="1OKo4mFzBGYqG7Qw+5MQ8UE0ps/rBu3YYzBwkasm0RWQ6CqX0rITogLvT4YdH4iBoHxhlWAcWYcTU/cgulPiAQ=="/>
         </item>
     </channel>
 </rss>

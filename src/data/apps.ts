@@ -174,7 +174,7 @@ export const apps: App[] = [
     icon: '/assets/launchpad-icon.png',
     accent: '#4f7cff',
     accentSoft: '#e8efff',
-    download: '/apps/launchpad/downloads/Launchpad-0.3.7.dmg',
+    download: '/apps/launchpad/downloads/Launchpad-0.3.8.dmg',
     appcast: '/apps/launchpad/appcast.xml',
     free: true
   },
