@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.2.3</title>
-            <pubDate>Sat, 14 Nov 2026 18:46:34 +0800</pubDate>
+            <title>0.2.4</title>
+            <pubDate>Sat, 14 Nov 2026 18:51:11 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>0.2.3</sparkle:shortVersionString>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>0.2.4</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.2.3</h2>
+            <description><![CDATA[<h2>Launchpad 0.2.4</h2>
 <ul>
-  <li>Drag insertion indicator previews where a dropped app will land.</li>
-  <li>Refresh Icons action clears the icon cache and reloads tiles.</li>
-  <li>Gesture progress, folder batch move, and LaunchOS / LaunchNext migration.</li>
+  <li>Explicit page-break model with empty pages that persist across launches.</li>
+  <li>Drop an app on the trailing New Page target to create a page.</li>
+  <li>Delete an empty trailing page from its empty-state button.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.3.zip" length="5463029" type="application/octet-stream" sparkle:edSignature="XzxRWX9VmDQdX2XSflNhjmBC31l3xN3sUGgp7Oqb9epV+70XDALv6XLhXMWInG5d/XKv9zqNFy6Cs5rSySTHDw=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.2.4.zip" length="5514278" type="application/octet-stream" sparkle:edSignature="4YUnY7zZVn+X+ukjwkuARPK/6ecqheyORX+CrPFWBRcJ9s7p2tJ9JbS+qOM859SNqgNgIguIaV3jIHga1EvACQ=="/>
         </item>
     </channel>
 </rss>
