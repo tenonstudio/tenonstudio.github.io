@@ -3,20 +3,20 @@
     <channel>
         <title>Launchpad</title>
         <item>
-            <title>0.3.6</title>
-            <pubDate>Sat, 14 Nov 2026 19:57:01 +0800</pubDate>
+            <title>0.3.7</title>
+            <pubDate>Sat, 14 Nov 2026 20:08:10 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/launchpad/</link>
-            <sparkle:version>22</sparkle:version>
-            <sparkle:shortVersionString>0.3.6</sparkle:shortVersionString>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>0.3.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<h2>Launchpad 0.3.6</h2>
+            <description><![CDATA[<h2>Launchpad 0.3.7</h2>
 <ul>
-  <li>Compact window matched to LaunchOS: 844×663 frame, true behind-window glass, adaptive light/dark material.</li>
-  <li>Search row, 7×5 grid, icon-label spacing, corner radius and page dots tuned to the reference.</li>
-  <li>New pages remain available from the page-dot context menu and Command-N.</li>
+  <li>Search placeholder now uses an explicit Tahoe blue-white color instead of the system brown placeholder.</li>
+  <li>Replaced the menu-style ellipsis with a custom icon sized to match the magnifier.</li>
+  <li>Search menu uses a custom popover so the icon stays crisp and correctly sized.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.6.zip" length="5584615" type="application/octet-stream" sparkle:edSignature="EHxebJ3ge5uWF5HFzMvq8p7+AR+Ot/F/ylnrqEx1dggXHSGWgWQ+Dhmc4J1fFcJxtru313Cg9buksdu6cJB4BQ=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/launchpad/downloads/Launchpad-0.3.7.zip" length="5615078" type="application/octet-stream" sparkle:edSignature="4YKBzOfnNoCBEmXXwZLb+IUSvYcwVDDNC90F5Bi1Use408R2xsvHz/DzCS1w+d1tYXhC5zzI++b+L8eBCwIQBQ=="/>
         </item>
     </channel>
 </rss>
