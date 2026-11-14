@@ -3,6 +3,20 @@
     <channel>
         <title>Bubble</title>
         <item>
+            <title>0.3.3</title>
+            <pubDate>Sat, 14 Nov 2026 21:04:50 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/bubble/</link>
+            <sparkle:version>20261114.7</sparkle:version>
+            <sparkle:shortVersionString>0.3.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble-0.3.3.zip" length="6481504" type="application/octet-stream" sparkle:edSignature="UqK0MEAcpQl3yXV6tHgNdvz9dcVXp7HJhELfTNSZcNikUeTkGweAM+KMboSlA50m9d4nA5F6lXujmGof/mQGCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.7-20261114.6.delta" sparkle:deltaFrom="20261114.6" length="372846" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="hCfeChCZQdeG9W6kgpJ80V8GuIfraNFTB3TpRYorvo1yL0VTtEASVsHcY/oZlGKnZ3hiZPnMqyIsUvV8wzwlAA=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.7-20261114.5.delta" sparkle:deltaFrom="20261114.5" length="376330" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="xjhRw/S5AihMG8bGJVhyxlV8Whbh3KNuW/KLp1x43XWyi2xrNX3abh3vE5oIMtB7PvBUNnwLrALsiiWEwCbhCw=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/bubble/downloads/Bubble20261114.7-20261114.4.delta" sparkle:deltaFrom="20261114.4" length="670462" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="x9RTjo2ygdX5uwcDjN9qHLVrQkCMG+R6YB/XHjjEFLEnC2zDOlziHyYMrxuhoDFFjuf6XQOhsJVitwReB54YBA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.3.2</title>
             <pubDate>Sat, 14 Nov 2026 20:52:08 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/bubble/</link>
