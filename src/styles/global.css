@@ -9,7 +9,7 @@
   --line-light: rgba(255, 255, 255, 0.14);
   --accent: #4f46e5;
   --serif: var(--sans);
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
   --mono: "SFMono-Regular", "SF Mono", "IBM Plex Mono", Menlo, monospace;
   --radius: 24px;
   --shadow: 0 24px 70px rgba(20, 20, 43, 0.09);
@@ -477,4 +477,49 @@ body { background: var(--bg); }
 @media (max-width: 700px) {
   .hero-title { font-size: clamp(52px, 14vw, 76px); }
   .hero-stage { background: radial-gradient(circle at 28% 20%, #e6e8ff, transparent 55%), linear-gradient(145deg,#f4f4f8,#fff); }
+}
+
+/* Product-first home */
+.home-intro { padding: 92px 0 58px; }
+.home-intro h1 { max-width: 920px; font-size: clamp(44px, 6.4vw, 82px); line-height: .95; letter-spacing: -.065em; margin-bottom: 24px; }
+.home-intro .hero-lead { max-width: 650px; font-size: 18px; margin-bottom: 0; }
+.product-stack { display: flex; flex-direction: column; gap: 26px; padding-bottom: 104px; }
+.product-banner { position: relative; display: grid; grid-template-columns: 310px 1fr; align-items: center; gap: 70px; min-height: 380px; padding: 42px 64px; border-radius: 30px; overflow: hidden; }
+.banner-flip { background: linear-gradient(120deg, #2464f5 0%, #59a8ff 100%); color: #fff; }
+.banner-porthole { background: #0d1421; color: #fff; }
+.banner-tessera { background: linear-gradient(120deg, #0b6974 0%, #39bec3 100%); color: #fff; }
+.banner-art { position: relative; display: grid; place-items: center; min-height: 240px; }
+.banner-art img { position: relative; z-index: 1; width: 210px; height: 210px; border-radius: 48px; box-shadow: 0 28px 55px rgba(0,0,0,.25); transform: rotate(-3deg); }
+.banner-glow { position: absolute; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,.3); filter: blur(35px); }
+.banner-copy { position: relative; z-index: 1; max-width: 630px; }
+.banner-category { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; opacity: .62; }
+.banner-platform { margin-left: auto; opacity: .8; }
+.banner-copy h2 { margin: 0 0 5px; font-size: clamp(40px, 4.5vw, 58px); line-height: .92; letter-spacing: -.065em; font-weight: 720; }
+.banner-tagline { margin: 0 0 18px; font-size: clamp(20px, 2.1vw, 27px); line-height: 1.24; font-weight: 560; letter-spacing: -.025em; }
+.banner-body { max-width: 570px; margin: 0; font-size: 14px; line-height: 1.6; opacity: .72; }
+.banner-actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.banner-button { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 17px; border: 1px solid rgba(255,255,255,.55); border-radius: 999px; font-size: 12px; font-weight: 600; color: #fff; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.banner-button:hover { background: #fff; color: #09090b; border-color: #fff; }
+.banner-button-quiet { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.08); }
+.banner-button-quiet:hover { background: rgba(255,255,255,.9); }
+@media (max-width: 980px) {
+  .home-intro { padding-top: 68px; }
+  .product-banner { grid-template-columns: 210px 1fr; gap: 34px; padding: 36px 40px; }
+  .banner-art img { width: 160px; height: 160px; border-radius: 38px; }
+  .banner-glow { width: 220px; height: 220px; }
+}
+@media (max-width: 700px) {
+  .home-intro { padding: 54px 0 40px; }
+  .home-intro h1 { font-size: clamp(42px, 11vw, 58px); }
+  .home-intro .hero-lead { font-size: 15px; }
+  .product-stack { gap: 16px; padding-bottom: 70px; }
+  .product-banner { grid-template-columns: 1fr; gap: 14px; min-height: 0; padding: 26px 24px 28px; border-radius: 24px; }
+  .banner-art { justify-items: start; min-height: 0; }
+  .banner-art img { width: 92px; height: 92px; border-radius: 22px; }
+  .banner-glow { width: 110px; height: 110px; left: 0; }
+  .banner-copy h2 { font-size: 42px; }
+  .banner-tagline { font-size: 20px; }
+  .banner-body { font-size: 13px; }
+  .banner-actions { margin-top: 20px; }
+  .banner-category { font-size: 9px; }
 }
