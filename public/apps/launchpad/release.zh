@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://launchosapp.com/release.zh">
+  <title>LaunchOS for Mac - Release Notes</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    /* CSS Variables for Light Mode (Default) */
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: rgba(0, 0, 0, 0.6);
+      --text-tertiary: rgba(0, 0, 0, 0.8);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --tag-bg: #d7f59d;
+      --tag-text: #000000;
+      --list-marker: #90b842;
+    }
+
+    /* CSS Variables for Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1c1c1e;
+        --text-primary: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.6);
+        --text-tertiary: rgba(255, 255, 255, 0.8);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --tag-bg: #3a4a2b;
+        --tag-text: #d7f59d;
+        --list-marker: #7fb069;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+    }
+
+    time {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-left: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    section {
+      position: relative;
+      margin-bottom: 64px;
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -32px;
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    ul {
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    ul li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    ul li a {
+      color: var(--list-marker) !important;
+      text-decoration: none;
+    }
+
+    ul li::marker {
+      color: var(--list-marker);
+    }
+
+    .release-version .latest-tag {
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--tag-text);
+      background-color: var(--tag-bg);
+    }
+
+    /* Responsive font sizes for Sparkle update framework */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      time,
+      h3,
+      p,
+      ul li {
+        font-size: 12px;
+      }
+
+      span,
+      .release-version .latest-tag {
+        font-size: 11px;
+      }
+
+      section {
+        margin-bottom: 48px;
+      }
+
+      section::after {
+        bottom: -24px;
+      }
+
+      header {
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      ul {
+        margin-bottom: 16px;
+      }
+
+      ul li {
+        margin-bottom: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <header>
+      <h2>v2.5.0</h2>
+      <time>2026-11-02</time>
+    </header>
+    <h3>小版本，大更新 ⛰️</h3>
+    <p>
+      这个小版本带来了超多新特性，感谢每一个为我们提出优化建议和反馈的用户！
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v250.jpg" alt="v2.5.0 release image">
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增程序坞 LaunchOS 图标右键菜单，无需打开启动台，即可快速访问近期使用的 App</li>
+      <li>系统「日历」App 图标现可动态显示当前日期</li>
+      <li>新增对触摸屏 MacBook 的支持（尚未真机测试），并支持随航模式下的 iPad 触控操作</li>
+      <li>程序坞九宫格和小火箭图标现已支持 Clear 和 Tinted 模式</li>  
+      <li>菜单栏图标新增九宫格和小火箭样式</li>
+      <li>应用自动排序新增「按使用频次」排序方式</li>
+      <li>新增设置项，可关闭「点击空白区域关闭启动台」，避免误操作</li>
+      <li>新增 Beta 更新设置，可选择是否接收 Beta 版本</li>
+      <li>支持从第三方启动台应用恢复布局数据</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化应用卸载功能，卸载时会同时清理系统设置中残留的相关项目</li>
+      <li>优化快捷键录制，现已支持标准 F1–F12 功能键</li>
+      <li>优化文件夹打开与关闭动画</li>
+      <li>优化从右向左书写语言的界面布局显示</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复快捷键录制后偶尔无法生效的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.4.1</h2>
+      <time>2026-10-22</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增重置布局至默认状态功能</li>
+      <li>新增多选应用后通过回车键或上下文菜单批量打开应用功能</li>
+      <li>自定义应用来源支持扫描嵌套应用</li>
+      <li>新增 Command + ↑ 和 Command + ↓ 快捷键，可快速滚动至顶部或底部</li>
+      <li>新增将应用拖拽至废纸篓进行删除的功能</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化西班牙语翻译</li>
+      <li>优化俄语环境下的搜索体验</li>
+      <li>优化开机自启动设置，添加失败时显示具体原因</li>
+      <li>优化滚动模式下的拖拽体验，支持拖拽至边缘时自动滚动</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复部分场景下资源占用异常的问题</li>
+      <li>修复应用加载过程中立即使用手势时偶发无响应的问题</li>
+      <li>修复多选应用后拖拽至页面边缘时无法创建新页面的问题</li>
+      <li>修复开启 Caps Lock 时 Command 多选和框选功能失效的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.4.0</h2>
+      <time>2026-09-23</time>
+    </header>
+
+    <h3>多选和批量操作，它终于来了！👏</h3>
+    <p>
+      按住 ⌘ (Command) 键的同时，鼠标点选或框选，选中多个应用或文件夹，然后整体排序、移动、隐藏...
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v240.jpg" alt="v2.4.0 release image">
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增多选功能，支持批量拖拽排序、跨页面移动、创建文件夹及隐藏应用</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化交互动画，使拖拽、隐藏等操作更加自然流畅</li>
+      <li>优化应用卸载扫描，扩大扫描范围，减少关联文件遗漏</li>
+      <li>优化右键菜单中“添加至程序坞”的交互体验</li>
+      <li>优化 macOS 27 下的玻璃效果显示表现</li>
+      <li>优化 macOS 27 下的应用图标渲染效果</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复卸载 Safari Web App 时可能出现的异常</li>
+      <li>修复 macOS 27 下分页器无法点击的问题</li>
+      <li>修复与退出应用快捷键冲突的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.3.1</h2>
+      <time>2026-09-15</time>
+    </header>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化冷启动后应用图标的加载速度</li>
+      <li>优化法语中重音搜索匹配</li>
+      <li>优化壁纸模糊处理，提升视觉效果</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复 macOS 27 部分场景下手势失效问题</li>
+      <li>修复部分系统版本下引导页面图标无法显示的问题</li>
+      <li>修复偶发的捏合手势结束后应用窗口闪烁问题</li>
+      <li>修复部分语言下文案显示不完整的问题</li>
+      <li>修复更新弹窗被主窗口遮挡时导致应用无法正常交互的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.3.0</h2>
+      <time>2026-08-21</time>
+    </header>
+    <h3>一键整理功能来了！</h3>
+    <p>
+      现在你可以一键将所有应用按名称、时间、颜色或苹果应用优先等规则整理，并在此基础上按个人习惯进一步调整。<br>
+      哦对了，以后可以自动下载更新了～
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v230.jpg" alt="v2.3.0 release image">
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增整理布局功能，可按规则快速重新排列应用和文件夹</li>
+      <li>新增更新设置，可分别控制自动检查更新和自动下载更新</li>
+      <li>新增名称显示设置，可隐藏应用和文件夹名称</li>
+      <li>新增壁纸模糊设置，可自定义系统壁纸的模糊程度</li>
+      <li>分页模式下支持通过右键菜单将应用和文件夹快速移动至指定页面</li>
+      <li>导出布局备份时支持自定义文件名，方便区分和管理备份文件</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化繁体中文翻译，提升本地化表达一致性</li>
+      <li>优化中文输入法下的搜索体验，应用匹配更加稳定</li>
+      <li>优化应用图标渲染效果，提升图标显示清晰度</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复插拔显示器后界面可能显示异常的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.2.1</h2>
+      <time>2026-08-04</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增“按住 Option 进入卸载模式”开关</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化快捷键与卸载模式冲突提醒及处理方式</li>
+      <li>为“返回首页”功能添加说明</li>
+      <li>优化窗口动画表现</li>
+      <li>优化应用图标刷新体验</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复部分应用可能无法显示的问题</li>
+      <li>修复输入法组词时按下回车可能误打开应用的问题</li>
+      <li>修复 macOS 27 下辅助功能权限异常的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.2.0</h2>
+      <time>2026-07-13</time>
+    </header>
+    <p>
+      现代轻量化的窗口模式全新上线 🚀<br>
+      现在，你可以在自定义排序和文件夹功能的基础上，同时享受 OS26 和 27 带来的更高效、更聚焦的使用体验。
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v220.jpg" alt="v2.2.0 release image">
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增窗口模式，可在更轻量的窗口中使用 LaunchOS</li>
+      <li>支持点击文件夹内空白区域关闭文件夹，操作更加自然</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化应用扫描逻辑，提升应用列表更新的稳定性</li>
+      <li>优化引导页面样式，首次使用体验更加清晰</li>
+      <li>优化 macOS 27 下的玻璃效果，视觉表现更加自然</li>
+      <li>更新用户隐私协议</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复翻页模式下拖拽创建新页面时可能出现的闪烁问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.1.3</h2>
+      <time>2026-06-28</time>
+    </header>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化应用扫描逻辑，更好支持多版本应用展示</li>
+      <li>优化外置磁盘应用处理，磁盘重新挂载后可自动恢复应用的位置与状态</li>
+      <li>优化触控板手势识别，减少手掌误触以及偶发的手势无响应问题</li>
+      <li>改进应用图标刷新，系统图标样式变化后可自动更新图标，减少等待时间</li>
+      <li>优化拖拽排序体验，现在可以将应用拖拽至队尾空白区域进行排序</li>
+      <li>优化更新弹窗显示，减少被其他窗口遮挡的情况</li>
+      <li>优化搜索结果页交互，支持将搜索结果中的应用直接拖拽至 Dock</li>
+      <li>优化 macOS 替身应用的显示逻辑，减少误显示替身图标的情况</li>
+      <li>优化部分文案的多语言翻译</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复系统用户切换后可能出现的手势冲突问题</li>
+      <li>修复卸载应用时部分文件移除失败后，待移除列表可能显示为空的问题</li>
+      <li>修复设置页面中辅助功能权限状态更新不及时的问题</li>
+      <li>修复用户或系统移除辅助功能权限后可能导致的异常问题</li>
+      <li>修复应用图标偶现异常放大的问题</li>
+      <li>修复 macOS 27.0 下状态识别异常导致的手势问题</li>
+      <li>修复 macOS 27.0 下壁纸模式翻页动画可能掉帧的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.1.1</h2>
+      <time>2026-06-11</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>应用图标适配 macOS 27.0</li>
+      <li>应用右键菜单新增“显示简介”功能</li>
+      <li>支持按住 Option 键快速进入卸载模式</li>
+      <li>支持通过鼠标水平滚动切换页面</li>
+      <li>支持通过鼠标侧键切换页面</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化首次初始化时的应用排序规则，系统应用将默认排在前面</li>
+      <li>优化壁纸模糊效果，显示更加自然</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复 macOS 27.0 上壁纸显示异常的问题</li>
+      <li>修复 macOS 27.0 下系统菜单栏右键失效的问题</li>
+      <li>修复 macOS 27.0 下展开手势失效的问题</li>
+      <li>修复右键菜单中重命名和打开文件夹失效的问题</li>
+      <li>修复分页模式下仅有一页时，鼠标拖拽缺少交互反馈的问题</li>
+      <li>修复拖拽应用时偶现卡住的问题</li>
+      <li>修复卸载 App Store 应用时偶现崩溃的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.1.0</h2>
+      <time>2026-06-05</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>添加应用卸载功能，支持长按及右键菜单触发</li>
+      <li>状态栏菜单及右键上下文菜单中添加 “重启应用” 功能</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化不同分辨率下的图标显示</li>
+      <li>优化应用标题字号</li>
+      <li>优化内存使用</li>
+      <li>优化中文繁体翻译</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复无法通过点击空白区域关闭文件夹内的应用重命名问题</li>
+      <li>修复在文件夹内拖拽应用会触发文件夹关闭的问题</li>
+      <li>修复应用图标在不同分辨率下显示异常的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.0.1</h2>
+      <time>2026-06-01</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增“显示在 Dock 所在屏幕”设置项</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化内存使用</li>
+      <li>优化多屏下的显示器插拔监听</li>
+      <li>优化不同分辨率下的图标显示</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复退出搜索后，概率性出现的页面空白问题</li>
+      <li>修复打开“降低透明度”后，壁纸显示异常问题</li>
+      <li>修复切换显示屏后已打开的文件位置显示异常问题</li>
+      <li>修复 Control + Click 无法触发上下文菜单的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.0.0</h2>
+      <time>2026-05-26</time>
+    </header>
+    <h3>LaunchOS 2.0 闪亮登场 ✨</h3>
+    <p>
+      朋友们，重构版 LaunchOS 现已发布！这一次，我们从底层对应用进行了全面重构。<br>
+      v2.0 在启动速度、运行性能、动画表现、拖拽体验和高刷新率显示支持等方面都做了大量优化，希望带给你一个更快、更流畅，也更省电的 LaunchOS。<br>
+      我们相信你一定会喜欢这个版本（超级自信）！如果还有不够好的地方，也欢迎告诉我们，我们会继续认真打磨。
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v200.jpg" alt="v2.0.0 release image">
+
+    <h3>新增</h3>
+    <ul>
+      <li>支持将任意 App 拖拽或右键菜单添加至 Dock，整理常用应用更方便</li>
+      <li>支持 120Hz 及以上高刷新率显示设备，滑动和动画更加顺滑</li>
+      <li>行列布局上限开放至 15 × 15，可在同一页面显示更多应用</li>
+      <li>新增文件夹展开与收起动画，操作反馈更加自然</li>
+      <li>退出搜索后可回到进入搜索前的位置，查找应用后不再丢失原来的浏览位置</li>
+      <li>拖拽 App 时可配合鼠标滚轮快速翻页，跨页移动应用更高效</li>
+      <li>新增“隐藏应用是否显示在搜索结果中”设置项</li>
+      <li>名称排序模式下支持拖拽 App 创建文件夹，整理应用更灵活</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>大幅提升首次启动时的加载速度</li>
+      <li>大幅优化使用过程中的性能与动画表现</li>
+      <li>新的图标尺寸自适应计算规则，在不同的分辨率下尺寸更合理</li>
+      <li>新的图标网格计算规则，列数较多时会适当增加宽度</li>
+      <li>改进应用扫描机制，安装或卸载应用后可自动刷新列表</li>
+      <li>分页指示器的 UI 与交互效果</li>
+      <li>文件夹展开后的背景材质适配液态玻璃效果</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复文件夹打开时无法全局搜索的问题</li>
+      <li>修复跳过版本后仍然显示新版本提示标记的问题</li>
+      <li>修复部分场景下“显示桌面”手势可能不生效的问题</li>
+    </ul>
+
+    <h3>预告</h3>
+    <ul>
+      <li>应用卸载、小窗模式，以及许多大家反馈过的功能建议，也要陆续安排上啦</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.7</h2>
+      <time>2026-04-30</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增希伯来语界面</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复电脑休眠后触控板概率性失效问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.6</h2>
+      <time>2026-04-09</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增意大利语界面，感谢 <a href="http://filbatta.com/" target="_blank">@Filippo Battaglin</a> 与 @Alessio 提供翻译</li>
+      <li>新增阿拉伯语界面，感谢 @Hani Abughazaleh 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化触控板手势逻辑：当设置为五指捏合启动 LaunchOS 时，四指捏合将触发系统手势</li>
+      <li>优化激活提醒文案，避免歧义</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.5</h2>
+      <time>2026-03-27</time>
+    </header>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化触控板手势算法及动画</li>
+      <li>非自定义排序拖拽时添加提醒</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复触控板手势概率性失效问题</li>
+      <li>修复部分机型 F4 键无效问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.4</h2>
+      <time>2026-03-19</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>支持使用系统 F4 键启动 LaunchOS</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复触发角一直提醒冲突问题</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化触控板手势算法</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.3</h2>
+      <time>2026-02-28</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增瑞典语界面，感谢 <a href="https://www.linkedin.com/in/cronberg/" target="_blank">@Marcus Cronberg</a> 提供翻译</li>
+      <li>新增印尼语界面，感谢 @Wicaksono 提供翻译</li>
+      <li>新增捷克语界面，感谢 @Honza Doležal 提供翻译</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复搜索显示问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.2</h2>
+      <time>2026-02-25</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增波兰语界面，感谢 @Jacek Dąbrowski 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化搜索结果的排序显示</li>
+      <li>优化触控板“显示桌面”手势</li>
+      <li>优化触控板手势算法，避免三指捏合与系统三指拖移手势冲突</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复搜索后按回车键偶尔无法启动应用的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.1</h2>
+      <time>2026-02-03</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>触控板支持系统“显示桌面”手势（请确保已在系统设置中开启）</li>
+      <li>新增触发角与系统触发角设置冲突提醒</li>
+      <li>新增印地语界面，感谢 @Aagman 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化触控板手势算法，提高识别准确度</li>
+      <li>优化触控板动画，避免手势过快时动画异常</li>
+      <li>优化葡萄牙语（巴西）界面，感谢 @Elton 提供翻译</li>
+      <li>优化繁体界面，感谢 <a href="https://www.facebook.com/ray0604" target="_blank">@Yourui Wu</a> 提供翻译</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复开机或从睡眠唤醒后触控板手势偶尔失效的问题</li>
+      <li>修复手势过快时菜单栏概率性不消失的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.0</h2>
+      <time>2026-01-27</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增已激活设备管理与反激活功能</li>
+      <li>设置页面新增「高级设置」标签页</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>应用右键移动至文件夹时，文件夹列表按名称字母顺序排序</li>
+      <li>优化葡萄牙语（巴西）界面，感谢 @Elton 提供翻译</li>
+      <li>优化繁体中文界面，感谢 @李明元 提供翻译</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复重命名输入框未自动聚焦的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.4.0</h2>
+      <time>2026-01-21</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>布局数据备份功能</li>
+      <li>新增葡萄牙语（巴西）界面，感谢 @Elton 提供翻译</li>
+      <li>支持文件夹内通过键盘选择应用</li>
+      <li>支持一键添加至 Dock</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化触控板滚动</li>
+      <li>优化应用扫描，支持更多应用显示</li>
+      <li>优化顶部搜索框及设置按钮可点击区域</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复引导窗口不居中问题</li>
+      <li>修复修改文件夹名称页面未及时更新问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.3.0</h2>
+      <time>2026-01-09</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增自定义排序</li>
+      <li>行列布局支持分别设置</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化搜索体验，支持使用英文直接搜索系统应用</li>
+      <li>优化繁体中文界面，感谢 @李明元 提供翻译</li>
+      <li>优化应用性能</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复全屏应用下，触发角与系统菜单栏冲突导致的闪烁问题</li>
+      <li>修复全屏应用下，系统菜单栏显示导致的 LaunchOS 关闭问题</li>
+      <li>修复使用「回到首页」后，滚动模式未返回顶部的问题</li>
+      <li>修复开启开机自启动后仍显示 UI，未能静默启动的问题</li>
+      <li>修复 LaunchOS 出现在 Cmd + Tab 切换列表中的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.4</h2>
+      <time>2026-01-05</time>
+    </header>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复部分应用启动时创建多实例的问题</li>
+      <li>修复切换「显示 Dock 图标」导致的菜单栏消失问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.3</h2>
+      <time>2025-12-31</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增自动隐藏顶部菜单栏</li>
+      <li>新增「回到首页」设置项，支持自定义返回方式</li>
+      <li>新增土耳其界面，感谢 <a href="https://www.instagram.com/akaanbayazit/" target="_blank">@Ahmet Kaan Bayazit</a> 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化多显示器下的触发角使用</li>
+      <li>优化翻页处理，避免使用第三方滚动工具导致的异常滚动</li>
+      <li>优化自定义图标显示逻辑，自动跟随系统图标样式</li>
+      <li>优化中文繁体界面，感谢 <a href="https://www.facebook.com/ray0604" target="_blank">@Yourui Wu</a> 提供翻译</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复部分应用无法打开的问题（如：剪映）</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.2</h2>
+      <time>2025-12-19</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>支持自定义应用来源</li>
+      <li>自定义图标新增 Catalina 火箭图标</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化设置窗口样式</li>
+      <li>优化触控板、鼠标滚动翻页，支持连续翻页</li>
+      <li>优化自定义图标，支持自动适配深浅模式</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复切换到自定义图标后，再切换默认图标不生效问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.1</h2>
+      <time>2025-12-12</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>新增保加利亚语界面，感谢 @Трифон Иванов 提供翻译</li>
+      <li>新增乌克兰语界面，感谢 <a href="https://www.unibrix.com/" target="_blank">@Valera Oleksiienko</a> 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化不同地区接口访问速度</li>
+      <li>优化激活失败原因说明</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>设置窗口不居中问题</li>
+      <li>文件夹内应用重命名问题</li>
+      <li>重启电脑后触发角未及时生效问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.0</h2>
+      <time>2025-12-04</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>支持触控板启动</li>
+      <li>支持使用鼠标侧键切换页面</li>
+      <li>新增西班牙语界面，感谢 <a href="https://rodrigonavarrete.cl" target="_blank">@Rodrigo Navarrete</a> 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化触发角灵敏度</li>
+      <li>优化应用资源占用</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>概率性出现的系统权限提醒弹窗</li>
+      <li>概率性出现的输入框文本颜色异常问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.4</h2>
+      <time>2025-11-30</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>支持动态壁纸</li>
+      <li>新增俄语界面，感谢 @Вадим Коровин 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>调整应用拖拽长按时间间隔</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复退出应用弹窗不在顶部问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.3</h2>
+      <time>2025-11-20</time>
+    </header>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复更新时更新窗口无法自动显示在前台问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.2</h2>
+      <time>2025-11-19</time>
+    </header>
+
+    <h3>新增</h3>
+    <ul>
+      <li>支持显示替身应用</li>
+      <li>新增韩语界面，感谢 @darang 提供翻译</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化应用拖拽体验，避免翻页时误触</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复快速打开或关闭启动台时可能出现的闪烁</li>
+      <li>修复在搜索结果中右键移动应用无效的问题</li>
+      <li>修复三指切换桌面时启动台显示异常的问题</li>
+      <li>修复在访达开启“显示所有文件扩展名”时应用名称显示后缀的问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.1</h2>
+      <time>2025-11-10</time>
+    </header>
+    <h3>新增</h3>
+    <ul>
+      <li>支持日语和德语</li>
+    </ul>
+    <h3>修复</h3>
+    <ul>
+      <li>修复图标样式修改后应用内图标未及时刷新问题</li>
+      <li>修复应用关闭后无法立即激活桌面问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.0</h2>
+      <time>2025-11-07</time>
+    </header>
+    <h3>新增</h3>
+    <ul>
+      <li>支持隐藏应用</li>
+      <li>分页模式下拖拽至最后一页边缘自动创建新页面</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化应用包体积</li>
+      <li>优化应用稳定性</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复其他应用全屏时无法显示启动台问题</li>
+      <li>修复移动应用后空文件夹不自动删除问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.0.0</h2>
+      <time>2025-10-31</time>
+    </header>
+    <h3>新增</h3>
+    <ul>
+      <li>支持自定义应用名</li>
+      <li>调整布局时可选是否重新排版</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>应用显示逻辑优化：分页模式显示在有空缺的页面，滚动模式显示在最后</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复文件夹显示不全问题</li>
+      <li>修复应用拖拽至末尾时导致的崩溃</li>
+      <li>修复应用拖拽时概率性卡住悬停问题</li>
+      <li>修复未及时更新应用信息导致的显示空白图标问题</li>
+      <li>部分文案翻译缺失</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.5</h2>
+      <time>2025-10-28</time>
+    </header>
+    <h3>新增</h3>
+    <ul>
+      <li>支持导入系统 launchpad 数据</li>
+      <li>支持自定义启动台显示屏幕</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>性能优化，减少掉帧感</li>
+      <li>优化安装包体积大小</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复输入框无法使用快捷键问题(cmd+a、cmd+c、cmd+v)</li>
+      <li>修复空文件夹右键无效问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.4</h2>
+      <time>2025-10-20</time>
+    </header>
+    <h3>优化</h3>
+    <ul>
+      <li>优化搜索匹配，支持英文、拼音首字母匹配（as -> Apple Store，jsq ->「计算器」）</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>优化系统 light 模式下的显示效果</li>
+      <li>修复分页模式下拖拽导致的空白页</li>
+      <li>修复多显示器下的显示异常</li>
+      <li>修复打开文件夹时应用右键不显示可移动文件夹问题</li>
+      <li>修复分页模式下的搜索问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.3</h2>
+      <time>2025-10-16</time>
+    </header>
+    <h3>新增</h3>
+    <ul>
+      <li>支持应用内更新</li>
+      <li>背景自定义</li>
+      <li>LaunchOS 应用图标自定义</li>
+      <li>部分快捷键（cmd+,: 设置、cmd+q: 退出、cmd+←/→: 翻页）</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>优化应用启动、切换性能</li>
+      <li>优化文件夹内拖拽</li>
+      <li>优化开机自启动，静默启动</li>
+    </ul>
+
+    <h3>修复</h3>
+    <ul>
+      <li>修复滚动模式下概率性拖拽失效问题</li>
+      <li>修复文件夹编辑无光标及概率性崩溃问题</li>
+      <li>修复程序坞在左右侧时空白区域宽度不一致问题</li>
+      <li>修复壁纸更新不及时问题</li>
+      <li>啊 _(:з」∠)_</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.2</h2>
+      <time>2025-10-11</time>
+    </header>
+    <h3>新增</h3>
+    <ul>
+      <li>支持通过鼠标触发角打开启动台</li>
+      <li>新增法语界面，感谢来自法国的用户 @Cyril Guislain 提供翻译</li>
+      <li>菜单栏图标邮件支持打开设置界面</li>
+    </ul>
+
+    <h3>优化</h3>
+    <ul>
+      <li>支持再次按下快捷键即可关闭启动台面板</li>
+      <li>设置面板现已跟随系统浅色/深色外观</li>
+      <li>设置窗口现可通过 ESC 键关闭</li>
+      <li>点击窗口外部也可关闭设置窗口</li>
+      <li>优化 UI 细节并提升整体视觉一致性</li>
+      <li>调整默认显示屏展示逻辑，启动台将始终显示在主屏幕而非当前活动屏幕</li>
+      <li>性能优化，还有一大波性能优化在路上</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.1</h2>
+      <time>2025-09-30</time>
+    </header>
+    <h3>优化</h3>
+    <ul>
+      <li>性能优化，还有一大波性能优化在路上</li>
+    </ul>
+    <h3>修复</h3>
+    <ul>
+      <li>修复启动台调整布局后应用丢失的问题</li>
+      <li>修复罗技鼠标配套 APP Logi Options+ 导致的无法滚轮翻页问题</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.0</h2>
+      <time>2025-09-28</time>
+    </header>
+    <ul>
+      <li>内测群友们别催了，第一个公开测试版终于来了</li>
+      <li>虽然我们尽可能修复了已知问题，但应该还有不少漏网之鱼，靠群友们的火眼金睛了</li>
+    </ul>
+  </section>
+
+
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get First H2
+      const firstH2 = document.querySelector('section:first-of-type h2')
+
+      if (firstH2) {
+        // Add Tag
+        const latestTag = document.createElement('span')
+        latestTag.textContent = 'Latest'
+        firstH2.appendChild(latestTag)
+      }
+    })
+  </script>
+
+</body>
+
+</html>

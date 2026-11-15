@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://launchosapp.com/favicon.svg" type="image/svg+xml">
+  <title>LaunchOS für Mac — Versionshinweise</title>
+  <meta name="description" content="Neues in LaunchOS für Mac: Funktionen, Verbesserungen und Fehlerbehebungen aller Versionen.">
+  <link rel="canonical" href="https://launchosapp.com/release.de">
+  <style>
+    /* CSS Variables for Light Mode (Default) */
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: rgba(0, 0, 0, 0.6);
+      --text-tertiary: rgba(0, 0, 0, 0.8);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --tag-bg: #d7f59d;
+      --tag-text: #000000;
+      --list-marker: #90b842;
+    }
+
+    /* CSS Variables for Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1c1c1e;
+        --text-primary: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.6);
+        --text-tertiary: rgba(255, 255, 255, 0.8);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --tag-bg: #3a4a2b;
+        --tag-text: #d7f59d;
+        --list-marker: #7fb069;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+    }
+
+    time {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-inline-start: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    section {
+      position: relative;
+      margin-bottom: 64px;
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -32px;
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    ul {
+      padding-inline-start: 16px;
+      margin-bottom: 24px;
+    }
+
+    ul li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      text-align: start;
+      margin-bottom: 8px;
+    }
+
+    ul li a {
+      color: var(--list-marker) !important;
+      text-decoration: none;
+    }
+
+    ul li::marker {
+      color: var(--list-marker);
+    }
+
+    .release-version .latest-tag {
+      margin-inline-start: 8px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--tag-text);
+      background-color: var(--tag-bg);
+    }
+
+    /* Responsive font sizes for Sparkle update framework */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      time,
+      h3,
+      p,
+      ul li {
+        font-size: 12px;
+      }
+
+      span,
+      .release-version .latest-tag {
+        font-size: 11px;
+      }
+
+      section {
+        margin-bottom: 48px;
+      }
+
+      section::after {
+        bottom: -24px;
+      }
+
+      header {
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      ul {
+        margin-bottom: 16px;
+      }
+
+      ul li {
+        margin-bottom: 6px;
+      }
+    }
+
+html[dir="rtl"] h2, time { unicode-bidi: isolate; }
+</style>
+</head>
+<body>
+<section>
+<header><h2><bdi dir="ltr">v2.5.0</bdi><span class="latest-tag">Aktuell</span></h2><time datetime="2026-11-02">2. Nov. 2026</time></header>
+
+<div><h3>Kleine Versionsnummer. Großes Update. ⛰️</h3>
+<p>Diese Version bringt viele neue Funktionen. Danke für alle Rückmeldungen und Ideen, mit denen ihr LaunchOS besser macht!</p>
+<img src="https://cdn.launchosapp.com/release/v250.jpg" alt="Neu in dieser Version — v2.5.0" loading="lazy">
+<h3>Neu</h3>
+<ul>
+<li>Das Kontextmenü des LaunchOS-Symbols im Dock zeigt alle oder zuletzt verwendete Apps – für schnellen Zugriff, ohne LaunchOS zu öffnen</li>
+<li>Das Symbol der App „Kalender“ zeigt jetzt das aktuelle Datum</li>
+<li>Unterstützung für MacBooks mit Touchscreen (noch nicht an einem physischen Gerät getestet) und Touch-Bedienung auf dem iPad mit Sidecar</li>
+<li>Die Raster- und Raketensymbole im Dock unterstützen jetzt die Darstellungen „Transparent“ und „Eingefärbt“</li>
+<li>Neue Raster- und Raketensymbole für die Menüleiste</li>
+<li>Neue Option zum automatischen Sortieren nach Nutzungshäufigkeit</li>
+<li>„Zum Schließen auf freien Bereich klicken“ lässt sich jetzt deaktivieren, um unbeabsichtigtes Schließen zu vermeiden</li>
+<li>Neue Einstellung zum Empfangen von Betaversionen</li>
+<li>Layouts lassen sich jetzt aus Launchpad-Alternativen anderer Anbieter wiederherstellen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Beim Deinstallieren von Apps werden auch zugehörige Einträge in den Systemeinstellungen entfernt</li>
+<li>Beim Aufzeichnen von Tastaturkurzbefehlen werden jetzt die Standardfunktionstasten F1–F12 unterstützt</li>
+<li>Animationen beim Öffnen und Schließen von Ordnern verbessert</li>
+<li>Oberflächenlayout für von rechts nach links geschriebene Sprachen verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das neu aufgezeichnete Tastaturkurzbefehle gelegentlich nicht funktionierten</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.4.1</bdi></h2><time datetime="2026-10-22">22. Okt. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Neue Option zum Zurücksetzen des Layouts auf die Standardeinstellungen</li>
+<li>Mehrere ausgewählte Apps lassen sich mit der Eingabetaste oder über das Kontextmenü gleichzeitig öffnen</li>
+<li>Eigene App-Quellen unterstützen jetzt auch die Suche nach verschachtelten Apps</li>
+<li>Mit Command + ↑ und Command + ↓ lässt sich schnell zum Anfang oder Ende scrollen</li>
+<li>Apps lassen sich jetzt durch Bewegen in den Papierkorb deinstallieren</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Spanische Übersetzungen verbessert</li>
+<li>Suche auf Russisch verbessert</li>
+<li>Beim fehlgeschlagenen Aktivieren des Anmeldestarts wird jetzt der genaue Grund angezeigt</li>
+<li>Im Scrollmodus wird beim Bewegen von Objekten an den Rand automatisch gescrollt</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das beim Bewegen mehrerer ausgewählter Apps an den Seitenrand keine neue Seite entstand</li>
+<li>Ein Problem behoben, durch das Gesten während des Ladens von Apps gelegentlich nicht reagierten</li>
+<li>Ungewöhnlich hohen Ressourcenverbrauch in bestimmten Situationen behoben</li>
+<li>Ein Problem behoben, durch das bei aktivierter Feststelltaste Mehrfach- und Rahmenauswahl mit Command nicht funktionierten</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.4.0</bdi></h2><time datetime="2026-09-23">23. Sept. 2026</time></header>
+
+<div><h3>Mehrfachauswahl und gemeinsame Aktionen sind da! 👏</h3>
+<p>Halte beim Klicken oder Aufziehen eines Auswahlrahmens ⌘ (Command) gedrückt, um mehrere Apps oder Ordner auszuwählen und gemeinsam zu sortieren, zu bewegen oder auszublenden …</p>
+<img src="https://cdn.launchosapp.com/release/v240.jpg" alt="Neu in dieser Version — v2.4.0" loading="lazy">
+<h3>Neu</h3>
+<ul>
+<li>Neue Mehrfachauswahl zum gemeinsamen Sortieren per Drag-and-drop, Bewegen zwischen Seiten, Erstellen von Ordnern und Ausblenden von Apps</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Flüssigere, natürlichere Animationen beim Bewegen, Ausblenden und bei weiteren Aktionen</li>
+<li>Umfassendere Suche nach zugehörigen Dateien beim Deinstallieren von Apps</li>
+<li>„Zum Dock hinzufügen“ im Kontextmenü verbessert</li>
+<li>Glaseffekte unter macOS 27 verbessert</li>
+<li>Darstellung der App-Symbole unter macOS 27 verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein mögliches Problem beim Deinstallieren von Safari-Web-Apps behoben</li>
+<li>Ein Problem behoben, durch das die Seitenanzeige unter macOS 27 nicht anklickbar war</li>
+<li>Einen Konflikt mit dem Tastaturkurzbefehl zum Beenden der App behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.3.1</bdi></h2><time datetime="2026-09-15">15. Sept. 2026</time></header>
+
+<div><h3>Verbesserungen</h3>
+<ul>
+<li>App-Symbole werden nach einem Kaltstart schneller geladen</li>
+<li>Akzentunabhängige Suche auf Französisch verbessert</li>
+<li>Weichzeichnung des Hintergrundbilds verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gelegentlich nicht reagierende Gesten unter macOS 27 behoben</li>
+<li>Fehlende Symbole in der Einführung auf einigen Systemversionen behoben</li>
+<li>Gelegentliches Flackern des App-Fensters nach einer Zuzieh-Geste behoben</li>
+<li>Abgeschnittene Texte in einigen Sprachen behoben</li>
+<li>Ein Problem behoben, durch das die App nicht reagierte, wenn das Hauptfenster den Updatedialog verdeckte</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.3.0</bdi></h2><time datetime="2026-08-21">21. Aug. 2026</time></header>
+
+<div><h3>Mit einem Klick neu anordnen!</h3>
+<p>Ordne alle Apps nach Name, Datum oder Farbe oder zeige Apple-Apps zuerst an. Passe das Layout anschließend ganz nach deinen Wünschen an.</p>
+<img src="https://cdn.launchosapp.com/release/v230.jpg" alt="Neu in dieser Version — v2.3.0" loading="lazy">
+<h3>Neu</h3>
+<ul>
+<li>Mit „Layout neu anordnen“ lassen sich Apps und Ordner anhand ausgewählter Regeln schnell sortieren</li>
+<li>Neue Update-Einstellungen zum getrennten Steuern automatischer Suche und automatischer Downloads</li>
+<li>Neue Einstellungen zum Ausblenden von App- und Ordnernamen</li>
+<li>Die Stärke der Weichzeichnung des Systemhintergrundbilds lässt sich jetzt anpassen</li>
+<li>Im Seitenmodus lassen sich Apps und Ordner über das Kontextmenü direkt auf eine bestimmte Seite bewegen</li>
+<li>Layout-Backups lassen sich mit eigenen Dateinamen exportieren und dadurch einfacher unterscheiden und verwalten</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Traditionell-chinesische Übersetzung vereinheitlicht und verbessert</li>
+<li>Zuverlässigere App-Suche mit chinesischen Eingabemethoden</li>
+<li>Schärfere Darstellung der App-Symbole</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Darstellungsfehler nach dem Anschließen oder Trennen eines Displays behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.2.1</bdi></h2><time datetime="2026-08-04">4. Aug. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Neue Einstellung zum Aktivieren des Deinstallationsmodus durch Gedrückthalten der Option-Taste</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Erkennung und Behandlung von Konflikten zwischen Tastaturkurzbefehl und Deinstallationsmodus verbessert</li>
+<li>Beschreibung für „Zur Hauptseite zurückkehren“ ergänzt</li>
+<li>Fensteranimationen verbessert</li>
+<li>Aktualisierung der App-Symbole verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das einige Apps nicht angezeigt wurden</li>
+<li>Ein Problem behoben, durch das die Eingabetaste während der Texteingabe mit einer Eingabemethode versehentlich eine App öffnete</li>
+<li>Probleme mit der Bedienungshilfen-Berechtigung unter macOS 27 behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.2.0</bdi></h2><time datetime="2026-07-13">13. Juli 2026</time></header>
+
+<div><p>Der moderne, kompakte Fenstermodus ist da 🚀<br> Nutze eigene Sortierungen und Ordner mit der effizienten, fokussierten Bedienung von macOS 26 und 27.</p>
+<img src="https://cdn.launchosapp.com/release/v220.jpg" alt="Neu in dieser Version — v2.2.0" loading="lazy">
+<h3>Neu</h3>
+<ul>
+<li>Neuer Fenstermodus für eine kompaktere Nutzung von LaunchOS</li>
+<li>Ordner lassen sich jetzt durch Klicken auf einen freien Bereich im Ordner schließen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>App-Erkennung für zuverlässigere Aktualisierungen der App-Liste verbessert</li>
+<li>Einführungsseiten für einen verständlicheren Einstieg überarbeitet</li>
+<li>Natürlichere Glaseffekte unter macOS 27</li>
+<li>Datenschutzrichtlinie aktualisiert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Flackern beim Erstellen einer neuen Seite durch Bewegen im Seitenmodus behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.1.3</bdi></h2><time datetime="2026-06-28">28. Juni 2026</time></header>
+
+<div><h3>Verbesserungen</h3>
+<ul>
+<li>App-Erkennung zur besseren Anzeige mehrerer App-Versionen verbessert</li>
+<li>Apps auf externen Datenträgern erhalten nach erneutem Einbinden automatisch ihre Position und ihren Status zurück</li>
+<li>Gestenerkennung auf dem Trackpad verbessert, um versehentliche Handballenberührungen und ausbleibende Reaktionen zu verringern</li>
+<li>App-Symbole aktualisieren sich nach Änderungen des Systemsymbolstils automatisch und schneller</li>
+<li>Apps lassen sich zum Sortieren jetzt auch in den freien Bereich am Listenende bewegen</li>
+<li>Der Updatedialog wird seltener von anderen Fenstern verdeckt</li>
+<li>Apps aus Suchergebnissen lassen sich jetzt direkt ins Dock bewegen</li>
+<li>Darstellung von App-Aliasen unter macOS verbessert, um falsche Alias-Symbole zu vermeiden</li>
+<li>Einige Übersetzungen verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gestenkonflikt nach dem Wechseln des Systembenutzers behoben</li>
+<li>Ein Problem behoben, durch das nach fehlgeschlagenem Entfernen von Dateien beim Deinstallieren eine leere Entfernungsliste erschien</li>
+<li>Verzögerte Aktualisierung der Bedienungshilfen-Berechtigung in den Einstellungen behoben</li>
+<li>Fehlverhalten nach dem Entziehen der Bedienungshilfen-Berechtigung durch Benutzer oder System behoben</li>
+<li>Gelegentlich vergrößert angezeigte App-Symbole behoben</li>
+<li>Gestenprobleme durch fehlerhafte Statuserkennung unter macOS 27.0 behoben</li>
+<li>Ruckelnde Seitenwechselanimationen im Hintergrundbildmodus unter macOS 27.0 behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.1.1</bdi></h2><time datetime="2026-06-11">11. Juni 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>App-Symbole für macOS 27.0 angepasst</li>
+<li>„Informationen“ zum App-Kontextmenü hinzugefügt</li>
+<li>Halte die Option-Taste gedrückt, um schnell in den Deinstallationsmodus zu wechseln</li>
+<li>Seitenwechsel durch horizontales Scrollen mit der Maus hinzugefügt</li>
+<li>Seitenwechsel mit den Seitentasten der Maus hinzugefügt</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Bei der ersten Sortierung werden System-Apps jetzt standardmäßig zuerst angezeigt</li>
+<li>Natürlichere Weichzeichnung des Hintergrundbilds</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Darstellungsprobleme des Hintergrundbilds unter macOS 27.0 behoben</li>
+<li>Nicht funktionierenden Rechtsklick auf die Systemmenüleiste unter macOS 27.0 behoben</li>
+<li>Nicht funktionierende Aufzieh-Geste unter macOS 27.0 behoben</li>
+<li>Umbenennen und Öffnen von Ordnern über das Kontextmenü korrigiert</li>
+<li>Fehlende visuelle Rückmeldung beim Bewegen im Seitenmodus mit nur einer Seite behoben</li>
+<li>Gelegentliches Hängenbleiben von Apps beim Bewegen behoben</li>
+<li>Gelegentliche Abstürze beim Deinstallieren von App Store-Apps behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.1.0</bdi></h2><time datetime="2026-06-05">5. Juni 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Apps lassen sich jetzt durch längeres Drücken oder über das Kontextmenü deinstallieren</li>
+<li>„Neu starten“ zum Statusleistenmenü und zum Kontextmenü hinzugefügt</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Symboldarstellung bei verschiedenen Auflösungen verbessert</li>
+<li>Schriftgröße der App-Namen verbessert</li>
+<li>Speichernutzung verbessert</li>
+<li>Traditionell-chinesische Übersetzung verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das Klicken auf freie Bereiche das Umbenennen einer App im Ordner nicht beendete</li>
+<li>Unbeabsichtigtes Schließen von Ordnern beim Bewegen enthaltener Apps behoben</li>
+<li>Fehlerhafte App-Symbole bei verschiedenen Auflösungen behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.0.1</bdi></h2><time datetime="2026-06-01">1. Juni 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Neue Einstellung zum Anzeigen von LaunchOS auf dem Display mit dem Dock</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Speichernutzung verbessert</li>
+<li>Erkennung angeschlossener und getrennter Displays bei mehreren Bildschirmen verbessert</li>
+<li>Symboldarstellung bei verschiedenen Auflösungen verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gelegentlich leere Seite nach dem Beenden der Suche behoben</li>
+<li>Fehlerhaftes Hintergrundbild bei aktivierter Option „Transparenz reduzieren“ behoben</li>
+<li>Fehlerhafte Position geöffneter Dateien nach dem Displaywechsel behoben</li>
+<li>Ein Problem behoben, durch das Control-Klick das Kontextmenü nicht öffnete</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.0.0</bdi></h2><time datetime="2026-05-26">26. Mai 2026</time></header>
+
+<div><h3>LaunchOS 2.0 ist da ✨</h3>
+<p>LaunchOS wurde von Grund auf neu entwickelt!<br> Version 2.0 verbessert Startgeschwindigkeit, Leistung, Animationen, Drag-and-drop und Displays mit hohen Bildwiederholraten – für ein schnelleres, flüssigeres und energieeffizienteres LaunchOS.<br> Wir sind sicher, dass dir diese Version gefällt. Lass uns wissen, was sich noch verbessern lässt. Wir arbeiten weiter an jedem Detail.</p>
+<img src="https://cdn.launchosapp.com/release/v200.jpg" alt="Neu in dieser Version — v2.0.0" loading="lazy">
+<h3>Neu</h3>
+<ul>
+<li>Apps lassen sich direkt oder über das Kontextmenü zum Dock hinzufügen</li>
+<li>Displays mit 120 Hz und mehr werden für flüssigeres Scrollen und Animationen unterstützt</li>
+<li>Das Raster unterstützt jetzt bis zu 15 × 15 Apps pro Seite</li>
+<li>Neue Animationen beim Öffnen und Schließen von Ordnern</li>
+<li>Nach dem Beenden der Suche kehrst du zur vorherigen Position zurück</li>
+<li>Beim Bewegen von Apps lassen sich Seiten schnell mit dem Mausrad wechseln</li>
+<li>Neue Einstellung zum Anzeigen ausgeblendeter Apps in Suchergebnissen</li>
+<li>Auch bei Sortierung nach Name lassen sich Ordner durch Bewegen von Apps erstellen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Deutlich schnelleres Laden beim ersten Start</li>
+<li>Deutlich verbesserte Leistung und flüssigere Animationen</li>
+<li>Neue adaptive Symbolgrößen für ausgewogene Darstellung bei verschiedenen Auflösungen</li>
+<li>Neue Rasterberechnung mit mehr Abstand bei vielen Spalten</li>
+<li>Die App-Liste aktualisiert sich nach Installationen und Deinstallationen automatisch</li>
+<li>Darstellung und Interaktion der Seitenanzeige verbessert</li>
+<li>Ordnerhintergründe an Liquid Glass angepasst</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Nicht verfügbare globale Suche bei geöffnetem Ordner behoben</li>
+<li>Ein Problem behoben, durch das nach dem Überspringen einer Version weiterhin ein Updatehinweis erschien</li>
+<li>Gelegentlich nicht funktionierende Geste „Schreibtisch anzeigen“ behoben</li>
+</ul>
+<h3>Demnächst</h3>
+<ul>
+<li>App-Deinstallation, kompakter Fenstermodus und viele Wünsche aus der Community folgen</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.7</bdi></h2><time datetime="2026-04-30">30. Apr. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Hebräisch hinzugefügt</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gelegentlich nicht funktionierendes Trackpad nach dem Ruhezustand behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.6</bdi></h2><time datetime="2026-04-09">9. Apr. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Italienisch hinzugefügt. Danke an <a href="http://filbatta.com/" target="_blank" rel="noopener noreferrer">@Filippo Battaglin</a> und @Alessio für die Übersetzung</li>
+<li>Arabisch hinzugefügt. Danke an @Hani Abughazaleh für die Übersetzung</li>
+</ul>
+<h3>Verbessert</h3>
+<ul>
+<li>Bei Aktivierung von LaunchOS durch Zuziehen mit fünf Fingern löst Zuziehen mit vier Fingern jetzt die Systemgeste aus</li>
+<li>Aktivierungshinweise verständlicher formuliert</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.5</bdi></h2><time datetime="2026-03-27">27. März 2026</time></header>
+
+<div><h3>Verbesserungen</h3>
+<ul>
+<li>Trackpad-Gestenerkennung und Animationen verbessert</li>
+<li>Hinweis beim Bewegen von Objekten außerhalb der eigenen Sortierung hinzugefügt</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gelegentlich nicht funktionierende Trackpad-Gesten behoben</li>
+<li>Nicht funktionierende F4-Taste auf einigen Modellen behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.4</bdi></h2><time datetime="2026-03-19">19. März 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>LaunchOS lässt sich jetzt mit der Systemtaste F4 öffnen</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Wiederholte Konflikthinweise durch aktive Ecken behoben</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Trackpad-Gestenerkennung verbessert</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.3</bdi></h2><time datetime="2026-02-28">28. Feb. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Schwedisch hinzugefügt. Danke an <a href="https://www.linkedin.com/in/cronberg/" target="_blank" rel="noopener noreferrer">@Marcus Cronberg</a> für die Übersetzung</li>
+<li>Indonesisch hinzugefügt. Danke an @Wicaksono für die Übersetzung</li>
+<li>Tschechisch hinzugefügt. Danke an @Honza Doležal für die Übersetzung</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Fehlerhafte Suchergebnisse behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.2</bdi></h2><time datetime="2026-02-25">25. Feb. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Polnisch hinzugefügt. Danke an @Jacek Dąbrowski für die Übersetzung</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Sortierung der Suchergebnisse verbessert</li>
+<li>Trackpad-Geste „Schreibtisch anzeigen“ verbessert</li>
+<li>Konflikte zwischen Zuziehen mit drei Fingern und der Systemgeste zum Bewegen mit drei Fingern verringert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das die Eingabetaste nach einer Suche gelegentlich keine App öffnete</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.1</bdi></h2><time datetime="2026-02-03">3. Feb. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Die Systemgeste „Schreibtisch anzeigen“ wird unterstützt; aktiviere sie in den Systemeinstellungen</li>
+<li>Warnung bei Konflikten zwischen aktiven Ecken von LaunchOS und des Systems hinzugefügt</li>
+<li>Hindi hinzugefügt. Danke an @Aagman für die Übersetzung</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Genauigkeit der Trackpad-Gestenerkennung verbessert</li>
+<li>Trackpad-Animationen bei sehr schnellen Gesten verbessert</li>
+<li>Portugiesisch (Brasilien) verbessert. Danke an @Elton für die Übersetzung</li>
+<li>Traditionelles Chinesisch verbessert. Danke an <a href="https://www.facebook.com/ray0604" target="_blank" rel="noopener noreferrer">@Yourui Wu</a> für die Übersetzung</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gelegentlich nicht funktionierende Trackpad-Gesten nach dem Start oder Aufwachen behoben</li>
+<li>Ein Problem behoben, durch das die Menüleiste bei schnellen Gesten gelegentlich sichtbar blieb</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.0</bdi></h2><time datetime="2026-01-27">27. Jan. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Verwaltung und Deaktivierung aktivierter Geräte hinzugefügt</li>
+<li>Neuer Tab „Erweitert“ in den Einstellungen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Beim Bewegen von Apps über das Kontextmenü werden Zielordner alphabetisch sortiert</li>
+<li>Portugiesisch (Brasilien) verbessert. Danke an @Elton für die Übersetzung</li>
+<li>Traditionelles Chinesisch verbessert. Danke an @李明元 für die Übersetzung</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Fehlenden automatischen Fokus im Umbenennungsfeld behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.4.0</bdi></h2><time datetime="2026-01-21">21. Jan. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Backups der Layoutdaten hinzugefügt</li>
+<li>Portugiesisch (Brasilien) hinzugefügt. Danke an @Elton für die Übersetzung</li>
+<li>Apps in Ordnern lassen sich mit der Tastatur auswählen</li>
+<li>Apps lassen sich mit einem Klick zum Dock hinzufügen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Scrollen mit dem Trackpad verbessert</li>
+<li>App-Erkennung für die Anzeige weiterer Apps verbessert</li>
+<li>Klickbereiche für das Suchfeld oben und die Einstellungstaste verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Nicht zentriertes Einführungsfenster behoben</li>
+<li>Verzögerte Anzeige geänderter Ordnernamen behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.3.0</bdi></h2><time datetime="2026-01-09">9. Jan. 2026</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Eigene Sortierung hinzugefügt</li>
+<li>Zeilen und Spalten lassen sich getrennt einstellen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>System-Apps lassen sich jetzt auch mit ihren englischen Namen suchen</li>
+<li>Traditionelles Chinesisch verbessert. Danke an @李明元 für die Übersetzung</li>
+<li>App-Leistung verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Flackern durch Konflikte zwischen aktiven Ecken und Systemmenüleiste in Vollbild-Apps behoben</li>
+<li>Unbeabsichtigtes Schließen von LaunchOS beim Einblenden der Systemmenüleiste in Vollbild-Apps behoben</li>
+<li>Ein Problem behoben, durch das „Zur Hauptseite zurückkehren“ im Scrollmodus nicht nach oben scrollte</li>
+<li>Ein Problem behoben, durch das beim Anmelden trotz stillem Start die Oberfläche erschien</li>
+<li>LaunchOS erscheint nicht mehr im App-Umschalter mit Cmd + Tab</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.4</bdi></h2><time datetime="2026-01-05">5. Jan. 2026</time></header>
+
+<div><h3>Fehlerbehebungen</h3>
+<ul>
+<li>Mehrfach gestartete Instanzen einiger Apps behoben</li>
+<li>Verschwindende Menüleiste beim Umschalten von „Dock-Symbol anzeigen“ behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.3</bdi></h2><time datetime="2025-12-31">31. Dez. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Automatisches Ausblenden der oberen Menüleiste hinzugefügt</li>
+<li>Neue Einstellung „Zur Hauptseite zurückkehren“ mit anpassbarem Verhalten</li>
+<li>Türkisch hinzugefügt. Danke an <a href="https://www.instagram.com/akaanbayazit/" target="_blank" rel="noopener noreferrer">@Ahmet Kaan Bayazit</a> für die Übersetzung</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Aktive Ecken bei mehreren Displays verbessert</li>
+<li>Fehlerhafte Seitenwechsel durch Scrollwerkzeuge anderer Anbieter verringert</li>
+<li>Eigene Symbole folgen jetzt automatisch dem Symbolstil des Systems</li>
+<li>Traditionelles Chinesisch verbessert. Danke an <a href="https://www.facebook.com/ray0604" target="_blank" rel="noopener noreferrer">@Yourui Wu</a> für die Übersetzung</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Startprobleme einiger Apps, etwa CapCut, behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.2</bdi></h2><time datetime="2025-12-19">19. Dez. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Eigene App-Quellen hinzugefügt</li>
+<li>Catalina-Raketensymbol zu den eigenen Symbolen hinzugefügt</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Einstellungsfenster überarbeitet</li>
+<li>Fortlaufendes Blättern mit Trackpad und Mausrad verbessert</li>
+<li>Eigene Symbole passen sich automatisch an helle und dunkle Darstellung an</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Fehlgeschlagenes Zurückwechseln vom eigenen zum Standardsymbol behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.1</bdi></h2><time datetime="2025-12-12">12. Dez. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Bulgarisch hinzugefügt. Danke an @Трифон Иванов für die Übersetzung</li>
+<li>Ukrainisch hinzugefügt. Danke an <a href="https://www.unibrix.com/" target="_blank" rel="noopener noreferrer">@Valera Oleksiienko</a> für die Übersetzung</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Schnellere Serverantworten in verschiedenen Regionen</li>
+<li>Fehlermeldungen bei der Aktivierung verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Nicht zentriertes Einstellungsfenster behoben</li>
+<li>Probleme beim Umbenennen von Apps in Ordnern behoben</li>
+<li>Verzögert verfügbare aktive Ecken nach dem Neustart des Mac behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.0</bdi></h2><time datetime="2025-12-04">4. Dez. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Öffnen von LaunchOS mit Trackpad-Gesten hinzugefügt</li>
+<li>Seitenwechsel mit den Seitentasten der Maus hinzugefügt</li>
+<li>Spanisch hinzugefügt. Danke an <a href="https://rodrigonavarrete.cl" target="_blank" rel="noopener noreferrer">@Rodrigo Navarrete</a> für die Übersetzung</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Empfindlichkeit aktiver Ecken verbessert</li>
+<li>Ressourcenverbrauch optimiert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Unerwartete Systemberechtigungsabfragen behoben</li>
+<li>Gelegentlich falsche Textfarben in Eingabefeldern behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.4</bdi></h2><time datetime="2025-11-30">30. Nov. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Dynamische Hintergrundbilder werden jetzt unterstützt</li>
+<li>Russisch hinzugefügt. Besonderer Dank an @Вадим Коровин</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Dauer des Gedrückthaltens zum Bewegen von Apps angepasst</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Verdeckten Bestätigungsdialog beim Beenden behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.3</bdi></h2><time datetime="2025-11-20">20. Nov. 2025</time></header>
+
+<div><h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das das Updatefenster nicht automatisch in den Vordergrund kam</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.2</bdi></h2><time datetime="2025-11-19">19. Nov. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>App-Aliase werden jetzt angezeigt</li>
+<li>Koreanisch hinzugefügt. Danke an @darang für die Übersetzung</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Bewegen von Apps verbessert, um unbeabsichtigte Aktionen beim Seitenwechsel zu vermeiden</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Flackern beim schnellen Öffnen und Schließen von LaunchOS behoben</li>
+<li>Nicht funktionierendes Bewegen von Apps über das Kontextmenü in Suchergebnissen behoben</li>
+<li>Darstellungsfehler beim Schreibtischwechsel mit drei Fingern behoben</li>
+<li>Ein Problem behoben, durch das App-Namen bei „Alle Dateinamensuffixe einblenden“ im Finder Suffixe enthielten</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.1</bdi></h2><time datetime="2025-11-10">10. Nov. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Japanisch und Deutsch hinzugefügt</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Verzögert aktualisierte App-Symbole nach Änderungen des Symbolstils behoben</li>
+<li>Ein Problem behoben, durch das der Schreibtisch nach dem Schließen nicht sofort aktiviert werden konnte</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.0</bdi></h2><time datetime="2025-11-07">7. Nov. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Ausblenden von Apps hinzugefügt</li>
+<li>Beim Bewegen einer App an den Rand der letzten Seite wird im Seitenmodus automatisch eine neue Seite erstellt</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>App-Größe optimiert</li>
+<li>Stabilität verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Ein Problem behoben, durch das LaunchOS bei anderen Vollbild-Apps nicht erschien</li>
+<li>Ein Problem behoben, durch das leere Ordner nach dem Bewegen von Apps nicht automatisch gelöscht wurden</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.0.0</bdi></h2><time datetime="2025-10-31">31. Okt. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Eigene App-Namen hinzugefügt</li>
+<li>Beim Ändern des Layouts lässt sich wählen, ob Apps neu angeordnet werden</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Neue Apps füllen im Seitenmodus freie Plätze und erscheinen im Scrollmodus am Ende</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Unvollständige Ordnerdarstellung behoben</li>
+<li>Absturz beim Bewegen von Apps ans Listenende behoben</li>
+<li>Gelegentliches Einfrieren beim Bewegen von Apps behoben</li>
+<li>Leere App-Symbole durch verzögerte Informationsaktualisierung behoben</li>
+<li>Fehlende Übersetzungen einiger Oberflächentexte ergänzt</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.5</bdi></h2><time datetime="2025-10-28">28. Okt. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Import der System-Launchpad-Daten hinzugefügt</li>
+<li>Das Display für LaunchOS lässt sich auswählen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Leistung verbessert und Ruckeln reduziert; weitere Verbesserungen folgen</li>
+<li>Installationspaket verkleinert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Nicht funktionierende Tastaturkurzbefehle cmd+a, cmd+c und cmd+v in Eingabefeldern behoben</li>
+<li>Ein Problem behoben, durch das geöffnete Ordner beim Beenden von LaunchOS nicht automatisch geschlossen wurden</li>
+<li>Nicht funktionierenden Rechtsklick auf leere Ordner behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.4</bdi></h2><time datetime="2025-10-20">20. Okt. 2025</time></header>
+
+<div><h3>Verbesserungen</h3>
+<ul>
+<li>Suche mit englischen und Pinyin-Anfangsbuchstaben verbessert, etwa „as“ → Apple Store und „jsq“ → Rechner「计算器」</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Darstellung im hellen Systemmodus verbessert</li>
+<li>Leere Seiten durch Bewegen im Seitenmodus behoben</li>
+<li>Darstellungsfehler bei mehreren Displays behoben</li>
+<li>Fehlende Zielordner im App-Kontextmenü bei geöffnetem Ordner behoben</li>
+<li>Suche im Seitenmodus korrigiert</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.3</bdi></h2><time datetime="2025-10-16">16. Okt. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Updates innerhalb der App hinzugefügt</li>
+<li>Anpassbarer Hintergrund</li>
+<li>Anpassbares LaunchOS-App-Symbol</li>
+<li>Neue Tastaturkurzbefehle: cmd+, für Einstellungen, cmd+q zum Beenden und cmd+←/→ zum Seitenwechsel</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Starten und Wechseln von Apps beschleunigt</li>
+<li>Bewegen innerhalb von Ordnern verbessert</li>
+<li>Stillen Start bei der Anmeldung verbessert</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Gelegentlich nicht funktionierendes Bewegen im Scrollmodus behoben</li>
+<li>Fehlenden Zeiger und gelegentliche Abstürze beim Bearbeiten von Ordnern behoben</li>
+<li>Unterschiedlich breite freie Bereiche bei links oder rechts platziertem Dock behoben</li>
+<li>Verzögert aktualisiertes Hintergrundbild behoben</li>
+<li>_(:з」∠)_</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.2</bdi></h2><time datetime="2025-10-11">11. Okt. 2025</time></header>
+
+<div><h3>Neu</h3>
+<ul>
+<li>Öffnen von LaunchOS über aktive Ecken hinzugefügt</li>
+<li>Französisch hinzugefügt. Danke an @Cyril Guislain für die Übersetzung</li>
+<li>Einstellungen lassen sich über einen Rechtsklick auf das Menüleistensymbol öffnen</li>
+</ul>
+<h3>Verbesserungen</h3>
+<ul>
+<li>Erneutes Drücken des Tastaturkurzbefehls schließt LaunchOS</li>
+<li>Die Einstellungen folgen jetzt der hellen oder dunklen Systemdarstellung</li>
+<li>Das Einstellungsfenster lässt sich mit ESC schließen</li>
+<li>Das Einstellungsfenster lässt sich auch durch Klicken außerhalb schließen</li>
+<li>Oberflächendetails und visuelle Einheitlichkeit verbessert</li>
+<li>LaunchOS erscheint immer auf dem Hauptdisplay statt auf dem aktiven Display</li>
+<li>Leistung verbessert und Ruckeln reduziert; weitere Verbesserungen folgen</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.1</bdi></h2><time datetime="2025-09-30">30. Sept. 2025</time></header>
+
+<div><h3>Verbesserungen</h3>
+<ul>
+<li>Leistung verbessert und Ruckeln reduziert; weitere Verbesserungen folgen</li>
+</ul>
+<h3>Fehlerbehebungen</h3>
+<ul>
+<li>Nach Änderungen am Raster fehlende Apps behoben</li>
+<li>Nicht funktionierenden Seitenwechsel mit Logitech-Mäusen und Logi Options+ behoben</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.0</bdi></h2><time datetime="2025-09-28">28. Sept. 2025</time></header>
+
+<div><ul>
+<li>Die erste öffentliche Testversion ist da!</li>
+<li>Trotz vieler Korrekturen kann diese Version noch Probleme enthalten. Eure Rückmeldungen helfen uns, sie weiter zu verbessern.</li>
+</ul></div>
+</section>
+
+</body>
+</html>

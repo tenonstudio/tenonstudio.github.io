@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://launchosapp.com/favicon.svg" type="image/svg+xml">
+  <title>Mac用LaunchOS — リリースノート</title>
+  <meta name="description" content="Mac用LaunchOSの新機能、改善点、不具合の修正をバージョンごとに紹介します。">
+  <link rel="canonical" href="https://launchosapp.com/release.ja">
+  <style>
+    /* CSS Variables for Light Mode (Default) */
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: rgba(0, 0, 0, 0.6);
+      --text-tertiary: rgba(0, 0, 0, 0.8);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --tag-bg: #d7f59d;
+      --tag-text: #000000;
+      --list-marker: #90b842;
+    }
+
+    /* CSS Variables for Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1c1c1e;
+        --text-primary: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.6);
+        --text-tertiary: rgba(255, 255, 255, 0.8);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --tag-bg: #3a4a2b;
+        --tag-text: #d7f59d;
+        --list-marker: #7fb069;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+    }
+
+    time {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-inline-start: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    section {
+      position: relative;
+      margin-bottom: 64px;
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -32px;
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    ul {
+      padding-inline-start: 16px;
+      margin-bottom: 24px;
+    }
+
+    ul li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      text-align: start;
+      margin-bottom: 8px;
+    }
+
+    ul li a {
+      color: var(--list-marker) !important;
+      text-decoration: none;
+    }
+
+    ul li::marker {
+      color: var(--list-marker);
+    }
+
+    .release-version .latest-tag {
+      margin-inline-start: 8px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--tag-text);
+      background-color: var(--tag-bg);
+    }
+
+    /* Responsive font sizes for Sparkle update framework */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      time,
+      h3,
+      p,
+      ul li {
+        font-size: 12px;
+      }
+
+      span,
+      .release-version .latest-tag {
+        font-size: 11px;
+      }
+
+      section {
+        margin-bottom: 48px;
+      }
+
+      section::after {
+        bottom: -24px;
+      }
+
+      header {
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      ul {
+        margin-bottom: 16px;
+      }
+
+      ul li {
+        margin-bottom: 6px;
+      }
+    }
+
+html[dir="rtl"] h2, time { unicode-bidi: isolate; }
+</style>
+</head>
+<body>
+<section>
+<header><h2><bdi dir="ltr">v2.5.0</bdi><span class="latest-tag">最新</span></h2><time datetime="2026-11-02">2026年11月2日</time></header>
+
+<div><h3>小さなバージョンアップ、大きな進化 ⛰️</h3>
+<p>このアップデートでは、多くの新機能が加わりました。LaunchOSの改善につながるご意見やアイデアをお寄せいただいた皆様に感謝いたします。</p>
+<img src="https://cdn.launchosapp.com/release/v250.jpg" alt="アップデートの主な内容 — v2.5.0" loading="lazy">
+<h3>新機能</h3>
+<ul>
+<li>DockのLaunchOSアイコンを右クリックすると、すべてのアプリや最近使ったアプリにアクセスできるようになりました。ランチャーを開く必要はありません</li>
+<li>標準の「カレンダー」アプリのアイコンに現在の日付が表示されるようになりました</li>
+<li>タッチスクリーン搭載MacBook（実機では未検証）と、Sidecar使用時のiPadでのタッチ操作に対応しました</li>
+<li>Dockのグリッドとロケットのアイコンがクリアと色合い調整の外観に対応しました</li>
+<li>メニューバーのアイコンにグリッドとロケットのスタイルを追加しました</li>
+<li>使用頻度でアプリを自動的に並べ替えるオプションを追加しました</li>
+<li>誤って閉じるのを防ぐため、「空白部分をクリックして閉じる」をオフにできるようになりました</li>
+<li>ベータ版を受信するか選べるアップデート設定を追加しました</li>
+<li>他社製のLaunchpad代替アプリからレイアウトを復元できるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アプリのアンインストール時に、システム設定に残った関連項目も削除するよう改善しました</li>
+<li>ショートカットの記録が標準のファンクションキーF1–F12に対応しました</li>
+<li>フォルダを開閉するアニメーションを改善しました</li>
+<li>右から左に書く言語のインターフェイスレイアウトを改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>記録したショートカットがまれに機能しない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.4.1</bdi></h2><time datetime="2026-10-22">2026年10月22日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>レイアウトをデフォルトの状態にリセットするオプションを追加しました</li>
+<li>選択した複数のアプリをReturnキーやコンテクストメニューでまとめて開けるようになりました</li>
+<li>カスタムのアプリソースで、入れ子になったアプリのスキャンに対応しました</li>
+<li>Command + ↑とCommand + ↓で先頭や末尾にすばやくスクロールできるようになりました</li>
+<li>アプリをゴミ箱にドラッグしてアンインストールできるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>スペイン語の翻訳を改善しました</li>
+<li>ロシア語での検索を改善しました</li>
+<li>ログイン時に起動する設定を有効にできない場合、具体的な理由を表示するよう改善しました</li>
+<li>スクロールモードで端にドラッグすると自動スクロールするよう改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>複数選択したアプリをページの端にドラッグしても、新しいページが作成されないことがある問題を修正しました</li>
+<li>アプリの読み込み中にすぐジェスチャを使うと、まれに反応しなくなる問題を修正しました</li>
+<li>特定の状況でリソース使用量が異常になる問題を修正しました</li>
+<li>Caps Lockがオンのとき、Commandキーによる複数選択やドラッグ選択が機能しなくなる問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.4.0</bdi></h2><time datetime="2026-09-23">2026年9月23日</time></header>
+
+<div><h3>複数選択と一括操作が登場！👏</h3>
+<p>⌘（Command）キーを押しながらクリックまたはドラッグすると、複数のアプリやフォルダを選択して、まとめて並べ替え、移動、非表示にできます。</p>
+<img src="https://cdn.launchosapp.com/release/v240.jpg" alt="アップデートの主な内容 — v2.4.0" loading="lazy">
+<h3>新機能</h3>
+<ul>
+<li>複数選択を追加し、ドラッグでの一括並べ替え、ページ間の移動、フォルダ作成、アプリの非表示に対応しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>ドラッグや非表示などの操作がより自然で滑らかになるよう、アニメーションを改善しました</li>
+<li>アンインストール時のスキャン範囲を広げ、関連ファイルの見落としを減らしました</li>
+<li>コンテクストメニューの「Dockに追加」の操作性を改善しました</li>
+<li>macOS 27でのガラスエフェクトの表示を改善しました</li>
+<li>macOS 27でのアプリアイコンの描画を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>SafariのWebアプリをアンインストールするときに発生することがある問題を修正しました</li>
+<li>macOS 27でページインジケータをクリックできない問題を修正しました</li>
+<li>アプリを終了するキーボードショートカットとの競合を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.3.1</bdi></h2><time datetime="2026-09-15">2026年9月15日</time></header>
+
+<div><h3>改善</h3>
+<ul>
+<li>アプリを新たに起動した後のアイコンの読み込みを高速化しました</li>
+<li>フランス語でアクセント記号の有無を区別せずに検索できるよう改善しました</li>
+<li>壁紙のぼかし処理を改善し、表示品質を向上しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>macOS 27の特定の状況でジェスチャが反応しなくなる問題を修正しました</li>
+<li>一部のシステムバージョンで初期設定画面のアイコンが表示されない問題を修正しました</li>
+<li>ピンチジェスチャの終了後、まれにアプリのウインドウがちらつく問題を修正しました</li>
+<li>一部の言語でテキストが途切れる問題を修正しました</li>
+<li>アップデートダイアログがメインウインドウの背後に隠れると操作できなくなる問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.3.0</bdi></h2><time datetime="2026-08-21">2026年8月21日</time></header>
+
+<div><h3>ワンクリックでレイアウトを整理！</h3>
+<p>名前、日付、色、Appleのアプリを優先などの条件で、すべてのアプリをすぐに整理できます。その後、お好みに合わせて細かく調整することもできます。</p>
+<img src="https://cdn.launchosapp.com/release/v230.jpg" alt="アップデートの主な内容 — v2.3.0" loading="lazy">
+<h3>新機能</h3>
+<ul>
+<li>「レイアウトを再整理」を追加し、選択したルールに従ってアプリやフォルダをすばやく並べ替えられるようになりました</li>
+<li>アップデートの自動確認と自動ダウンロードを個別に設定できるようになりました</li>
+<li>アプリ名やフォルダ名を非表示にする設定を追加しました</li>
+<li>システムの壁紙のぼかし具合を調整する設定を追加しました</li>
+<li>ページモードで、コンテクストメニューからアプリやフォルダを指定のページにすばやく移動できるようになりました</li>
+<li>レイアウトのバックアップを書き出す際にファイル名を指定でき、区別や管理がしやすくなりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>繁体字中国語の翻訳を改善し、表現を統一しました</li>
+<li>中国語入力ソース使用時の検索を改善し、アプリをより確実に検索できるようにしました</li>
+<li>アプリアイコンの描画を改善し、鮮明に表示されるようにしました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>ディスプレイの接続や取り外し後に、インターフェイスが正しく表示されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.2.1</bdi></h2><time datetime="2026-08-04">2026年8月4日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>Optionキーを押し続けてアンインストールモードに切り替える設定を追加しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>ホットキーとアンインストールモードの競合検出と対処を改善しました</li>
+<li>「メインページに戻る」機能に説明を追加しました</li>
+<li>ウインドウのアニメーションを改善しました</li>
+<li>アプリアイコンの更新を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>一部のアプリが表示されない問題を修正しました</li>
+<li>入力ソースで文字を変換中にReturnキーを押すと、意図せずアプリが開く問題を修正しました</li>
+<li>macOS 27でのアクセシビリティ権限の問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.2.0</bdi></h2><time datetime="2026-07-13">2026年7月13日</time></header>
+
+<div><p>軽快でモダンなウインドウモードが登場 🚀<br> カスタムの並べ替えやフォルダに加え、macOS 26と27の効率的で集中しやすい操作環境を楽しめます。</p>
+<img src="https://cdn.launchosapp.com/release/v220.jpg" alt="アップデートの主な内容 — v2.2.0" loading="lazy">
+<h3>新機能</h3>
+<ul>
+<li>LaunchOSを軽快なウインドウで使えるウインドウモードを追加しました</li>
+<li>フォルダ内の空白部分をクリックしてフォルダを閉じられるようになり、操作が自然になりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アプリのスキャン処理を改善し、アプリ一覧の更新を安定させました</li>
+<li>初めての操作が分かりやすくなるよう、初期設定画面のデザインを改善しました</li>
+<li>macOS 27のガラスエフェクトを改善し、より自然な表示にしました</li>
+<li>プライバシーポリシーを更新しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>ページモードでドラッグしてページを作成すると、ちらつくことがある問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.1.3</bdi></h2><time datetime="2026-06-28">2026年6月28日</time></header>
+
+<div><h3>改善</h3>
+<ul>
+<li>アプリのスキャン処理を改善し、同じアプリの複数バージョンを表示しやすくしました</li>
+<li>外部ディスクを再マウントした際に、保存されていたアプリの位置や状態を自動的に復元するよう改善しました</li>
+<li>トラックパッドのジェスチャ認識を改善し、手のひらによる誤操作やまれに反応しなくなる問題を減らしました</li>
+<li>システムのアイコンスタイルを変更すると自動的にアプリアイコンを更新し、待ち時間を短縮するよう改善しました</li>
+<li>ドラッグでの並べ替えを改善し、一覧末尾の空白部分にアプリを移動できるようになりました</li>
+<li>アップデートダイアログがほかのウインドウの背後に隠れにくくなるよう改善しました</li>
+<li>検索結果のアプリをDockに直接ドラッグできるようになりました</li>
+<li>macOSのアプリのエイリアスの表示を改善し、誤ったアイコンが表示されることを減らしました</li>
+<li>一部のテキストの多言語翻訳を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>システムのユーザを切り替えた後に発生することがあるジェスチャの競合を修正しました</li>
+<li>アンインストール中に一部のファイルの削除に失敗すると、削除対象の一覧が空になる問題を修正しました</li>
+<li>設定画面でアクセシビリティ権限の状態がすぐに更新されない問題を修正しました</li>
+<li>ユーザまたはシステムがアクセシビリティ権限を取り消した後、動作が異常になる問題を修正しました</li>
+<li>アプリアイコンがまれに大きく表示される問題を修正しました</li>
+<li>macOS 27.0で状態の検出が正しく行われず、ジェスチャに問題が生じる不具合を修正しました</li>
+<li>macOS 27.0の壁紙モードで、ページ切り替えアニメーションのフレームが落ちる問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.1.1</bdi></h2><time datetime="2026-06-11">2026年6月11日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>macOS 27.0のアプリアイコンに対応しました</li>
+<li>アプリのコンテクストメニューに「情報を見る」を追加しました</li>
+<li>Optionキーを押し続けてアンインストールモードにすばやく切り替えられるようになりました</li>
+<li>マウスの横スクロールでページを切り替えられるようになりました</li>
+<li>マウスのサイドボタンでページを切り替えられるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>初回の並べ替えルールを改善し、デフォルトでシステムアプリを先に表示するようにしました</li>
+<li>壁紙のぼかしを改善し、より自然な表示にしました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>macOS 27.0で壁紙が正しく表示されない問題を修正しました</li>
+<li>macOS 27.0でシステムのメニューバーを右クリックできない問題を修正しました</li>
+<li>macOS 27.0で指を広げるジェスチャが機能しない問題を修正しました</li>
+<li>右クリックメニューから名前の変更やフォルダを開く操作ができない問題を修正しました</li>
+<li>ページが1つだけのページモードで、ドラッグ操作の視覚的な反応がない問題を修正しました</li>
+<li>アプリのドラッグ中にまれに動かなくなる問題を修正しました</li>
+<li>App Storeのアプリをアンインストールすると、まれにクラッシュする問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.1.0</bdi></h2><time datetime="2026-06-05">2026年6月5日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>アプリのアンインストールを追加しました。長押しや右クリックメニューから利用できます</li>
+<li>ステータスバーのメニューとコンテクストメニューに「再起動」を追加しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>解像度ごとのアイコン表示を改善しました</li>
+<li>アプリ名の文字サイズを改善しました</li>
+<li>メモリ使用量を改善しました</li>
+<li>繁体字中国語の翻訳を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>フォルダ内でアプリ名を変更するときに、空白部分をクリックしても編集が終了しない問題を修正しました</li>
+<li>フォルダ内でアプリをドラッグすると、フォルダが閉じてしまう問題を修正しました</li>
+<li>解像度によってアプリアイコンが正しく表示されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.0.1</bdi></h2><time datetime="2026-06-01">2026年6月1日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>Dockが表示されている画面にLaunchOSを表示する設定を追加しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>メモリ使用量を改善しました</li>
+<li>複数ディスプレイ使用時の接続と取り外しの検出を改善しました</li>
+<li>解像度ごとのアイコン表示を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>検索を終了した後、まれにページが空白になる問題を修正しました</li>
+<li>「透明度を下げる」をオンにすると、壁紙が正しく表示されない問題を修正しました</li>
+<li>ディスプレイを切り替えると、開いているファイルの位置が正しく表示されない問題を修正しました</li>
+<li>Controlキーを押しながらクリックしてもコンテクストメニューが開かない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v2.0.0</bdi></h2><time datetime="2026-05-26">2026年5月26日</time></header>
+
+<div><h3>LaunchOS 2.0登場 ✨</h3>
+<p>生まれ変わったLaunchOSが登場しました。アプリを基礎から全面的に再構築しました。<br> v2.0では起動速度、実行時のパフォーマンス、アニメーション、ドラッグ操作、高リフレッシュレートディスプレイへの対応を大幅に改善し、より速く滑らかで省電力な体験をお届けします。<br> ぜひ新しいバージョンをお試しください。気になる点があればお知らせください。これからも丁寧に改善を続けます。</p>
+<img src="https://cdn.launchosapp.com/release/v200.jpg" alt="アップデートの主な内容 — v2.0.0" loading="lazy">
+<h3>新機能</h3>
+<ul>
+<li>アプリをDockにドラッグするかコンテクストメニューから追加して、よく使うアプリを簡単に整理できます</li>
+<li>120Hz以上のディスプレイに対応し、スクロールとアニメーションが滑らかになりました</li>
+<li>グリッドの上限を15 × 15に拡大し、1ページにより多くのアプリを表示できるようになりました</li>
+<li>フォルダを開閉する新しいアニメーションで、操作の反応が自然になりました</li>
+<li>検索終了後に元の位置に戻るようになり、アプリを探しても表示位置を見失いません</li>
+<li>アプリのドラッグ中にマウスホイールでページをすばやく切り替え、ページ間の移動を効率化できます</li>
+<li>非表示のアプリを検索結果に表示するか選べる設定を追加しました</li>
+<li>名前順での並べ替え中も、アプリをドラッグしてフォルダを作成できるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>初回起動時の読み込みを大幅に高速化しました</li>
+<li>実行中のパフォーマンスとアニメーションの滑らかさを大幅に改善しました</li>
+<li>アイコンのサイズ調整ルールを見直し、解像度ごとの大きさのバランスを改善しました</li>
+<li>アイコングリッドの計算方法を見直し、列数が多いときは間隔を適切に広げるようにしました</li>
+<li>アプリのスキャンを改善し、インストールやアンインストール後に一覧を自動更新するようにしました</li>
+<li>ページインジケータの表示と操作時のエフェクトを改善しました</li>
+<li>フォルダの背景素材をLiquid Glassのエフェクトに合わせました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>フォルダを開いている間、全体を検索できない問題を修正しました</li>
+<li>バージョンをスキップしても新しいバージョンの印が残る問題を修正しました</li>
+<li>「デスクトップを表示」ジェスチャが一部の状況で機能しない問題を修正しました</li>
+</ul>
+<h3>今後の予定</h3>
+<ul>
+<li>アプリのアンインストール、コンパクトなウインドウモードなど、皆様から寄せられた機能も順次追加予定です</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.7</bdi></h2><time datetime="2026-04-30">2026年4月30日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>ヘブライ語に対応しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>Macのスリープ後、トラックパッドがまれに反応しなくなる問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.6</bdi></h2><time datetime="2026-04-09">2026年4月9日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>イタリア語に対応しました。翻訳にご協力いただいた<a href="http://filbatta.com/" target="_blank" rel="noopener noreferrer">@Filippo Battaglin</a>と@Alessioに感謝いたします</li>
+<li>アラビア語に対応しました。翻訳にご協力いただいた@Hani Abughazalehに感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>トラックパッドのジェスチャを改善しました。5本指のピンチでLaunchOSを開く設定では、4本指のピンチでシステムのジェスチャが実行されます</li>
+<li>アクティベーションの案内を改善し、意味を明確にしました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.5</bdi></h2><time datetime="2026-03-27">2026年3月27日</time></header>
+
+<div><h3>改善</h3>
+<ul>
+<li>トラックパッドのジェスチャ処理とアニメーションを改善しました</li>
+<li>カスタム順以外で項目をドラッグした場合に案内を表示するようにしました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>トラックパッドのジェスチャがまれに機能しない問題を修正しました</li>
+<li>一部の機種でF4キーが機能しない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.4</bdi></h2><time datetime="2026-03-19">2026年3月19日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>システムのF4キーでLaunchOSを開けるようになりました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>ホットコーナーの競合の警告が繰り返し表示される問題を修正しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>トラックパッドのジェスチャ処理を改善しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.3</bdi></h2><time datetime="2026-02-28">2026年2月28日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>スウェーデン語に対応しました。翻訳にご協力いただいた<a href="https://www.linkedin.com/in/cronberg/" target="_blank" rel="noopener noreferrer">@Marcus Cronberg</a>に感謝いたします</li>
+<li>インドネシア語に対応しました。翻訳にご協力いただいた@Wicaksonoに感謝いたします</li>
+<li>チェコ語に対応しました。翻訳にご協力いただいた@Honza Doležalに感謝いたします</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>検索結果が正しく表示されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.2</bdi></h2><time datetime="2026-02-25">2026年2月25日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>ポーランド語に対応しました。翻訳にご協力いただいた@Jacek Dąbrowskiに感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>検索結果の表示順を改善しました</li>
+<li>トラックパッドの「デスクトップを表示」ジェスチャを改善しました</li>
+<li>3本指のピンチとシステムの3本指でのドラッグが競合しないよう、ジェスチャ処理を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>検索後にReturnキーを押してもアプリが開かないことがある問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.1</bdi></h2><time datetime="2026-02-03">2026年2月3日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>トラックパッドの「デスクトップを表示」ジェスチャに対応しました。システム設定でオンにしてください</li>
+<li>LaunchOSとシステムのホットコーナーが競合する場合に警告を表示するようにしました</li>
+<li>ヒンディー語に対応しました。翻訳にご協力いただいた@Aagmanに感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>トラックパッドのジェスチャ認識の精度を改善しました</li>
+<li>すばやくジェスチャを行ってもアニメーションに問題が生じないよう改善しました</li>
+<li>ポルトガル語（ブラジル）を改善しました。翻訳にご協力いただいた@Eltonに感謝いたします</li>
+<li>繁体字中国語を改善しました。翻訳にご協力いただいた<a href="https://www.facebook.com/ray0604" target="_blank" rel="noopener noreferrer">@Yourui Wu</a>に感謝いたします</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>起動後やスリープ解除後、トラックパッドのジェスチャが機能しなくなる問題を修正しました</li>
+<li>すばやくジェスチャを行うと、メニューバーが隠れないことがある問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.5.0</bdi></h2><time datetime="2026-01-27">2026年1月27日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>アクティベートしたデバイスの管理とアクティベーション解除に対応しました</li>
+<li>設定に「詳細」タブを追加しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>右クリックでアプリをフォルダに移動するとき、フォルダを名前順に表示するようにしました</li>
+<li>ポルトガル語（ブラジル）を改善しました。翻訳にご協力いただいた@Eltonに感謝いたします</li>
+<li>繁体字中国語を改善しました。翻訳にご協力いただいた@李明元に感謝いたします</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>名前の変更欄に自動的にフォーカスが当たらない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.4.0</bdi></h2><time datetime="2026-01-21">2026年1月21日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>レイアウトデータのバックアップに対応しました</li>
+<li>ポルトガル語（ブラジル）に対応しました。翻訳にご協力いただいた@Eltonに感謝いたします</li>
+<li>キーボードでフォルダ内のアプリを選択できるようになりました</li>
+<li>ワンクリックでアプリをDockに追加できるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>トラックパッドのスクロールを改善しました</li>
+<li>アプリのスキャンを改善し、表示できるアプリを増やしました</li>
+<li>上部の検索欄と設定ボタンのクリック可能な範囲を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>初期設定ウインドウが中央に表示されない問題を修正しました</li>
+<li>変更したフォルダ名がすぐに反映されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.3.0</bdi></h2><time datetime="2026-01-09">2026年1月9日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>カスタムの並べ替えを追加しました</li>
+<li>グリッドの行数と列数を個別に設定できるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>英語名でシステムアプリを直接検索できるよう改善しました</li>
+<li>繁体字中国語を改善しました。翻訳にご協力いただいた@李明元に感謝いたします</li>
+<li>アプリのパフォーマンスを改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>フルスクリーンのアプリでホットコーナーとシステムのメニューバーが競合し、ちらつく問題を修正しました</li>
+<li>フルスクリーンのアプリでシステムのメニューバーが表示されると、LaunchOSが閉じる問題を修正しました</li>
+<li>「ホームに戻る」を使ってもスクロール位置が先頭に戻らない問題を修正しました</li>
+<li>ログイン時に画面が表示され、バックグラウンドで起動しない問題を修正しました</li>
+<li>Cmd + Tabのアプリ切り替えにLaunchOSが表示される問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.4</bdi></h2><time datetime="2026-01-05">2026年1月5日</time></header>
+
+<div><h3>修正</h3>
+<ul>
+<li>一部のアプリを起動すると、複数のインスタンスが開く問題を修正しました</li>
+<li>「Dockアイコンを表示」を切り替えると、メニューバーが消える問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.3</bdi></h2><time datetime="2025-12-31">2025年12月31日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>上部のメニューバーを自動的に隠す機能を追加しました</li>
+<li>「ホームに戻る」設定を追加し、戻り方をカスタマイズできるようになりました</li>
+<li>トルコ語に対応しました。翻訳にご協力いただいた<a href="https://www.instagram.com/akaanbayazit/" target="_blank" rel="noopener noreferrer">@Ahmet Kaan Bayazit</a>に感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>複数ディスプレイでのホットコーナーの動作を改善しました</li>
+<li>他社製スクロールツールによる異常な動作を防ぐため、ページのスクロール処理を改善しました</li>
+<li>カスタムアイコンの表示を改善し、システムのアイコンスタイルに自動的に合わせるようにしました</li>
+<li>繁体字中国語を改善しました。翻訳にご協力いただいた<a href="https://www.facebook.com/ray0604" target="_blank" rel="noopener noreferrer">@Yourui Wu</a>に感謝いたします</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>一部のアプリ（CapCutなど）が開かない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.2</bdi></h2><time datetime="2025-12-19">2025年12月19日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>カスタムのアプリソースに対応しました</li>
+<li>カスタムアイコンにCatalinaのロケットを追加しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>設定ウインドウのスタイルを改善しました</li>
+<li>トラックパッドやマウスのスクロールで、ページを連続して切り替えられるよう改善しました</li>
+<li>カスタムアイコンがライトとダークの外観に自動的に対応するようになりました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>カスタムアイコンからデフォルトのアイコンに戻しても反映されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.1</bdi></h2><time datetime="2025-12-12">2025年12月12日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>ブルガリア語に対応しました。翻訳にご協力いただいた@Трифон Ивановに感謝いたします</li>
+<li>ウクライナ語に対応しました。翻訳にご協力いただいた<a href="https://www.unibrix.com/" target="_blank" rel="noopener noreferrer">@Valera Oleksiienko</a>に感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>各地域からのサーバの応答速度を改善しました</li>
+<li>アクティベーションに失敗した理由の説明を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>設定ウインドウが中央に表示されない問題を修正しました</li>
+<li>フォルダ内でアプリ名を変更するときの問題を修正しました</li>
+<li>Macの再起動直後、ホットコーナーが機能しないことがある問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.2.0</bdi></h2><time datetime="2025-12-04">2025年12月4日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>トラックパッドのジェスチャでLaunchOSを開けるようになりました</li>
+<li>マウスのサイドボタンでページを移動できるようになりました</li>
+<li>スペイン語に対応しました。翻訳にご協力いただいた<a href="https://rodrigonavarrete.cl" target="_blank" rel="noopener noreferrer">@Rodrigo Navarrete</a>に感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>ホットコーナーの感度を改善しました</li>
+<li>リソース使用量を最適化しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>システムの権限要求が予期せず表示されることがある問題を修正しました</li>
+<li>入力欄の文字色が正しく表示されないことがある問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.4</bdi></h2><time datetime="2025-11-30">2025年11月30日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>ダイナミック壁紙に対応しました</li>
+<li>ロシア語に対応しました。@Вадим Коровинに感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アプリをドラッグする際の長押し時間を調整しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>終了確認のダイアログが最前面に表示されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.3</bdi></h2><time datetime="2025-11-20">2025年11月20日</time></header>
+
+<div><h3>修正</h3>
+<ul>
+<li>アップデートウインドウが自動的に最前面に表示されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.2</bdi></h2><time datetime="2025-11-19">2025年11月19日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>アプリのエイリアスの表示に対応しました</li>
+<li>韓国語に対応しました。翻訳にご協力いただいた@darangに感謝いたします</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>ページを切り替えるときに誤操作が起こりにくいよう、アプリのドラッグを改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>Launchpadをすばやく開閉すると、ちらつくことがある問題を修正しました</li>
+<li>検索結果で右クリックしてアプリを移動できない問題を修正しました</li>
+<li>3本指のスワイプでデスクトップを切り替えたときの表示の問題を修正しました</li>
+<li>Finderで「すべてのファイル名拡張子を表示」をオンにすると、アプリ名に拡張子が表示される問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.1</bdi></h2><time datetime="2025-11-10">2025年11月10日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>日本語とドイツ語に対応しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アイコンスタイルを変更してもアプリアイコンがすぐに更新されない問題を修正しました</li>
+<li>閉じた後にデスクトップをすぐにアクティブにできない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.1.0</bdi></h2><time datetime="2025-11-07">2025年11月7日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>アプリの非表示に対応しました</li>
+<li>ページモードで最後のページの端にアプリをドラッグすると、新しいページが自動的に作成されるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アプリのサイズを最適化しました</li>
+<li>アプリの安定性を改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>ほかのアプリがフルスクリーンのときにLaunchOSが表示されない問題を修正しました</li>
+<li>アプリを移動した後、空になったフォルダが自動削除されない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">v1.0.0</bdi></h2><time datetime="2025-10-31">2025年10月31日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>アプリ名のカスタマイズに対応しました</li>
+<li>レイアウトを変更するときに、アプリを並べ直すか選べるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アプリの配置を改善し、ページモードでは空きのあるページに、スクロールモードでは末尾に追加するようにしました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>フォルダの一部が表示されない問題を修正しました</li>
+<li>一覧の末尾にアプリをドラッグするとクラッシュする問題を修正しました</li>
+<li>アプリのドラッグ中にまれに操作が止まる問題を修正しました</li>
+<li>情報の更新が遅れるとアプリアイコンが空白になる問題を修正しました</li>
+<li>一部のインターフェイスの翻訳漏れを修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.5</bdi></h2><time datetime="2025-10-28">2025年10月28日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>システムのLaunchpadデータの読み込みに対応しました</li>
+<li>LaunchOSを表示する画面を指定できるようになりました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>パフォーマンスを最適化しました。今後も改善を続けます</li>
+<li>インストーラのサイズを縮小しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>入力欄でショートカット（cmd+a、cmd+c、cmd+v）が機能しない問題を修正しました</li>
+<li>LaunchOS終了時に、開いていたフォルダが自動的に閉じない問題を修正しました</li>
+<li>空のフォルダを右クリックしても反応しない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.4</bdi></h2><time datetime="2025-10-20">2025年10月20日</time></header>
+
+<div><h3>改善</h3>
+<ul>
+<li>英語やピンインの頭文字で検索できるよう改善しました（例：「as」→ Apple Store、「jsq」→ 計算機「计算器」）</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>システムのライトモードでの表示を改善しました</li>
+<li>ページモードでドラッグするとページが空白になる問題を修正しました</li>
+<li>複数ディスプレイでの表示の問題を修正しました</li>
+<li>フォルダが開いているときに、右クリックで移動先のフォルダを選べない問題を修正しました</li>
+<li>ページモードでの検索の動作を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.3</bdi></h2><time datetime="2025-10-16">2025年10月16日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>アプリ内アップデートに対応しました</li>
+<li>背景をカスタマイズできるようになりました</li>
+<li>LaunchOSのアプリアイコンをカスタマイズできるようになりました</li>
+<li>ショートカットを追加しました（cmd+,：設定、cmd+q：終了、cmd+←/→：ページ切り替え）</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>アプリの起動と切り替えのパフォーマンスを改善しました</li>
+<li>フォルダ内のドラッグ操作を最適化しました</li>
+<li>ログイン時に画面を表示せず起動するよう改善しました</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>スクロールモードでドラッグ操作が機能しないことがある問題を修正しました</li>
+<li>フォルダの編集中にカーソルが表示されない問題と、まれにクラッシュする問題を修正しました</li>
+<li>Dockを左右に配置したときに、空白部分の幅が揃わない問題を修正しました</li>
+<li>壁紙がすぐに更新されない問題を修正しました</li>
+<li>_(:з」∠)_</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.2</bdi></h2><time datetime="2025-10-11">2025年10月11日</time></header>
+
+<div><h3>新機能</h3>
+<ul>
+<li>ホットコーナーでLaunchpadを開けるようになりました</li>
+<li>フランス語に対応しました。翻訳にご協力いただいた@Cyril Guislainに感謝いたします</li>
+<li>メニューバーアイコンの右クリックメニューに、設定を開く項目を追加しました</li>
+</ul>
+<h3>改善</h3>
+<ul>
+<li>ホットキーをもう一度押すとLaunchpadを閉じられるようになりました</li>
+<li>設定画面がシステムのライトとダークの外観に合わせて表示されるようになりました</li>
+<li>Escキーで設定ウインドウを閉じられるようになりました</li>
+<li>ウインドウの外側をクリックしても設定を閉じられるようになりました</li>
+<li>インターフェイスの細部と表示の一貫性を改善しました</li>
+<li>Launchpadを、アクティブな画面ではなく常にメイン画面に表示するようにしました</li>
+<li>パフォーマンスを最適化しました。今後も改善を続けます</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.1</bdi></h2><time datetime="2025-09-30">2025年9月30日</time></header>
+
+<div><h3>改善</h3>
+<ul>
+<li>パフォーマンスを最適化しました。今後も改善を続けます</li>
+</ul>
+<h3>修正</h3>
+<ul>
+<li>グリッドレイアウトを変更するとアプリが消える問題を修正しました</li>
+<li>Logi Options+使用時、ロジクールのマウスでページをスクロールできない問題を修正しました</li>
+</ul></div>
+</section>
+
+<section>
+<header><h2><bdi dir="ltr">Beta - v0.9.0</bdi></h2><time datetime="2025-09-28">2025年9月28日</time></header>
+
+<div><ul>
+<li>最初の公開テストバージョンです。</li>
+<li>このバージョンには、まだ多くの問題が残っています。改善に取り組んでいますので、気付いた点をお知らせください。</li>
+</ul></div>
+</section>
+
+</body>
+</html>

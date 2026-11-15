@@ -1,0 +1,118 @@
+{
+    "status": true,
+    "schemaVersion": 1,
+    "popup": {
+        "id": "test-event-20261019-01",
+        "type": 2,
+        "enabled": true,
+        "startsAt": "2026-11-23T16:00:00+08:00",
+        "endsAt": "2026-12-02T15:59:59+08:00",
+        "localizations": {
+            "en": {
+                "title": "Black Friday Sale",
+                "description": "Save 55% on LaunchOS Pro at our lowest price of the year.",
+                "buttonTitle": "Get 55% Off"
+            },
+            "zh-Hans": {
+                "title": "黑五特惠",
+                "description": "LaunchOS Pro 立减 55%，\n全年最低价",
+                "buttonTitle": "立享 55% 优惠"
+            },
+            "zh-Hant": {
+                "title": "黑五特惠",
+                "description": "LaunchOS Pro 現省 55%，\n全年最低價",
+                "buttonTitle": "立享 55% 優惠"
+            },
+            "ar": {
+                "title": "عروض الجمعة السوداء",
+                "description": "وفّر 55% على LaunchOS Pro بأقل سعر هذا العام.",
+                "buttonTitle": "احصل على خصم 55%"
+            },
+            "bg": {
+                "title": "Черен петък",
+                "description": "Спестете 55% от LaunchOS Pro на най-ниската цена за годината.",
+                "buttonTitle": "Вземете 55% отстъпка"
+            },
+            "cs": {
+                "title": "Black Friday slevy",
+                "description": "Ušetřete 55 % na LaunchOS Pro za nejnižší cenu roku.",
+                "buttonTitle": "Získat slevu 55 %"
+            },
+            "de": {
+                "title": "Black Friday Sale",
+                "description": "Spare 55 % auf LaunchOS Pro zum niedrigsten Preis des Jahres.",
+                "buttonTitle": "Jetzt 55 % sparen"
+            },
+            "es": {
+                "title": "Ofertas de Black Friday",
+                "description": "Ahorra un 55 % en LaunchOS Pro al precio más bajo del año.",
+                "buttonTitle": "Consigue un 55 % de descuento"
+            },
+            "fr": {
+                "title": "Offre Black Friday",
+                "description": "Économisez 55 % sur LaunchOS Pro au prix le plus bas de l’année.",
+                "buttonTitle": "Profitez de −55 %"
+            },
+            "he": {
+                "title": "מבצע בלאק פריידיי",
+                "description": "חסכו 55% על LaunchOS Pro במחיר הנמוך ביותר השנה.",
+                "buttonTitle": "קבלו 55% הנחה"
+            },
+            "hi": {
+                "title": "ब्लैक फ्राइडे सेल",
+                "description": "साल की सबसे कम कीमत पर LaunchOS Pro पर 55% बचाएँ।",
+                "buttonTitle": "55% छूट पाएँ"
+            },
+            "id": {
+                "title": "Promo Black Friday",
+                "description": "Hemat 55% untuk LaunchOS Pro dengan harga terendah tahun ini.",
+                "buttonTitle": "Dapatkan Diskon 55%"
+            },
+            "it": {
+                "title": "Offerta Black Friday",
+                "description": "Risparmia il 55% su LaunchOS Pro al prezzo più basso dell’anno.",
+                "buttonTitle": "Ottieni il 55% di sconto"
+            },
+            "ja": {
+                "title": "ブラックフライデーセール",
+                "description": "LaunchOS Pro が55%オフ。\n年間最安値。",
+                "buttonTitle": "55%オフで購入"
+            },
+            "ko": {
+                "title": "블랙 프라이데이 세일",
+                "description": "LaunchOS Pro를 연중 최저가로 55% 할인받으세요.",
+                "buttonTitle": "55% 할인받기"
+            },
+            "pl": {
+                "title": "Promocja Black Friday",
+                "description": "Oszczędź 55% na LaunchOS Pro w najniższej cenie w roku.",
+                "buttonTitle": "Zyskaj 55% zniżki"
+            },
+            "pt-BR": {
+                "title": "Oferta de Black Friday",
+                "description": "Economize 55% no LaunchOS Pro pelo menor preço do ano.",
+                "buttonTitle": "Garanta 55% de desconto"
+            },
+            "ru": {
+                "title": "Чёрная пятница",
+                "description": "Скидка 55% на LaunchOS Pro — самая низкая цена года.",
+                "buttonTitle": "Получить скидку 55%"
+            },
+            "sv": {
+                "title": "Black Friday-rea",
+                "description": "Spara 55 % på LaunchOS Pro till årets lägsta pris.",
+                "buttonTitle": "Få 55 % rabatt"
+            },
+            "tr": {
+                "title": "Black Friday İndirimi",
+                "description": "Yılın en düşük fiyatıyla LaunchOS Pro’da %55 tasarruf edin.",
+                "buttonTitle": "%55 İndirim Alın"
+            },
+            "uk": {
+                "title": "Чорна п’ятниця",
+                "description": "Знижка 55% на LaunchOS Pro за найнижчою ціною року.",
+                "buttonTitle": "Отримати знижку 55%"
+            }
+        }
+    }
+}

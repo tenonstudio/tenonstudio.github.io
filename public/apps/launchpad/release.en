@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://launchosapp.com/release.en">
+  <title>LaunchOS for Mac - Release Notes</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    /* CSS Variables for Light Mode (Default) */
+    :root {
+      --bg-color: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: rgba(0, 0, 0, 0.6);
+      --text-tertiary: rgba(0, 0, 0, 0.8);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --tag-bg: #d7f59d;
+      --tag-text: #000000;
+      --list-marker: #90b842;
+    }
+
+    /* CSS Variables for Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #1c1c1e;
+        --text-primary: #ffffff;
+        --text-secondary: rgba(255, 255, 255, 0.6);
+        --text-tertiary: rgba(255, 255, 255, 0.8);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --tag-bg: #3a4a2b;
+        --tag-text: #d7f59d;
+        --list-marker: #7fb069;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+    }
+
+    time {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-left: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    section {
+      position: relative;
+      margin-bottom: 64px;
+    }
+
+    section::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -32px;
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    ul {
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    ul li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    ul li a {
+      color: var(--list-marker) !important;
+      text-decoration: none;
+    }
+
+    ul li::marker {
+      color: var(--list-marker);
+    }
+
+    .release-version .latest-tag {
+      margin-left: 8px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 14px;
+      color: var(--tag-text);
+      background-color: var(--tag-bg);
+    }
+
+    /* Responsive font sizes for Sparkle update framework */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      time,
+      h3,
+      p,
+      ul li {
+        font-size: 12px;
+      }
+
+      span,
+      .release-version .latest-tag {
+        font-size: 11px;
+      }
+
+      section {
+        margin-bottom: 48px;
+      }
+
+      section::after {
+        bottom: -24px;
+      }
+
+      header {
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      ul {
+        margin-bottom: 16px;
+      }
+
+      ul li {
+        margin-bottom: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <header>
+      <h2>v2.5.0</h2>
+      <time>Nov 2, 2026</time>
+    </header>
+    <h3>Small version bump, big update ⛰️</h3>
+    <p>
+      This release is packed with new features. Thank you to everyone who shared feedback and ideas to help make LaunchOS better!
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v250.jpg" alt="v2.5.0 release image">
+
+    <h3>New</h3>
+    <ul>
+      <li>Added a right-click menu for the LaunchOS Dock icon that can show all apps or recently used apps for quick access without opening the launcher</li>
+      <li>The built-in Calendar app’s icon now dynamically displays the current date</li>
+      <li>Added support for touchscreen MacBooks (not yet tested on physical hardware) and touch controls on iPad when using Sidecar</li>
+      <li>The grid and rocket Dock icons now support Clear and Tinted appearances</li>
+      <li>Added grid and rocket styles for the menu bar icon</li>
+      <li>Added an option to automatically sort apps by usage frequency</li>
+      <li>Added an option to prevent accidental dismissals by turning off “Click Empty Space to Close”</li>
+      <li>Added a Beta updates setting so you can choose whether to receive Beta releases</li>
+      <li>Added support for restoring layouts from third-party launchpad alternative apps</li>
+    </ul>
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app uninstallation to also remove related items left behind in System Settings</li>
+      <li>Shortcut recording now supports standard F1–F12 function keys</li>
+      <li>Improved folder opening and closing animations</li>
+      <li>Improved interface layouts for right-to-left languages</li>
+    </ul>
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where newly recorded shortcuts would occasionally fail to work</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.4.1</h2>
+      <time>Oct 22, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added an option to reset the layout to its default state</li>
+      <li>Added support for opening multiple selected apps at once using the Return key or context menu</li>
+      <li>Custom app sources now support scanning nested apps</li>
+      <li>Added Command + ↑ and Command + ↓ shortcuts to quickly scroll to the top or bottom</li>
+      <li>Added support for uninstalling apps by dragging them to the Trash</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved Spanish translations</li>
+      <li>Improved search experience in Russian</li>
+      <li>Improved launch-at-login setup to show the specific reason when enabling it fails</li>
+      <li>Improved dragging in scroll mode with automatic scrolling when dragging near the edges</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where dragging multiple selected apps to the page edge could fail to create a new page</li>
+      <li>Fixed an occasional issue where gestures could become unresponsive when used immediately while apps were still
+        loading</li>
+      <li>Fixed abnormal resource usage in certain scenarios</li>
+      <li>Fixed an issue where Command multi-select and drag selection could stop working while Caps Lock was enabled
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.4.0</h2>
+      <time>Sep 23, 2026</time>
+    </header>
+
+    <h3>Multi-select & Batch Operations Are Finally Here!👏</h3>
+    <p>
+      Hold ⌘ (Command) while clicking or dragging to select multiple apps or folders, then reorder, move, or hide them
+      together...
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v240.jpg" alt="v2.4.0 release image">
+
+    <h3>New</h3>
+    <ul>
+      <li>Added multi-select, with support for batch drag-and-drop reordering, moving items across pages, creating
+        folders, and hiding apps</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved interaction animations to make dragging, hiding, and other actions feel smoother and more natural
+      </li>
+      <li>Improved app uninstall scanning with broader coverage to reduce missed associated files</li>
+      <li>Improved the “Add to Dock” experience in the context menu</li>
+      <li>Improved the appearance of glass effects on macOS 27</li>
+      <li>Improved app icon rendering on macOS 27</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue that could occur when uninstalling Safari Web Apps</li>
+      <li>Fixed an issue where the page indicator could not be clicked on macOS 27</li>
+      <li>Fixed a conflict with the keyboard shortcut for quitting the app</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.3.1</h2>
+      <time>Sep 15, 2026</time>
+    </header>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app icon loading speed after a cold launch</li>
+      <li>Improved accent-insensitive search matching in French</li>
+      <li>Improved wallpaper blur processing for a better visual experience</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where gestures could become unresponsive in certain scenarios on macOS 27</li>
+      <li>Fixed an issue where icons on the onboarding page could fail to appear on some system versions</li>
+      <li>Fixed an occasional issue where the app window could flicker after a pinch gesture ended</li>
+      <li>Fixed an issue where text could be clipped in some languages</li>
+      <li>Fixed an issue where the app could become unresponsive when the update dialog was obscured by the main window
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.3.0</h2>
+      <time>August 21, 2026</time>
+    </header>
+    <h3>One-tap reorganization is here!</h3>
+    <p>
+      Now you can instantly organize all your apps by name, date, color, or Apple apps first, then further fine-tune the
+      layout to match your personal preferences.
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v230.jpg" alt="v2.3.0 release image">
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Reorganize Layout, allowing apps and folders to be quickly rearranged based on selected rules</li>
+      <li>Added update settings, with separate controls for automatic update checks and automatic update downloads</li>
+      <li>Added name display settings, allowing app and folder names to be hidden</li>
+      <li>Added wallpaper blur settings, allowing the system wallpaper blur intensity to be customized</li>
+      <li>In paged mode, apps and folders can now be quickly moved to a specific page from the context menu</li>
+      <li>Layout backup exports now support custom file names, making backup files easier to distinguish and manage</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved Traditional Chinese translations for more consistent localization</li>
+      <li>Improved the search experience when using Chinese input methods, with more reliable app matching</li>
+      <li>Improved app icon rendering for better clarity</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where the interface could display incorrectly after connecting or disconnecting a display</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.2.1</h2>
+      <time>August 4, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added a setting to enter uninstall mode by holding the Option key</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved conflict detection and handling between hotkey and uninstall mode</li>
+      <li>Added a description for the “Return to Main Page” feature</li>
+      <li>Improved window animations</li>
+      <li>Improved app icon refreshing</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where some apps might not appear</li>
+      <li>Fixed an issue where pressing Return while composing text with an input method could accidentally open an app
+      </li>
+      <li>Fixed Accessibility permission issues on macOS 27</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.2.0</h2>
+      <time>July 13, 2026</time>
+    </header>
+    <p>
+      The modern, lightweight Window Mode is now live 🚀<br>
+      Now, alongside custom sorting and folders, you can enjoy the more efficient and focused experience brought by
+      macOS 26 and 27.
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v220.jpg" alt="v2.2.0 release image">
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Window Mode, allowing you to use LaunchOS in a lighter windowed experience</li>
+      <li>Added support for closing a folder by clicking the empty area inside it, making the interaction feel more
+        natural</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app scanning logic for more stable app list updates</li>
+      <li>Improved the design of the onboarding pages for a clearer first-time experience</li>
+      <li>Improved the glass effect on macOS 27 for a more natural visual appearance</li>
+      <li>Updated the Privacy Policy</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed a flickering issue that could occur when creating a new page by dragging in paged mode</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.1.3</h2>
+      <time>June 28, 2026</time>
+    </header>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app scanning logic to better support displaying multiple app versions</li>
+      <li>Improved handling of apps on external disks, allowing their positions and states to be restored automatically
+        after the disk is remounted</li>
+      <li>Improved trackpad gesture recognition to reduce accidental palm touches and occasional gesture
+        unresponsiveness</li>
+      <li>Improved app icon refreshing, so icons can update automatically after system icon style changes, reducing
+        waiting time</li>
+      <li>Improved drag-and-drop sorting. Apps can now be dragged to the empty area at the end of the list for easier
+        sorting</li>
+      <li>Improved update dialog display behavior to reduce cases where it could be covered by other windows</li>
+      <li>Improved interactions on the search results page. Apps from search results can now be dragged directly to the
+        Dock</li>
+      <li>Improved display handling for macOS app aliases, reducing cases where alias icons could be shown incorrectly
+      </li>
+      <li>Improved multilingual translations for some text</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed a gesture conflict that could occur after switching system users</li>
+      <li>Fixed an issue where the removal list could appear empty after some files failed to be removed during app
+        uninstallation</li>
+      <li>Fixed an issue where the Accessibility permission status on the Settings page did not update in time</li>
+      <li>Fixed an issue that could cause abnormal behavior after Accessibility permission was removed by the user or
+        the system</li>
+      <li>Fixed an occasional issue where app icons could appear enlarged</li>
+      <li>Fixed gesture issues caused by state detection problems on macOS 27.0</li>
+      <li>Fixed an issue where page-switching animations in wallpaper mode could drop frames on macOS 27.0</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.1.1</h2>
+      <time>June 11, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Adapted app icons for macOS 27.0</li>
+      <li>Added a “Get Info” option to the app context menu</li>
+      <li>Hold the Option key to quickly enter uninstall mode</li>
+      <li>Added support for switching pages with horizontal mouse scrolling</li>
+      <li>Added support for switching pages with mouse side buttons</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved the initial app sorting rules, with system apps shown first by default</li>
+      <li>Improved the wallpaper blur effect for a more natural appearance</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed wallpaper display issues on macOS 27.0</li>
+      <li>Fixed an issue where right-clicking the system menu bar not work on macOS 27.0</li>
+      <li>Fixed an issue where the expand gesture not work on macOS 27.0</li>
+      <li>Fixed issues with renaming and opening folders in the right-click menu</li>
+      <li>Fixed an issue where drag interactions had no visual feedback in paged mode when there was only one page</li>
+      <li>Fixed an occasional issue where apps could get stuck while being dragged</li>
+      <li>Fixed an occasional crash when uninstalling App Store apps</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.1.0</h2>
+      <time>June 5, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added app uninstallation feature, supporting long-press and right-click menu triggers</li>
+      <li>Added "Restart" functionality to the status bar menu and right-click context menu</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved icon display at different resolutions</li>
+      <li>Improved app title font size</li>
+      <li>Improved memory usage</li>
+      <li>Improved Traditional Chinese translation</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where apps could not be renamed within folders by clicking the blank area</li>
+      <li>Fixed an issue where dragging apps within folders would trigger the folder to close</li>
+      <li>Fixed an issue where app icons would display abnormally at different resolutions</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.0.1</h2>
+      <time>June 1, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added a setting to control whether LaunchOS appears on the screen where the Dock is located</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved memory usage</li>
+      <li>Improved display plug-and-play monitoring under multiple screens</li>
+      <li>Improved icon display at different resolutions</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where a blank page would occasionally appear after exiting search</li>
+      <li>Fixed an issue where the wallpaper would display abnormally after enabling "Reduce Transparency"</li>
+      <li>Fixed an issue where the position of open files would display abnormally after switching displays</li>
+      <li>Fixed an issue where Control + Click could not trigger the context menu</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v2.0.0</h2>
+      <time>May 26, 2026</time>
+    </header>
+
+    <h3>LaunchOS 2.0 is Here ✨</h3>
+    <p>
+      The rebuilt LaunchOS is now available! This time, we rebuilt the app from the ground up.<br>
+      In v2.0, we made major improvements to launch speed, runtime performance, animations, drag-and-drop experience,
+      and support for high refresh rate displays, bringing you a faster, smoother, and more energy-efficient
+      LaunchOS.<br>
+      We’re pretty sure you’re going to love this version. If there’s anything that still feels not quite right, please
+      let us know — we’ll keep polishing it carefully.
+    </p>
+
+    <img src="https://cdn.launchosapp.com/release/v200.jpg" alt="v2.0.0 release image">
+
+    <h3>New</h3>
+    <ul>
+      <li>Drag any app to the Dock or add it from the context menu, making it easier to organize your favorite apps</li>
+      <li>Support for 120Hz and higher refresh rate displays, making scrolling and animations smoother</li>
+      <li>Grid layout limit expanded to 15 × 15, allowing more apps to be shown on a single page</li>
+      <li>New folder open and close animations for more natural interaction feedback</li>
+      <li>Return to the previous position after exiting search, so you won’t lose your place after looking up an app
+      </li>
+      <li>Use the mouse wheel to quickly switch pages while dragging apps, making cross-page app moving more efficient
+      </li>
+      <li>Added a setting to control whether hidden apps appear in search results</li>
+      <li>Create folders by dragging apps in name sorting mode, making app organization more flexible</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Significantly improved loading speed on first launch</li>
+      <li>Significantly improved performance and animation smoothness during use</li>
+      <li>New adaptive icon sizing rules for more balanced icon sizes across different resolutions</li>
+      <li>New icon grid calculation rules that increase spacing appropriately when there are more columns</li>
+      <li>Improved app scanning, with automatic refresh after apps are installed or uninstalled</li>
+      <li>Improved the UI and interaction effects of the page indicator</li>
+      <li>Adapted the folder background material to better match the Liquid Glass effect</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where global search was unavailable while a folder was open</li>
+      <li>Fixed an issue where the new version indicator could still appear after skipping a version</li>
+      <li>Fixed an issue where the “Show Desktop” gesture might not work in some cases</li>
+    </ul>
+
+    <h3>Coming Soon</h3>
+    <ul>
+      <li>App uninstallation, compact window mode, and many features requested by the community are also on the way</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.7</h2>
+      <time>Apr 30, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Hebrew language support.</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed the issue of trackpad occasionally failing after computer sleep.</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.6</h2>
+      <time>Apr 09, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Italian language support. Special thanks to <a href="http://filbatta.com/" target="_blank">@Filippo
+          Battaglin</a> and @Alessio for the translation</li>
+      <li>Added Arabic language support. Special thanks to @Hani Abughazaleh for the translation</li>
+    </ul>
+
+    <h3>Improved</h3>
+    <ul>
+      <li>Refined trackpad gesture handling: when LaunchOS is triggered by a five-finger pinch, a four-finger pinch
+        triggers the system gesture</li>
+      <li>Improved activation messaging to reduce ambiguity</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.5</h2>
+      <time>Mar 27, 2026</time>
+    </header>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Optimized trackpad gesture algorithm and animations</li>
+      <li>Added a reminder when dragging non-custom sorted items</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where trackpad gestures would occasionally fail</li>
+      <li>Fixed an issue where the F4 key was not working on some models</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.4</h2>
+      <time>Mar 19, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Support for launching LaunchOS using the system F4 key</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where the hot corner would continuously trigger conflict alerts</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved trackpad gesture algorithm</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.3</h2>
+      <time>Feb 28, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Swedish localization — thanks to <a href="https://www.linkedin.com/in/cronberg/" target="_blank">@Marcus
+          Cronberg</a> for the translation.</li>
+      <li>Added Indonesian localization — thanks to @Wicaksono for the translation.</li>
+      <li>Added Czech localization — thanks to @Honza Doležal for the translation.</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where search results were not displaying correctly</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.2</h2>
+      <time>Feb 25, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Polish localization. Thanks to @Jacek Dąbrowski for the translation.</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved the ordering of search results</li>
+      <li>Improved trackpad “Show Desktop” gesture</li>
+      <li>Refined the trackpad gesture algorithm to avoid conflicts between three-finger pinch and the system
+        three-finger drag gesture</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where pressing Enter after a search would sometimes fail to launch the app</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.1</h2>
+      <time>Feb 03, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added support for the system “Show Desktop” trackpad gesture (please make sure it is enabled in System
+        Settings)</li>
+      <li>Added a warning when LaunchOS Hot Corners conflict with system Hot Corners</li>
+      <li>Added Hindi localization, thanks to @Aagman for the translation</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved trackpad gesture recognition accuracy</li>
+      <li>Improved trackpad animations to prevent issues when gestures are performed too quickly</li>
+      <li>Improved Portuguese (Brazil) localization, thanks to @Elton for the translation</li>
+      <li>Improved Traditional Chinese localization, thanks to <a href="https://www.facebook.com/ray0604"
+          target="_blank">@Yourui Wu</a> for the translation</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where trackpad gesture could stop working after startup or waking from sleep</li>
+      <li>Fixed an issue where the menu bar would sometimes not hide when gestures were performed too quickly</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.5.0</h2>
+      <time>Jan 27, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added activated device management and deactivation support</li>
+      <li>Added a new “Advanced” tab in Settings</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Folders are now sorted alphabetically when moving apps into them via right-click</li>
+      <li>Improved Portuguese (Brazil) localization, thanks to @Elton for the translation</li>
+      <li>Improved Traditional Chinese localization, thanks to @李明元 for the translation</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where the rename input field did not auto-focus</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.4.0</h2>
+      <time>Jan 21, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Layout data backup support</li>
+      <li>Added Portuguese (Brazil) localization, thanks to @Elton for the translation</li>
+      <li>Support selecting apps within folders using the keyboard</li>
+      <li>Support adding apps to the Dock with one click</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved trackpad scrolling</li>
+      <li>Improved app scanning to support more apps being displayed</li>
+      <li>Improved tap areas for the top search field and settings button</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where the onboarding window was not centered</li>
+      <li>Fixed an issue where folder name changes were not reflected immediately</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.3.0</h2>
+      <time>Jan 9, 2026</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added custom sorting</li>
+      <li>Row and column layouts can now be configured independently</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved search: system apps can now be found directly using English names</li>
+      <li>Improved Traditional Chinese localization, thanks to @李明元 for the translation</li>
+      <li>Improved app performance</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed flickering caused by conflicts between Hot Corners and the system menu bar in full-screen apps</li>
+      <li>Fixed an issue where LaunchOS could be closed when the system menu bar appeared in full-screen apps</li>
+      <li>Fixed an issue where the scroll position did not return to the top when using “Return to Home”</li>
+      <li>Fixed an issue where the UI was still shown on login instead of launching silently</li>
+      <li>Fixed LaunchOS appearing in the Cmd + Tab app switcher</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.4</h2>
+      <time>Jan 5, 2026</time>
+    </header>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where some apps would create multiple instances on launch</li>
+      <li>Fixed an issue where switching "Show Dock Icon" would cause the menu bar to disappear</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.3</h2>
+      <time>Dec 31, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added automatic hiding for the top menu bar</li>
+      <li>Added a “Return to Home” setting with customizable return behavior</li>
+      <li>Added Turkish localization — thanks to <a href="https://www.instagram.com/akaanbayazit/"
+          target="_blank">@Ahmet Kaan Bayazit</a> for the translation.</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved Hot Corner behavior in multi-display setups</li>
+      <li>Improved page scrolling to prevent abnormal behavior caused by third-party scrolling tools</li>
+      <li>Improved custom icon display logic to automatically follow the system icon style</li>
+      <li>Improved Traditional Chinese localization, thanks to <a href="https://www.facebook.com/ray0604"
+          target="_blank">@Yourui Wu</a> for the translation</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where some apps failed to launch (e.g. CapCut)</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.2</h2>
+      <time>Dec 19, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Support for custom app sources</li>
+      <li>Added the Catalina rocket icon to custom icons</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved Settings window style</li>
+      <li>Improved trackpad and mouse scroll paging, now supporting continuous paging</li>
+      <li>Custom icons now automatically adapt to light and dark appearance</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where switching back to the default icon did not take effect after using a custom icon</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.1</h2>
+      <time>Dec 12, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added Bulgarian localization — thanks to @Трифон Иванов for the translation</li>
+      <li>Added Ukrainian localization — thanks to <a href="https://www.unibrix.com/" target="_blank">@Valera
+          Oleksiienko</a> for the translation.</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved server response speed across different regions</li>
+      <li>Enhanced error descriptions for activation failures</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where the Settings window did not appear centered</li>
+      <li>Fixed an issue with renaming apps inside folders</li>
+      <li>Fixed an issue where Hot Corners might not activate immediately after restarting the Mac</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.2.0</h2>
+      <time>Dec 4, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added support for triggering LaunchOS with trackpad gestures</li>
+      <li>Added support for navigating pages using mouse side buttons</li>
+      <li>Added Spanish localization — thanks to <a href="https://rodrigonavarrete.cl" target="_blank">@Rodrigo
+          Navarrete</a> for the translation</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved Hot Corner sensitivity</li>
+      <li>Optimized resource usage</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an occasional issue where system permission prompts could appear unexpectedly</li>
+      <li>Fixed an occasional issue where text colors in input fields displayed incorrectly</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.4</h2>
+      <time>Nov 30, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Dynamic wallpapers are now supported</li>
+      <li>Added Russian localization — special thanks to @Вадим Коровин</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Refined the long-press duration for app drag-and-drop</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where the quit confirmation dialog might not appear on top</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.3</h2>
+      <time>Nov 20, 2025</time>
+    </header>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed issue where the update window did not automatically appear in the foreground</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.2</h2>
+      <time>Nov 19, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Added support for displaying alias apps</li>
+      <li>Added Korean localization — thanks to @darang for the translation</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app dragging to avoid unintended actions when flipping pages</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed a flickering issue when quickly opening or closing Launchpad</li>
+      <li>Fixed an issue where moving apps via right-click didn’t work on the search results page</li>
+      <li>Fixed display issues when switching desktops with a three-finger swipe</li>
+      <li>Fixed app names showing file extensions when “Show all filename extensions” is enabled in Finder</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.1</h2>
+      <time>Nov 10, 2025</time>
+    </header>
+    <h3>New</h3>
+    <ul>
+      <li>Added support for Japanese and German</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Fixed issue where app icons did not refresh immediately after changing icon style</li>
+      <li>Fixed issue where the desktop could not be activated immediately after close</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.1.0</h2>
+      <time>Nov 7, 2025</time>
+    </header>
+    <h3>New</h3>
+    <ul>
+      <li>Added support for hidden apps</li>
+      <li>Automatically create a new page when dragging an app to the edge of the last page in paged mode</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Optimized app bundle size</li>
+      <li>Improve app stability</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed issue where LaunchOS would not appear when other apps are in full screen</li>
+      <li>Fixed issue where empty folders were not automatically deleted after moving apps</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>v1.0.0</h2>
+      <time>Oct 31, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>Support for custom app names</li>
+      <li>Option to choose whether to rearrange apps when adjusting layout</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app placement logic: apps fill available pages in paged mode and appear at the end in scroll mode
+      </li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed incomplete folder display issue</li>
+      <li>Fixed crash when dragging apps to the end of the list</li>
+      <li>Fixed occasional freeze when dragging apps</li>
+      <li>Fixed issue where app icon might appear blank due to delayed info updates</li>
+      <li>Fixed missing translations in some UI texts</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.5</h2>
+      <time>Oct 28, 2025</time>
+    </header>
+    <h3>New</h3>
+    <ul>
+      <li>Supports importing system Launchpad data</li>
+      <li>Supports customizing which screen LaunchOS appears on</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Optimized performance, with more improvements on the way</li>
+      <li>Reduced installer package size</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed issue where shortcut keys (cmd+a, cmd+c, cmd+v) did not work in input fields</li>
+      <li>Fixed issue where folders that were open did not automatically close when quitting LaunchOS</li>
+      <li>Fixed issue where right-click on empty folders did not work</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.4</h2>
+      <time>Oct 20, 2025</time>
+    </header>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved search matching with support for English and Pinyin initials (e.g. "as" → Apple Store, "jsq" →
+        Calculator「计算器」)</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Improved display in system Light mode</li>
+      <li>Fixed a blank page issue caused by drag actions in paged mode</li>
+      <li>Fixed display issues on multiple monitors</li>
+      <li>Fixed an issue where folders could not be moved via right-click when a folder is open</li>
+      <li>Fixed search behavior in paged mode</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.3</h2>
+      <time>Oct 16, 2025</time>
+    </header>
+
+    <h3>New</h3>
+    <ul>
+      <li>In-app update support</li>
+      <li>Customizable background</li>
+      <li>Custom LaunchOS app icon</li>
+      <li>New shortcuts (cmd+,: Settings, cmd+q: Quit, cmd+←/→: Page switch)</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Improved app launch and switching performance</li>
+      <li>Optimized drag-and-drop inside folders</li>
+      <li>Optimized startup behavior with silent launch</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed an issue where drag-and-drop may fail in scroll mode</li>
+      <li>Fixed missing cursor and occasional crashes in folder editing</li>
+      <li>Fixed inconsistent blank area width when the Dock is on the left or right</li>
+      <li>Fixed wallpaper not updating in time</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.2</h2>
+      <time>Oct 11, 2025</time>
+    </header>
+    <h3>New</h3>
+    <ul>
+      <li>Added support for launching Launchpad via Hot Corners</li>
+      <li>Added French language support, thanks to @Cyril Guislain for the translation</li>
+      <li>Added Settings panel shortcut to the menubar icon's right-click menu</li>
+    </ul>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Launchpad panel can now be closed by pressing the hotkey again</li>
+      <li>Settings panel now follows system light/dark appearance</li>
+      <li>Settings window can now be closed with the ESC key</li>
+      <li>Settings window can also be dismissed by clicking outside the window</li>
+      <li>Improved UI details and overall visual consistency</li>
+      <li>Launchpad will always appears on the main screen instead of the active one</li>
+      <li>Optimized performance, with more improvements on the way</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.1</h2>
+      <time>Sep 30, 2025</time>
+    </header>
+
+    <h3>Improvements</h3>
+    <ul>
+      <li>Optimized performance, with more improvements on the way</li>
+    </ul>
+
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed apps missing after grid layout change</li>
+      <li>Fixed issue where Logitech mouse could not scroll pages with Logi Options+</li>
+    </ul>
+  </section>
+
+  <section>
+    <header>
+      <h2>Beta - v0.9.0</h2>
+      <time>Sep 28, 2025</time>
+    </header>
+    <ul>
+      <li>The first public test version.</li>
+      <li>Please be aware that this version still has many issues. We are working hard to improve it.</li>
+    </ul>
+  </section>
+
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get First H2
+      const firstH2 = document.querySelector('section:first-of-type h2')
+
+      if (firstH2) {
+        // Add Tag
+        const latestTag = document.createElement('span')
+        latestTag.textContent = 'Latest'
+        firstH2.appendChild(latestTag)
+      }
+    })
+  </script>
+
+</body>
+
+</html>

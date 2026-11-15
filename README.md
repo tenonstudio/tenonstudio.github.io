@@ -65,17 +65,21 @@ site assets under `public/assets/`. `src/pages/apps/[slug].astro` filters
 `launchpad` out of the generic route so the public file is served instead.
 
 The mirror keeps the LaunchOS layout, copy, pricing, downloads, testimonials,
-languages, and interactions. Hosting-specific changes are limited to:
+languages, and interactions. The crawled page tree includes the homepage,
+Features, Blog listing and articles, Download, Support, Compare, legal pages,
+SEO landing pages, and all six locales (267 pages). Hosting-specific changes are
+limited to:
 
 - the Vue router base, patched from `/` to `/apps/launchpad/`;
-- internal links, normalised to the live `https://launchosapp.com/...` site;
+- the full internal page tree mirrored under `public/apps/launchpad/`, with
+  internal links rewritten to `/apps/launchpad/...`;
+- `event.json` copied to the site root (the app fetches it from `/event.json`);
 - removal of Cloudflare/Google/Baidu analytics and the Cloudflare email
-  obfuscation script (the support address is written as a normal `mailto:`);
-- a small click normaliser for links generated after Vue hydration.
+  obfuscation script (the support address is written as a normal `mailto:`).
 
-Google Fonts remain external. The LaunchOS canonical/`hreflang` tags are kept
-as-is because this is a mirror. The other app pages still use the shared Astro
-template.
+Google Fonts, App Store, Paddle/download, social, and other external links
+remain external. The LaunchOS canonical/`hreflang` tags are kept as-is because
+this is a mirror. The other app pages still use the shared Astro template.
 
 ## Development
 
