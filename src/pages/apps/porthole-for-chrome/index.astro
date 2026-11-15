@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Text from '../../../components/Text.astro';
 import RelatedApps from '../../../components/RelatedApps.astro';
+import { SITE } from '../../../data/site';
 
 const features = [
   { title: { en: 'Smart select', zh: '智能选择' }, body: { en: 'Hover and click any element, or drag a custom region. Whole-page mode is there when you need it.', zh: '悬停点击任意元素，或拖拽自定义区域；需要时也可以镜像整个页面。' } },
@@ -13,7 +14,7 @@ const features = [
 ];
 const chromeURL = 'https://chromewebstore.google.com/detail/magic-mirror/jfapgohnocglaaminogpmjgabkokgnfl';
 ---
-<BaseLayout title="Porthole for Chrome — Tenon" description="Mirror any part of a web page into a floating, live window." image="/assets/porthole-icon.png">
+<BaseLayout title={`Porthole for Chrome — ${SITE.shortName}`} description="Mirror any part of a web page into a floating, live window." image="/assets/porthole-icon.png">
   <article class="app-detail chrome-page" style="--app-accent:#5b7cfa;--app-soft:#dfe6ff;">
     <div class="shell"><a class="back-link" href="/apps/porthole/"><span aria-hidden="true">←</span> <Text en="Porthole for macOS" zh="Porthole macOS 版" /></a></div>
     <header class="detail-hero shell">

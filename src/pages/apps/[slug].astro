@@ -7,14 +7,16 @@ import Specs from '../../components/Specs.astro';
 import DownloadPanel from '../../components/DownloadPanel.astro';
 import RelatedApps from '../../components/RelatedApps.astro';
 import { apps } from '../../data/apps';
+import { SITE } from '../../data/site';
 
 export function getStaticPaths() {
-  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+  // Launchpad is served from public/apps/launchpad/index.html (LaunchOS mirror).
+  return apps.filter((app) => app.slug !== 'launchpad').map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 const { app } = Astro.props;
 ---
 <BaseLayout
-  title={`${app.name} — Tenon`}
+  title={`${app.name} — ${SITE.shortName}`}
   description={`${app.name}: ${app.tagline.en}`}
   image={app.icon}
   current="apps"

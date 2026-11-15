@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #f5f5f7;
   --bg-deep: #ececf0;
@@ -57,16 +65,6 @@ button { font: inherit; }
 .nav a:hover, .nav a.active { color: var(--ink); }
 .nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--ink); }
 .nav-external { font-family: var(--mono); font-size: 11px; letter-spacing: -.02em; }
-.lang-switch {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-family: var(--mono); font-size: 11px; color: var(--muted);
-  border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px;
-  background: rgba(255,255,255,.25);
-}
-.lang-switch button { background: none; border: 0; color: var(--muted); cursor: pointer; padding: 0; font: inherit; }
-.lang-switch button[aria-pressed="true"] { color: var(--ink); font-weight: 600; }
-.lang-switch span { color: var(--muted-light); }
-
 /* Shared type */
 .eyebrow {
   display: flex; align-items: center; gap: 9px;
@@ -350,7 +348,6 @@ em { font-style: normal; color: #4f46e5; }
   .brand-cn { display: none; }
   .nav { gap: 14px; font-size: 12px; }
   .nav .nav-external { display: none; }
-  .lang-switch { padding: 5px 9px; }
   .section { padding: 72px 0; }
   .heading-row { display: block; }
   .heading-note { width: auto; margin-top: 16px; }
@@ -440,7 +437,6 @@ em { font-style: normal; color: #4f46e5; }
   body { overflow-x: hidden; }
   .nav { display: none; }
   .header-inner { justify-content: flex-start; }
-  .lang-switch { margin-left: auto; }
   .hero-title { font-size: clamp(50px, 13.5vw, 70px); }
   .app-grid { grid-template-columns: minmax(0, 1fr); }
   .app-card { width: 100%; }

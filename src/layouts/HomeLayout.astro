@@ -1,0 +1,145 @@
+---
+import '../styles/home.css';
+import Text from '../components/Text.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title: string;
+  titleZh?: string;
+  description: string;
+  descriptionZh?: string;
+  image?: string;
+}
+
+const {
+  title,
+  titleZh = title,
+  description,
+  descriptionZh = description,
+  image = '/assets/brand/tenon-og-home.png'
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.name,
+  url: Astro.site,
+  logo: new URL('/assets/brand/tenon-avatar-512.png', Astro.site),
+  description: 'A small but passionate team crafting ideas into polished products for the Mac.',
+  email: SITE.email,
+  sameAs: [SITE.github.url, SITE.x.url]
+};
+---
+<!doctype html>
+<html
+  lang="en"
+  data-lang="en"
+  data-title-en={title}
+  data-title-zh={titleZh}
+  data-description-en={description}
+  data-description-zh={descriptionZh}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#F9FAFD" />
+    <meta name="color-scheme" content="light" />
+    <meta name="author" content={SITE.name} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE.name} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/brand/tenon-avatar.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/brand/tenon-avatar-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/OpenSansVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/GeistMonoVariable.woff2" as="font" type="font/woff2" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        try {
+          const params = new URLSearchParams(location.search);
+          const requested = (params.get('lang') || '').toLowerCase();
+          const browser = (
+            (navigator.languages && navigator.languages[0]) ||
+            navigator.language ||
+            'en'
+          ).toLowerCase();
+          const lang = requested
+            ? requested.startsWith('zh') ? 'zh' : 'en'
+            : browser.startsWith('zh') ? 'zh' : 'en';
+
+          root.dataset.lang = lang;
+          root.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+
+          const title = lang === 'zh' ? root.dataset.titleZh : root.dataset.titleEn;
+          const description = lang === 'zh' ? root.dataset.descriptionZh : root.dataset.descriptionEn;
+
+          if (title) {
+            document.title = title;
+            document
+              .querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]')
+              .forEach((meta) => meta.setAttribute('content', title));
+          }
+
+          if (description) {
+            document
+              .querySelectorAll(
+                'meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]'
+              )
+              .forEach((meta) => meta.setAttribute('content', description));
+          }
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      <Text en="Skip to content" zh="跳到正文" />
+    </a>
+    <slot />
+
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        document.querySelectorAll('[data-aria-en]').forEach((el) => {
+          el.setAttribute(
+            'aria-label',
+            root.dataset.lang === 'zh' ? el.dataset.ariaZh : el.dataset.ariaEn
+          );
+        });
+
+        const requested = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
+        if (requested === 'zh' || requested === 'en') {
+          document.querySelectorAll('a[href^="/"]').forEach((anchor) => {
+            const url = new URL(anchor.href);
+            if (url.origin !== location.origin) return;
+            url.searchParams.set('lang', requested);
+            anchor.setAttribute('href', url.pathname + url.search + url.hash);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

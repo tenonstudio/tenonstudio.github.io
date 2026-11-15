@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Text from '../components/Text.astro';
+import { SITE } from '../data/site';
 
 interface Props {
   title: string;
@@ -21,11 +22,13 @@ const ogImage = new URL(image, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={SITE.name} />
     <meta name="theme-color" content="#f3f0e8" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
@@ -34,15 +37,21 @@ const ogImage = new URL(image, Astro.site);
     <link rel="icon" href="/assets/brand/tenon-avatar.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/assets/brand/tenon-avatar-180.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
     <script is:inline>
       (() => {
         try {
           const params = new URLSearchParams(location.search);
-          const saved = params.get('lang') || localStorage.getItem('tenon-lang');
-          const lang = saved || 'en';
-          document.documentElement.dataset.lang = lang === 'zh' ? 'zh' : 'en';
+          const requested = (params.get('lang') || '').toLowerCase();
+          const browser = (
+            (navigator.languages && navigator.languages[0]) ||
+            navigator.language ||
+            'en'
+          ).toLowerCase();
+          const lang = requested
+            ? requested.startsWith('zh') ? 'zh' : 'en'
+            : browser.startsWith('zh') ? 'zh' : 'en';
+          document.documentElement.dataset.lang = lang;
           document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
         } catch {}
       })();
@@ -59,22 +68,16 @@ const ogImage = new URL(image, Astro.site);
     <Footer />
     <script is:inline>
       (() => {
-        const root = document.documentElement;
-        const buttons = [...document.querySelectorAll('[data-set-lang]')];
-        const sync = () => {
-          buttons.forEach((button) => {
-            button.setAttribute('aria-pressed', String(button.dataset.setLang === root.dataset.lang));
-          });
-          root.classList.add('lang-ready');
-        };
-        const setLang = (lang) => {
-          root.dataset.lang = lang;
-          root.lang = lang === 'zh' ? 'zh-Hans' : 'en';
-          try { localStorage.setItem('tenon-lang', lang); } catch {}
-          sync();
-        };
-        buttons.forEach((button) => button.addEventListener('click', () => setLang(button.dataset.setLang)));
-        sync();
+        const params = new URLSearchParams(location.search);
+        const requested = (params.get('lang') || '').toLowerCase();
+        if (requested !== 'zh' && requested !== 'en') return;
+
+        document.querySelectorAll('a[href^="/"]').forEach((anchor) => {
+          const url = new URL(anchor.href);
+          if (url.origin !== location.origin) return;
+          url.searchParams.set('lang', requested);
+          anchor.setAttribute('href', url.pathname + url.search + url.hash);
+        });
       })();
     </script>
   </body>

@@ -9,4 +9,4 @@ interface Props {
 const { en, zh, tag = 'span', class: className, preline = false } = Astro.props;
 const Tag = tag;
 ---
-<Tag data-lang="en" class:list={[className, { 'is-preline': preline }]}>{en}</Tag><Tag data-lang="zh" class:list={[className, { 'is-preline': preline }]}>{zh}</Tag>
+<Tag data-lang="en" lang="en" class:list={[className, { 'is-preline': preline }]}>{en}</Tag><Tag data-lang="zh" lang="zh-Hans" class:list={[className, { 'is-preline': preline }]}>{zh}</Tag>

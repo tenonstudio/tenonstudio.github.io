@@ -1,19 +1,81 @@
 # tenonstudio.github.io
 
-The Tenon / 榫卯 studio site, built with Astro and deployed to GitHub Pages.
+The Tenon / 榫卯工坊 studio site, built with Astro and deployed to GitHub Pages.
 
 ## Structure
 
 ```text
 src/
-├── components/     shared UI (header, footer, app cards, art)
-├── data/           app and legal content
-├── layouts/        BaseLayout
+├── components/     shared UI, plus components/home for the landing-page art
+├── data/           app, legal, and landing-page content
+├── layouts/        BaseLayout (app pages) and HomeLayout (landing page)
 ├── pages/          routes
-└── styles/         global design system
-public/             icons, downloads, appcasts, static assets
+└── styles/         global.css (shared app pages) and home.css
+public/             icons, downloads, appcasts, static assets, self-hosted fonts
 scripts/            post-build route fixes
 ```
+
+## Site config
+
+`src/data/site.ts` is the single source for the studio name, Chinese name, brand,
+email, GitHub handle/URL, and X handle/URL. It is imported at build time by the
+homepage, `Header`, `Footer`, `BaseLayout`, and the JSON-LD in `HomeLayout`.
+
+```ts
+export const SITE = {
+  name: 'Tenon Studio',
+  nameZh: '榫卯工坊',
+  shortName: 'Tenon',
+  brand: 'tenon',
+  email: 'tenonstudio@163.com',
+  github: { handle: 'tenonstudio', url: 'https://github.com/tenonstudio' },
+  x: { handle: 'TenonStudioHQ', url: 'https://x.com/TenonStudioHQ' }
+} as const;
+```
+
+`astro.config.mjs` only holds Astro's `site` URL and build options; public studio
+metadata belongs in `site.ts`. Use `.env` / `astro:env` for secrets rather than
+this file. Static assets such as `public/site.webmanifest` and the OG image are
+not imported; update them separately when the name changes.
+
+## Homepage
+
+The landing page is a single-page studio layout: the compact header and hero,
+five full-width horizontal app cards, and the contact rows. It lives in
+`src/pages/index.astro`, `src/layouts/HomeLayout.astro`, and
+`src/styles/home.css`, with its card art in `src/components/home/`.
+
+The page is bilingual and chooses its language automatically: browsers whose
+primary language starts with `zh` get Simplified Chinese, everyone else gets
+English. `?lang=zh` and `?lang=en` override that detection. Copy for both
+languages lives in `src/data/home.ts`; the contact email there is the one copied
+by the `c` shortcut.
+
+The homepage and shared app pages use self-hosted Inter and Open Sans; see
+`public/fonts/` and the SIL Open Font License files there. The Launchpad mirror
+uses LaunchOS's original Google Fonts (Albert Sans, Geist, Plus Jakarta Sans).
+
+## Launchpad page
+
+`/apps/launchpad/` is a local mirror of <https://launchosapp.com/>, built from the
+original server-rendered HTML, CSS, JavaScript, and images (used with permission
+from the LaunchOS team). It is not an Astro page: the document lives at
+`public/apps/launchpad/index.html`, and the LaunchOS assets live alongside the
+site assets under `public/assets/`. `src/pages/apps/[slug].astro` filters
+`launchpad` out of the generic route so the public file is served instead.
+
+The mirror keeps the LaunchOS layout, copy, pricing, downloads, testimonials,
+languages, and interactions. Hosting-specific changes are limited to:
+
+- the Vue router base, patched from `/` to `/apps/launchpad/`;
+- internal links, normalised to the live `https://launchosapp.com/...` site;
+- removal of Cloudflare/Google/Baidu analytics and the Cloudflare email
+  obfuscation script (the support address is written as a normal `mailto:`);
+- a small click normaliser for links generated after Vue hydration.
+
+Google Fonts remain external. The LaunchOS canonical/`hreflang` tags are kept
+as-is because this is a mirror. The other app pages still use the shared Astro
+template.
 
 ## Development
 
@@ -24,9 +86,17 @@ npm run build     # static output in dist/
 npm run preview
 ```
 
-The site is localized in English and Simplified Chinese through the existing
-`data-lang` toggle. It follows the visitor's browser language and remembers an
-explicit choice.
+The shared app pages (Flip, Porthole, Tessera, Bubble) use automatic
+browser-language detection, with `?lang=zh` and `?lang=en` as explicit
+overrides. English is the fallback. The Launchpad mirror uses LaunchOS's own
+client-side locale selection instead of the shared `?lang` scheme.
+
+Unknown routes are handled by `src/pages/404.astro`: paths under
+`/apps/{known-slug}/...` redirect to that app (so `/apps/flip/sdsf` goes to
+`/apps/flip/`), and every other unknown path redirects to `/`. The page uses a
+meta refresh plus `location.replace`. GitHub Pages serves the generated
+`dist/404.html`; the local `astro preview` server uses its own 404 for unknown
+paths, so test the redirect by opening `/404.html` directly or by serving
+`dist/` with a 404 fallback.
 
 GitHub Pages is deployed from `dist/` by `.github/workflows/deploy.yml`.
-The old hand-written pages were replaced by Astro components and content data.

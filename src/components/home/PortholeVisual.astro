@@ -1,0 +1,29 @@
+---
+import Text from '../Text.astro';
+
+const bars = [30, 46, 38, 58, 52, 76, 64, 88, 72, 96, 82, 68];
+---
+<div class="porthole-visual" aria-hidden="true">
+  <div class="mini-window porthole-source">
+    <div class="mini-window-bar">
+      <span class="mini-dots"><i></i><i></i><i></i></span>
+      <span class="mini-window-title"><Text en="Performance" zh="性能" /></span>
+    </div>
+    <div class="mini-chart">
+      {bars.map((height) => <i style={`--bar:${height}%`} />)}
+    </div>
+  </div>
+
+  <div class="mini-window porthole-mirror">
+    <div class="mini-window-bar">
+      <span class="mini-dots"><i></i><i></i><i></i></span>
+      <span class="mini-window-title"><Text en="Mirror" zh="镜像" /></span>
+      <span class="live-pill">LIVE</span>
+    </div>
+    <div class="mini-chart">
+      {bars.map((height) => <i style={`--bar:${height}%`} />)}
+    </div>
+  </div>
+
+  <span class="porthole-ring"></span>
+</div>

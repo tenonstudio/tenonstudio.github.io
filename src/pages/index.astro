@@ -1,100 +1,343 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
 import Text from '../components/Text.astro';
-import { apps, appBySlug } from '../data/apps';
+import TesseraPattern from '../components/home/TesseraPattern.astro';
+import LaunchpadMock from '../components/home/LaunchpadMock.astro';
+import MacIconCloud from '../components/home/MacIconCloud.astro';
+import PortholeVisual from '../components/home/PortholeVisual.astro';
+import BubbleVisual from '../components/home/BubbleVisual.astro';
+import { homeMeta, work, contacts } from '../data/home';
+import { SITE } from '../data/site';
 
-const flip = appBySlug.flip;
-const porthole = appBySlug.porthole;
-const tessera = appBySlug.tessera;
+const year = new Date().getFullYear();
+const contactIcons = {
+  email: '/assets/home/email.svg',
+  github: '/assets/home/github.svg',
+  x: '/assets/home/x.svg'
+} as const;
 ---
-<BaseLayout
-  title="Tenon — Small software for macOS"
-  description="Five focused macOS apps from Tenon: Flip, Porthole, Tessera, Launchpad, and Bubble."
-  image="/assets/screenshots/flip-settings.png"
+<HomeLayout
+  title={homeMeta.title}
+  titleZh={homeMeta.titleZh}
+  description={homeMeta.description}
+  descriptionZh={homeMeta.descriptionZh}
 >
-  <div class="chrome-home">
-    <section class="chrome-hero shell">
-      <div class="chrome-mark">
-        <img src="/assets/brand/tenon-avatar-128.png" alt="" width="72" height="72" />
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1 class="company-name">
+          <Text en={SITE.name.toUpperCase()} zh={SITE.nameZh} />
+        </h1>
+        <a
+          class="social-handle"
+          href={SITE.x.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Tenon Studio on X"
+        >
+          <img class="at-symbol" src="/assets/home/at.svg" alt="" width="16" height="16" />
+          <span>{SITE.x.handle}</span>
+        </a>
       </div>
-      <h1><Text en="Small tools, built for the Mac." zh="专为 Mac 打造的小工具。" /></h1>
-      <p><Text en="Flip, Porthole, Tessera, Launchpad, and Bubble. Focused apps that do one thing well — and stay out of the way." zh="Flip、Porthole、Tessera、Launchpad 和 Bubble。专注做好一件事，然后安静地退到一边。" /></p>
-      <div class="chrome-actions">
-        <a class="chrome-button" href="#apps"><Text en="Explore the apps" zh="探索应用" /> <span aria-hidden="true">↓</span></a>
-      </div>
-      <p class="chrome-fineprint"><Text en="Built for macOS · 14-day trials · One-time licenses" zh="为 macOS 打造 · 14 天试用 · 买断授权" /></p>
-    </section>
+      <a class="logo" href="/" aria-label="Tenon Studio home">
+        <img
+          class="logo-img"
+          src="/assets/brand/tenon-avatar-128.png"
+          alt="Tenon Studio"
+          width="48"
+          height="48"
+        />
+      </a>
+    </header>
 
-    <section class="chrome-stage" aria-label="Tenon apps">
-      <div class="chrome-side chrome-side-left" aria-hidden="true">
-        <img src={porthole.icon} alt="" width="54" height="54" />
-        <span>Porthole</span>
-        <small>Window mirroring</small>
-      </div>
-      <div class="chrome-main-shot">
-        <div class="chrome-shot-bar"><span class="traffic"><i></i><i></i><i></i></span><span>Flip</span><span>Settings</span></div>
-        <img class="chrome-shot-settings" src="/assets/screenshots/flip-settings.png" alt="Flip settings" width="1200" height="960" />
-        <img class="chrome-shot-panel" src="/assets/screenshots/flip-panel.png" alt="Flip menu bar panel" width="680" height="1332" />
-      </div>
-      <div class="chrome-side chrome-side-right" aria-hidden="true">
-        <img src={tessera.icon} alt="" width="54" height="54" />
-        <span>Tessera</span>
-        <small>Generative wallpaper</small>
-      </div>
-    </section>
+    <main id="main">
+      <section class="hero" id="studio" aria-label="About Tenon Studio">
+        <div class="hero-content-greeting">
+          <p class="greeting">
+            <Text en={homeMeta.greeting} zh={homeMeta.greetingZh} />
+          </p>
+          <div class="waving-hand" aria-hidden="true">
+            <img class="hand-icon" src="/assets/home/hand.svg" alt="" width="16" height="16" />
+          </div>
+        </div>
 
-    <section class="chrome-section shell" id="apps">
-      <div class="chrome-section-head">
-        <h2><Text en="Explore" zh="探索" /> <span class="chrome-pill"><Text en="five apps" zh="五款应用" /></span></h2>
-        <p><Text en="Three small pieces of software, each with a clear job." zh="三款小软件，每款都有明确的工作。" /></p>
-      </div>
-      <div class="chrome-cards">
-        {apps.map((app) => (
-          <a class:list={['chrome-card', `chrome-card-${app.slug}`]} href={`/apps/${app.slug}/`}>
-            <div class="chrome-card-top"><img src={app.icon} alt="" width="74" height="74" /><span>{app.platform}</span></div>
-            <h3>{app.name}</h3>
-            <p><Text en={app.tagline.en} zh={app.tagline.zh} /></p>
-            <div class="chrome-card-bottom">
-              <span class="chrome-card-tags">{app.tags.slice(0, 2).map((tag) => <span><Text en={tag.en} zh={tag.zh} /></span>)}</span>
-              <span class="chrome-card-arrow" aria-hidden="true">↗</span>
+        <p class="description">
+          <Text en={homeMeta.intro} zh={homeMeta.introZh} />
+        </p>
+
+        <div class="cta-section">
+          <p class="cta-text">
+            <Text en={homeMeta.ctaLead} zh={homeMeta.ctaLeadZh} class="cta-lead" /><a href="#contact" class="cta-container">
+              <span class="mail-capsule">
+                <img class="mail-icon" src="/assets/home/mail.svg" alt="" width="16" height="16" />
+              </span>
+              <Text en={homeMeta.ctaLink} zh={homeMeta.ctaLinkZh} tag="span" class="cta-link" />
+            </a>
+          </p>
+          <p class="copy-instruction">
+            <Text en={homeMeta.copyPress} zh={homeMeta.copyPressZh} />
+            <button
+              class="copy-btn"
+              type="button"
+              data-copy-email={SITE.email}
+              aria-label="Copy our email address"
+              data-aria-en="Copy our email address"
+              data-aria-zh="复制我们的邮箱地址"
+            >
+              c
+            </button>
+            <Text en={homeMeta.copyHint} zh={homeMeta.copyHintZh} />
+          </p>
+        </div>
+      </section>
+
+      <section class="work-section" id="apps" aria-labelledby="work-title">
+        <div class="section-header">
+          <h2 class="section-title" id="work-title">
+            <Text en={homeMeta.workTitle} zh={homeMeta.workTitleZh} />
+          </h2>
+          <p class="section-subtitle">
+            <Text en={homeMeta.workSubtitle} zh={homeMeta.workSubtitleZh} />
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <a class="project-card flip-card" href={work.flip.href}>
+            <div class="card-content">
+              <div class="project-icon">
+                <img src="/assets/flip-icon.png" alt="" width="36" height="36" />
+              </div>
+              <h3 class="project-title">
+                <Text en={work.flip.title} zh={work.flip.titleZh} />
+              </h3>
+              <div class="project-tags">
+                <span class="tag">{work.flip.tags[0]}</span>
+              </div>
+            </div>
+            <div class="card-visual flip-visual" aria-hidden="true">
+              <img
+                class="flip-panel-shot"
+                src="/assets/screenshots/flip-panel.png"
+                alt=""
+                width="680"
+                height="1332"
+              />
             </div>
           </a>
-        ))}
-      </div>
-    </section>
 
-    <section class="chrome-promo shell">
-      <div class="chrome-promo-card chrome-promo-blue">
-        <div>
-          <span class="chrome-kicker"><Text en="Private by design" zh="本地优先" /></span>
-          <h2><Text en="Your data stays on your Mac." zh="你的数据留在 Mac 上。" /></h2>
-          <p><Text en="No account. No dashboard. Your settings and scripts stay local." zh="不需要账号，没有仪表盘。设置和脚本都留在本机。" /></p>
-        </div>
-        <img src={flip.icon} alt="" width="110" height="110" />
-      </div>
-      <div class="chrome-promo-card chrome-promo-yellow">
-        <div>
-          <span class="chrome-kicker"><Text en="Try before you buy" zh="先试后买" /></span>
-          <h2><Text en="14 days with every feature." zh="14 天，全部功能。" /></h2>
-          <p><Text en="Then keep the app with a one-time license. No subscription." zh="之后一次买断留下它，不是订阅。" /></p>
-        </div>
-        <span class="chrome-badge">14<span>d</span></span>
-      </div>
-    </section>
+          <a class="project-card tessera-card" href={work.tessera.href}>
+            <div class="card-content">
+              <div class="project-icon">
+                <img src="/assets/tessera-icon.png" alt="" width="36" height="36" />
+              </div>
+              <h3 class="project-title">
+                <Text en={work.tessera.title} zh={work.tessera.titleZh} />
+              </h3>
+              <div class="project-tags">
+                <span class="tag">{work.tessera.tags[0]}</span>
+              </div>
+            </div>
+            <div class="card-visual tessera-visual" aria-hidden="true">
+              <TesseraPattern />
+            </div>
+          </a>
 
-    <section class="chrome-section chrome-section-last shell">
-      <div class="chrome-section-head">
-        <h2><Text en="Made by Tenon." zh="由 Tenon 制作。" /></h2>
-        <p><Text en="An independent software studio making quiet, careful tools for macOS." zh="一家独立软件工作室，为 macOS 做安静、认真的工具。" /></p>
-      </div>
-      <div class="chrome-links">
-        <a href="/apps/flip/"><Text en="Flip" zh="Flip" /> <span>→</span></a>
-        <a href="/apps/porthole/"><Text en="Porthole" zh="Porthole" /> <span>→</span></a>
-        <a href="/apps/tessera/"><Text en="Tessera" zh="Tessera" /> <span>→</span></a>
-        <a href="/apps/launchpad/"><Text en="Launchpad" zh="Launchpad" /> <span>→</span></a>
-        <a href="/apps/bubble/"><Text en="Bubble" zh="Bubble" /> <span>→</span></a>
-        <a href="/apps/flip/help/"><Text en="Scripting guides" zh="脚本指南" /> <span>→</span></a>
-      </div>
-    </section>
+          <div class="launchpad-wrap">
+            <MacIconCloud />
+            <a class="project-card launchpad-card" href={work.launchpad.href}>
+              <div class="card-content">
+                <div class="project-icon">
+                  <img src="/assets/launchpad-icon.png" alt="" width="36" height="36" />
+                </div>
+                <h3 class="project-title">
+                  <Text en={work.launchpad.title} zh={work.launchpad.titleZh} />
+                </h3>
+                <div class="project-tags">
+                  <span class="tag">{work.launchpad.tags[0]}</span>
+                  <div class="project-badges">
+                    <span class="badge badge-green">
+                      <Text en={work.launchpad.badge} zh={work.launchpad.badgeZh} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-visual launchpad-visual" aria-hidden="true">
+                <LaunchpadMock />
+              </div>
+            </a>
+          </div>
+
+          <a class="project-card porthole-card" href={work.porthole.href}>
+            <div class="card-content">
+              <div class="project-icon">
+                <img src="/assets/porthole-icon.png" alt="" width="36" height="36" />
+              </div>
+              <h3 class="project-title">
+                <Text en={work.porthole.title} zh={work.porthole.titleZh} />
+              </h3>
+              <div class="project-tags">
+                <span class="tag">{work.porthole.tags[0]}</span>
+              </div>
+            </div>
+            <div class="card-visual" aria-hidden="true">
+              <PortholeVisual />
+            </div>
+          </a>
+
+          <a class="project-card bubble-card" href={work.bubble.href}>
+            <div class="card-content">
+              <div class="project-icon">
+                <img src="/assets/bubble-icon.png" alt="" width="36" height="36" />
+              </div>
+              <h3 class="project-title">
+                <Text en={work.bubble.title} zh={work.bubble.titleZh} />
+              </h3>
+              <div class="project-tags">
+                <span class="tag">{work.bubble.tags[0]}</span>
+                <div class="project-badges">
+                  <span class="badge badge-green">
+                    <Text en={work.bubble.badge} zh={work.bubble.badgeZh} />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="card-visual" aria-hidden="true">
+              <BubbleVisual />
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-header">
+          <h2 class="section-title" id="contact-title">
+            <Text en={homeMeta.contactTitle} zh={homeMeta.contactTitleZh} />
+          </h2>
+          <p class="section-subtitle">
+            <Text en={homeMeta.contactSubtitle} zh={homeMeta.contactSubtitleZh} />
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          {contacts.map((contact) =>
+            'copy' in contact ? (
+              <button
+                class="contact-item contact-item--button"
+                type="button"
+                data-copy-email={SITE.email}
+                aria-label={`Copy our email address, ${SITE.email}`}
+                data-aria-en={`Copy our email address, ${SITE.email}`}
+                data-aria-zh={`复制邮箱地址，${SITE.email}`}
+              >
+                <img class="contact-icon" src={contactIcons[contact.kind]} alt="" width="24" height="24" />
+                <span class="contact-label">
+                  <Text en={contact.label} zh={contact.labelZh} />
+                </span>
+                <span class="contact-value">{contact.value}</span>
+                <img class="arrow-icon" src="/assets/home/arrow.svg" alt="" width="16" height="16" />
+              </button>
+            ) : (
+              <a class="contact-item" href={contact.href} target="_blank" rel="noopener noreferrer">
+                <img class="contact-icon" src={contactIcons[contact.kind]} alt="" width="24" height="24" />
+                <span class="contact-label">
+                  <Text en={contact.label} zh={contact.labelZh} />
+                </span>
+                <span class="contact-value">{contact.value}</span>
+                <img class="arrow-icon" src="/assets/home/arrow.svg" alt="" width="16" height="16" />
+              </a>
+            )
+          )}
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-text">
+        © {year} <Text en={SITE.name} zh={SITE.nameZh} />
+      </p>
+    </footer>
   </div>
-</BaseLayout>
+
+  <script>
+    const email = document.querySelector<HTMLElement>('[data-copy-email]')?.dataset.copyEmail ?? '';
+    const isZh = () => document.documentElement.dataset.lang === 'zh';
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `
+      <svg class="toast-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M13.5 4.5 6 12 2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="toast-text"></span>
+    `;
+    document.body.appendChild(toast);
+
+    const toastText = toast.querySelector<HTMLElement>('.toast-text');
+    let toastTimer = 0;
+
+    function showToast(message: string) {
+      if (!toastText) return;
+      toastText.textContent = message;
+      toast.classList.add('is-visible');
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2800);
+    }
+
+    function fallbackCopy(text: string) {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.left = '-9999px';
+      area.style.top = '0';
+      document.body.appendChild(area);
+      area.select();
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch {
+        copied = false;
+      }
+      document.body.removeChild(area);
+      return copied;
+    }
+
+    async function copyEmail() {
+      if (!email) return;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(email);
+          showToast(isZh() ? '邮箱已复制！' : 'Email copied!');
+          return;
+        }
+        throw new Error('Clipboard API unavailable');
+      } catch {
+        if (fallbackCopy(email)) {
+          showToast(isZh() ? '邮箱已复制！' : 'Email copied!');
+        } else {
+          showToast(isZh() ? `复制失败 — ${email}` : `Copy failed — ${email}`);
+        }
+      }
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-copy-email]').forEach((button) => {
+      button.addEventListener('click', () => {
+        void copyEmail();
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key.toLowerCase() !== 'c') return;
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+
+      const active = document.activeElement as HTMLElement | null;
+      if (active?.matches('input, textarea, select, [contenteditable="true"]')) return;
+      if (window.getSelection()?.toString().length) return;
+
+      event.preventDefault();
+      void copyEmail();
+    });
+  </script>
+</HomeLayout>

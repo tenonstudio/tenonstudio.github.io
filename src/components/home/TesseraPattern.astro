@@ -1,0 +1,43 @@
+---
+const columns = 6;
+const rows = 7;
+const cell = 48;
+
+const tiles = Array.from({ length: columns * rows }, (_, index) => {
+  const column = index % columns;
+  const row = Math.floor(index / columns);
+  const quarter = (column + row) % 2;
+  const rotation = quarter ? 90 : 0;
+  const filled = index % 11 === 3;
+  const dot = index % 13 === 5;
+  return {
+    x: column * cell,
+    y: row * cell,
+    rotation,
+    filled,
+    dot,
+    opacity: 0.48 + ((index * 7) % 3) * 0.11
+  };
+});
+---
+<svg
+  class="tessera-svg"
+  viewBox={`0 0 ${columns * cell} ${rows * cell}`}
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  preserveAspectRatio="xMidYMid slice"
+>
+  {tiles.map((tile) => (
+    <g transform={`translate(${tile.x} ${tile.y}) rotate(${tile.rotation} 24 24)`}>
+      {tile.filled && (
+        <path d="M0 0H24A24 24 0 0 1 0 24Z" fill="currentColor" opacity="0.08" />
+      )}
+      <g stroke="currentColor" stroke-width="1.9" opacity={tile.opacity}>
+        <path d="M0 24A24 24 0 0 1 24 0" />
+        <path d="M24 48A24 24 0 0 1 48 24" />
+      </g>
+      {tile.dot && <circle cx="24" cy="24" r="2.2" fill="currentColor" opacity="0.72" />}
+    </g>
+  ))}
+</svg>

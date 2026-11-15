@@ -2,13 +2,14 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Text from '../../../components/Text.astro';
 import { apps } from '../../../data/apps';
+import { SITE } from '../../../data/site';
 
 export function getStaticPaths() {
   return apps.filter((app) => app.buy).map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 const { app } = Astro.props;
 ---
-<BaseLayout title={`Buy ${app.name} — Tenon`} description={`Buy a lifetime license for ${app.name}.`} image={app.icon}>
+<BaseLayout title={`Buy ${app.name} — ${SITE.shortName}`} description={`Buy a lifetime license for ${app.name}.`} image={app.icon}>
   <section class="buy-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
     <a class="back-link" href={`/apps/${app.slug}/`}><span aria-hidden="true">←</span> <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} /></a>
     <div class="buy-layout">

@@ -1,0 +1,50 @@
+---
+import AppTile from './AppTile.astro';
+import Text from '../Text.astro';
+import { appTiles } from '../../data/home';
+
+const dockTiles = appTiles.slice(0, 6);
+---
+<div class="launcher" aria-hidden="true">
+  <div class="launcher-wall"></div>
+
+  <div class="launcher-menubar">
+    <span class="launcher-title">Launchpad</span>
+    <span class="launcher-search">
+      <svg viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.4" />
+        <path d="m10.2 10.2 3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+      </svg>
+      <Text en="Search" zh="搜索" />
+    </span>
+    <span class="launcher-status">9:41</span>
+  </div>
+
+  <div class="launcher-grid">
+    {appTiles.map((tile) => (
+      <div class="launcher-item">
+        <AppTile
+          label={tile.label}
+          icon={'icon' in tile ? tile.icon : undefined}
+          glyph={'glyph' in tile ? tile.glyph : undefined}
+        />
+        <span class="launcher-item-label">{tile.label}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="launcher-pages">
+    <i class="is-on"></i>
+    <i></i>
+  </div>
+
+  <div class="launcher-dock">
+    {dockTiles.map((tile) => (
+      <AppTile
+        label={tile.label}
+        icon={'icon' in tile ? tile.icon : undefined}
+        glyph={'glyph' in tile ? tile.glyph : undefined}
+      />
+    ))}
+  </div>
+</div>

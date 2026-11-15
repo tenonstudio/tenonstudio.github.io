@@ -1,13 +1,14 @@
 ---
 import Text from './Text.astro';
 import { apps } from '../data/apps';
+import { SITE } from '../data/site';
 ---
 <footer class="site-footer">
   <div class="shell footer-grid">
     <div class="footer-brand">
-      <a class="brand" href="/" aria-label="Tenon">
+      <a class="brand" href="/" aria-label={SITE.name}>
         <img class="brand-mark" src="/assets/brand/tenon-avatar-64.png" alt="" width="30" height="30" />
-        <span class="brand-name">tenon</span><span class="brand-cn">榫卯</span>
+        <span class="brand-name">{SITE.brand}</span><span class="brand-cn">{SITE.nameZh}</span>
       </a>
       <p><Text en="Small software for macOS, made to fit." zh="为 macOS 做的小软件，刚好合上。" /></p>
     </div>
@@ -22,9 +23,9 @@ import { apps } from '../data/apps';
       <a href="/apps/flip/terms.html"><Text en="Terms" zh="条款" /></a>
     </div>
     <div class="footer-col footer-meta">
-      <h4><Text en="Studio" zh="工作室" /></h4>
-      <a href="/#studio"><Text en="About Tenon" zh="关于 Tenon" /></a>
-      <p>© 2026 Tenon</p>
+      <h4><Text en="Studio" zh="工坊" /></h4>
+      <a href="/#studio"><Text en={`About ${SITE.shortName}`} zh={`关于${SITE.nameZh}`} /></a>
+      <p>© {new Date().getFullYear()} <Text en={SITE.name} zh={SITE.nameZh} /></p>
     </div>
   </div>
 </footer>
