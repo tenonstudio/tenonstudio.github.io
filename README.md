@@ -59,7 +59,8 @@ uses LaunchOS's original Google Fonts (Albert Sans, Geist, Plus Jakarta Sans).
 
 `/apps/launchpad/` is a local mirror of <https://launchosapp.com/>, built from the
 original server-rendered HTML, CSS, JavaScript, and images (used with permission
-from the LaunchOS team). It is not an Astro page: the document lives at
+from the LaunchOS team). Upstream project:
+<https://github.com/Remix-Design/LaunchOS>. It is not an Astro page: the document lives at
 `public/apps/launchpad/index.html`, and the LaunchOS assets live alongside the
 site assets under `public/assets/`. `src/pages/apps/[slug].astro` filters
 `launchpad` out of the generic route so the public file is served instead.
