@@ -3,11 +3,14 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Text from '../../../components/Text.astro';
 import { apps } from '../../../data/apps';
 import { SITE } from '../../../data/site';
+import { checkoutMode, checkoutURL, tiersFor } from '../../../data/checkout';
 
 export function getStaticPaths() {
   return apps.filter((app) => app.buy).map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 const { app } = Astro.props;
+const tiers = tiersFor(app.slug);
+const hasTiers = tiers.length > 0;
 ---
 <BaseLayout title={`Buy ${app.name} — ${SITE.shortName}`} description={`Buy a lifetime license for ${app.name}.`} image={app.icon}>
   <section class="buy-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
@@ -21,17 +24,65 @@ const { app } = Astro.props;
         <ul class="buy-points">
           <li><Text en="14-day full-featured trial" zh="14 天全功能试用" /></li>
           <li><Text en="One-time payment, no subscription" zh="一次付款，不是订阅" /></li>
-          <li><Text en="Use on up to 3 Macs" zh="最多 3 台 Mac" /></li>
-          <li><Text en="Free updates included" zh="包含免费更新" /></li>
+          <li>
+            {hasTiers ? (
+              <Text en="Choose 1, 2, or 5 Macs" zh="可选 1、2 或 5 台 Mac" />
+            ) : (
+              <Text en="License terms are shown at checkout" zh="授权条款以结账页为准" />
+            )}
+          </li>
+          <li><Text en="Free 1.x updates included" zh="包含 1.x 免费更新" /></li>
         </ul>
       </div>
-      <div class="price-card">
-        <span class="price-label"><Text en="One-time purchase" zh="一次买断" /></span>
-        <div class="price">US$9.99</div>
-        <p><Text en="Lifetime license for 3 Macs." zh="3 台 Mac 的终身授权。" /></p>
-        <button class="button button-dark button-full" type="button" disabled><Text en="Checkout opening soon" zh="购买即将开放" /></button>
-        <p class="fine-print"><Text en="Secure checkout via Lemon Squeezy. Link coming soon." zh="将通过 Lemon Squeezy 安全结账，链接即将上线。" /></p>
-      </div>
+      {hasTiers ? (
+        <div class="price-card">
+          <span class="price-label"><Text en="Choose your license" zh="选择授权" /></span>
+          <h2 class="tier-heading"><Text en="Same app. Pick your Macs." zh="功能相同，按 Mac 数量选择。" /></h2>
+          <div class="tier-list">
+            {tiers.map((tier) => {
+              const href = checkoutURL(tier);
+              return (
+                <div class="tier-row">
+                  <div class="tier-copy">
+                    <strong><Text en={tier.name.en} zh={tier.name.zh} /></strong>
+                    <small>
+                      <Text
+                        en={`${tier.devices} ${tier.devices === 1 ? 'Mac' : 'Macs'}`}
+                        zh={`${tier.devices} 台 Mac`}
+                      />
+                    </small>
+                  </div>
+                  <div class="tier-cost">
+                    <strong>{tier.price}</strong>
+                    {tier.saving && <small class="tier-saving"><Text en={tier.saving.en} zh={tier.saving.zh} /></small>}
+                  </div>
+                  {href ? (
+                    <a class="button button-dark button-full tier-button" href={href} target="_blank" rel="noopener">
+                      <Text en={tier.cta.en} zh={tier.cta.zh} />
+                    </a>
+                  ) : (
+                    <button class="button button-dark button-full tier-button" type="button" disabled>
+                      <Text en="Checkout opening soon" zh="购买即将开放" />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <p class="fine-print"><Text en="Secure checkout via Dodo Payments. One-time purchase; no subscription." zh="通过 Dodo Payments 安全结账；一次买断，不是订阅。" /></p>
+          {checkoutMode === 'test' && (
+            <p class="checkout-test-note"><Text en="Test mode checkout — no real charge." zh="测试模式结账，不会真实扣款。" /></p>
+          )}
+        </div>
+      ) : (
+        <div class="price-card">
+          <span class="price-label"><Text en="One-time purchase" zh="一次买断" /></span>
+          <div class="price">US$9.99</div>
+          <p><Text en="License terms are shown at checkout." zh="授权条款以结账页为准。" /></p>
+          <button class="button button-dark button-full" type="button" disabled><Text en="Checkout opening soon" zh="购买即将开放" /></button>
+          <p class="fine-print"><Text en="Secure checkout via Dodo Payments." zh="通过 Dodo Payments 安全结账。" /></p>
+        </div>
+      )}
     </div>
   </section>
 </BaseLayout>

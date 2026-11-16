@@ -82,6 +82,33 @@ Google Fonts, App Store, Paddle/download, social, and other external links
 remain external. The LaunchOS canonical/`hreflang` tags are kept as-is because
 this is a mirror. The other app pages still use the shared Astro template.
 
+## Checkout
+
+`/apps/flip/buy/` is wired to Dodo Payments through `src/data/checkout.ts`.
+
+The default is **test mode**, so the buy buttons open
+`https://test.checkout.dodopayments.com/buy/{test_product_id}` and the page shows
+a “Test mode checkout” notice. This is safe for local review but must not be
+deployed as the public store.
+
+For production:
+
+1. Create the three live products and license entitlements in Dodo.
+2. Copy `.env.example` to `.env`.
+3. Set `PUBLIC_DODO_MODE=live`.
+4. Fill `PUBLIC_DODO_SOLO_ID`, `PUBLIC_DODO_DUO_ID`, and
+   `PUBLIC_DODO_FAMILY_ID` from the **live** products.
+5. Run `npm run build` and deploy `dist/`.
+
+```bash
+cp .env.example .env
+# edit .env
+npm run build
+```
+
+Without live product IDs the buy buttons render disabled, rather than falling
+back to test checkout.
+
 ## Development
 
 ```bash

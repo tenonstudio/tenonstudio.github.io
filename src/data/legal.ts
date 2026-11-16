@@ -17,8 +17,8 @@ const updated = { en: 'Last updated: November 2026', zh: '最后更新：2026 �
 export function privacyFor(app: App): LegalDocument {
   const network = {
     flip: {
-      en: 'Flip itself does not send analytics. Controls that use macOS automation, Bluetooth, or location do so only when you activate them. Purchase and license activation use Lemon Squeezy.',
-      zh: 'Flip 本身不发送分析数据。使用 macOS 自动化、蓝牙或位置的控制项只会在你主动启用时访问相应系统能力。购买和授权激活使用 Lemon Squeezy。'
+      en: 'Flip itself does not send analytics. Controls that use macOS automation, Bluetooth, or location do so only when you activate them. Purchase and license activation use Dodo Payments.',
+      zh: 'Flip 本身不发送分析数据。使用 macOS 自动化、蓝牙或位置的控制项只会在你主动启用时访问相应系统能力。购买和授权激活使用 Dodo Payments。'
     },
     porthole: {
       en: 'Porthole loads the window or web page you ask it to mirror. That source may make network requests according to its own policy. Captured frames are processed locally and are never uploaded.',
@@ -59,8 +59,8 @@ export function privacyFor(app: App): LegalDocument {
       {
         title: { en: 'Purchases and licensing', zh: '购买与授权' },
         body: {
-          en: 'License activation and purchases are processed by Lemon Squeezy. Payment details and billing information are handled by Lemon Squeezy under its own privacy policy; we receive only the license information needed to activate the app.',
-          zh: '授权激活和购买由 Lemon Squeezy 处理。支付与账单信息由 Lemon Squeezy 按其隐私政策处理；我们只接收激活 App 所需的授权信息。'
+          en: 'License activation and purchases are processed by Dodo Payments. Payment details and billing information are handled by Dodo Payments under its own privacy policy; we receive only the license information needed to activate the app.',
+          zh: '授权激活和购买由 Dodo Payments 处理。支付与账单信息由 Dodo Payments 按其隐私政策处理；我们只接收激活 App 所需的授权信息。'
         }
       },
       {

@@ -808,3 +808,22 @@ body { background: var(--bg); }
   .chrome-badge { width: 76px; height: 76px; font-size: 28px; }
   .chrome-section-last { padding-bottom: 70px; }
 }
+
+/* Flip license tiers */
+.tier-heading { margin: 18px 0 22px; font-size: 23px; line-height: 1.1; letter-spacing: -.045em; font-weight: 600; }
+.tier-list { border-top: 1px solid var(--line); }
+.tier-row { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; align-items: center; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.tier-copy { min-width: 0; }
+.tier-copy strong { display: block; font-size: 15px; letter-spacing: -.02em; }
+.tier-copy small { display: block; margin-top: 4px; font-size: 12px; color: var(--muted); }
+.tier-cost { text-align: right; }
+.tier-cost strong { display: block; font-size: 20px; letter-spacing: -.04em; }
+.tier-saving { display: block; margin-top: 3px; font-size: 10px; color: #2f7d46; font-weight: 600; }
+.tier-button { grid-column: 1 / -1; margin-top: 6px; }
+.fine-print { margin-top: 18px !important; font-size: 11px !important; line-height: 1.55; }
+.checkout-test-note { margin-top: 12px !important; padding: 8px 10px; border: 1px solid #e6c46a; border-radius: 8px; color: #6f5312 !important; background: #fff8df; font-size: 11px !important; }
+@media (max-width: 700px) {
+  .tier-heading { font-size: 21px; }
+  .tier-row { padding: 15px 0; }
+  .tier-cost strong { font-size: 18px; }
+}
