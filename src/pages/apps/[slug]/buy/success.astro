@@ -35,6 +35,12 @@ const { app } = Astro.props;
         </button>
       </div>
 
+      {app.slug === 'flip' && (
+        <a id="open-flip" class="button button-dark deep-link-button" href="#">
+          <Text en="Open Flip and activate" zh="打开 Flip 并激活" />
+        </a>
+      )}
+
       <div class="success-steps">
         <h2><Text en={`Activate ${app.name}`} zh={`激活 ${app.name}`} /></h2>
         <ol>
@@ -62,7 +68,12 @@ const { app } = Astro.props;
       const key = params.get('license_key') || '';
       const keyNode = document.getElementById('license-key');
       const copy = document.getElementById('copy-license');
+      const openFlip = document.getElementById('open-flip');
       if (keyNode) keyNode.textContent = key || 'Check your email';
+
+      if (openFlip && key) {
+        openFlip.href = `flip://activate?license_key=${encodeURIComponent(key)}`;
+      }
 
       if (copy) {
         copy.addEventListener('click', async () => {

@@ -848,3 +848,5 @@ body { background: var(--bg); }
   .license-box { grid-template-columns: 1fr; }
   .license-box .button { width: 100%; }
 }
+
+.deep-link-button { margin-top: 16px; }
