@@ -84,32 +84,40 @@ this is a mirror. The other app pages still use the shared Astro template.
 
 ## Checkout
 
-`/apps/flip/buy/` is wired to Dodo Payments through `src/data/checkout.ts`.
+All six apps have paid Dodo Payments checkout:
 
-The default is **live mode**. If no live product IDs are set, the buy buttons
-render disabled rather than falling back to a test checkout.
+- Flip
+- Porthole
+- Tessera
+- Launchpad
+- Bubble
+- Crate
 
-For local test checkout, set `PUBLIC_DODO_MODE=test` in `.env`; the page then
-opens `https://test.checkout.dodopayments.com/buy/{test_product_id}` and shows a
-“Test mode checkout” notice.
+Each app has three products: `Solo` (1 Mac), `Duo` (2 Macs), and
+`Family` (5 Macs). Each app also has one Dodo Product Collection containing its
+three products.
 
-For production:
+The product IDs and test/live selection live in `src/data/checkout.ts`. The
+website never calls the Dodo API and never contains an API key: it only opens
+Dodo static checkout links and shows the returned license key on the matching
+`/apps/{slug}/buy/success/` page.
 
-1. Create the three live products and license entitlements in Dodo.
-2. Copy `.env.example` to `.env`.
-3. Set `PUBLIC_DODO_MODE=live`.
-4. Fill `PUBLIC_DODO_SOLO_ID`, `PUBLIC_DODO_DUO_ID`, and
-   `PUBLIC_DODO_FAMILY_ID` from the **live** products.
-5. Run `npm run build` and deploy `dist/`.
+### GitHub Pages = live, local = test
 
-```bash
-cp .env.example .env
-# edit .env
-npm run build
+The default is **live mode**. `npm run build` on GitHub Actions therefore points
+at `https://checkout.dodopayments.com` and the live product IDs.
+
+For local preview, `.env` (ignored by git) contains:
+
+```text
+PUBLIC_DODO_MODE=test
 ```
 
-Without live product IDs the buy buttons render disabled, rather than falling
-back to test checkout.
+Then `npm run dev` / `npm run build` uses
+`https://test.checkout.dodopayments.com` and the test product IDs, and the buy
+page shows a “Test mode checkout” notice.
+
+Do not deploy a test-mode build as the public store.
 
 ## Development
 

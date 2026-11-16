@@ -154,11 +154,6 @@ const contactIcons = {
                 </h3>
                 <div class="project-tags">
                   <span class="tag">{work.launchpad.tags[0]}</span>
-                  <div class="project-badges">
-                    <span class="badge badge-green">
-                      <Text en={work.launchpad.badge} zh={work.launchpad.badgeZh} />
-                    </span>
-                  </div>
                 </div>
               </div>
               <div class="card-visual launchpad-visual" aria-hidden="true">
@@ -194,15 +189,27 @@ const contactIcons = {
               </h3>
               <div class="project-tags">
                 <span class="tag">{work.bubble.tags[0]}</span>
-                <div class="project-badges">
-                  <span class="badge badge-green">
-                    <Text en={work.bubble.badge} zh={work.bubble.badgeZh} />
-                  </span>
-                </div>
               </div>
             </div>
             <div class="card-visual" aria-hidden="true">
               <BubbleVisual />
+            </div>
+          </a>
+
+          <a class="project-card crate-card" href={work.crate.href}>
+            <div class="card-content">
+              <div class="project-icon">
+                <img src="/assets/crate-icon.png" alt="" width="36" height="36" />
+              </div>
+              <h3 class="project-title">
+                <Text en={work.crate.title} zh={work.crate.titleZh} />
+              </h3>
+              <div class="project-tags">
+                <span class="tag">{work.crate.tags[0]}</span>
+              </div>
+            </div>
+            <div class="card-visual crate-visual" aria-hidden="true">
+              <img class="crate-home-shot" src="/assets/screenshots/crate-main.png" alt="" width="640" height="420" />
             </div>
           </a>
         </div>

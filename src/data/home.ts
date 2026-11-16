@@ -44,9 +44,7 @@ export const work = {
     href: '/apps/launchpad/',
     title: 'Launchpad - The Launcher',
     titleZh: 'Launchpad - 应用启动台',
-    tags: ['macOS 26+'],
-    badge: 'Free',
-    badgeZh: '免费'
+    tags: ['macOS 26+']
   },
   porthole: {
     href: '/apps/porthole/',
@@ -58,9 +56,13 @@ export const work = {
     href: '/apps/bubble/',
     title: 'Bubble - Selection Actions',
     titleZh: 'Bubble - 划词操作',
-    tags: ['macOS 12+'],
-    badge: 'Free',
-    badgeZh: '免费'
+    tags: ['macOS 12+']
+  },
+  crate: {
+    href: '/apps/crate/',
+    title: 'Crate - Disk Images',
+    titleZh: 'Crate - 磁盘映像',
+    tags: ['macOS 12+']
   }
 } as const;
 

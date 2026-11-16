@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Text from '../../../../components/Text.astro';
+import { appBySlug } from '../../../../data/apps';
+import { SITE } from '../../../../data/site';
+
+export function getStaticPaths() {
+  return Object.values(appBySlug)
+    .filter((app) => app.buy)
+    .map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+---
+<BaseLayout
+  title={`Thank you — ${app.name} — ${SITE.shortName}`}
+  description={`Your ${app.name} license key and activation steps.`}
+  image={app.icon}
+>
+  <section class="success-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
+    <div class="success-card">
+      <p class="eyebrow"><Text en="Purchase complete" zh="购买完成" /></p>
+      <h1><Text en={`${app.name} is ready.`} zh={`${app.name} 已经准备好了。`} /></h1>
+      <p class="success-lead">
+        <Text
+          en={`Your ${app.name} license key is below and has also been sent to your email. Keep it somewhere safe.`}
+          zh={`${app.name} 的许可证密钥在下方，同时也已发送到你的邮箱。请妥善保存。`}
+        />
+      </p>
+
+      <div class="license-box">
+        <span class="license-label"><Text en="License key" zh="许可证密钥" /></span>
+        <code id="license-key" class="license-key">—</code>
+        <button id="copy-license" class="button button-dark" type="button">
+          <Text en="Copy key" zh="复制密钥" />
+        </button>
+      </div>
+
+      <div class="success-steps">
+        <h2><Text en={`Activate ${app.name}`} zh={`激活 ${app.name}`} /></h2>
+        <ol>
+          <li><Text en={`Open ${app.name}.`} zh={`打开 ${app.name}。`} /></li>
+          <li><Text en="Open the License section in its settings or menu." zh="进入应用设置或菜单中的「许可证」区域。" /></li>
+          <li><Text en="Enter the license key above." zh="输入上面的许可证密钥。" /></li>
+        </ol>
+        <p class="fine-print">
+          <Text
+            en="Your license covers the number of Macs shown at checkout. You can deactivate this Mac from the License section."
+            zh="许可证覆盖结账页所示数量的 Mac。可在「许可证」区域停用当前 Mac。"
+          />
+        </p>
+      </div>
+
+      <a class="button button-dark success-back" href={`/apps/${app.slug}/`}>
+        <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} />
+      </a>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const key = params.get('license_key') || '';
+      const keyNode = document.getElementById('license-key');
+      const copy = document.getElementById('copy-license');
+      if (keyNode) keyNode.textContent = key || 'Check your email';
+
+      if (copy) {
+        copy.addEventListener('click', async () => {
+          if (!key) return;
+          try {
+            await navigator.clipboard.writeText(key);
+            copy.textContent = 'Copied';
+            setTimeout(() => { copy.textContent = 'Copy key'; }, 1600);
+          } catch {
+            keyNode?.focus();
+          }
+        });
+      }
+    })();
+  </script>
+</BaseLayout>

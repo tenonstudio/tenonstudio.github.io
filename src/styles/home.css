@@ -1707,3 +1707,15 @@ html[data-lang="en"] .bubble-lead::after {
     animation: none;
   }
 }
+
+/* Crate */
+.crate-home-shot {
+  position: absolute;
+  width: 88%;
+  right: -8%;
+  bottom: -12%;
+  border-radius: 12px;
+  border: 1px solid rgba(40, 35, 25, .14);
+  box-shadow: 0 24px 55px rgba(60, 45, 25, .18);
+  transform: rotate(-2deg);
+}

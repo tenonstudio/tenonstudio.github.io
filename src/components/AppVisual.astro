@@ -37,6 +37,9 @@ const { app } = Astro.props as { app: App };
       <span class="porthole-label"><Text en="Click-through" zh="点击穿透" /></span>
     </div>
   )}
+  {app.slug === 'crate' && (
+    <img class="crate-app-shot" src="/assets/screenshots/crate-main.png" alt="" width="640" height="420" />
+  )}
   {app.slug === 'tessera' && (
     <div class="tessera-canvas">
       <div class="tessera-ring ring-a"></div>
@@ -101,5 +104,15 @@ const { app } = Astro.props as { app: App };
   .bubble-bar .bubble-more {
     color: rgba(255, 255, 255, .55);
     letter-spacing: 1px;
+  }
+  .crate-app-shot {
+    position: absolute;
+    width: 78%;
+    left: 11%;
+    top: 18%;
+    border-radius: 14px;
+    border: 1px solid rgba(40, 35, 25, .14);
+    box-shadow: 0 28px 60px rgba(60, 45, 25, .18);
+    transform: rotate(-2deg);
   }
 </style>

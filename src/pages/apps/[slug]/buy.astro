@@ -40,7 +40,7 @@ const hasTiers = tiers.length > 0;
           <h2 class="tier-heading"><Text en="Same app. Pick your Macs." zh="功能相同，按 Mac 数量选择。" /></h2>
           <div class="tier-list">
             {tiers.map((tier) => {
-              const href = checkoutURL(tier);
+              const href = checkoutURL(app.slug, tier);
               return (
                 <div class="tier-row">
                   <div class="tier-copy">

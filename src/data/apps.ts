@@ -163,11 +163,11 @@ export const apps: App[] = [
       { title: { en: 'Folders and pages', zh: '文件夹与分页' }, body: { en: 'Drag apps into folders, reorder across pages, and expand folders with a matched-geometry animation.', zh: '把应用拖进文件夹、跨页排序，文件夹以 matched-geometry 动画展开。' } },
       { title: { en: 'Multi-select', zh: '多选' }, body: { en: 'Command-click, Shift-range, or drag a box; hide apps or move them into folders in batches.', zh: '⌘ 点选、Shift 连选或拖框，批量隐藏应用或移入文件夹。' } },
       { title: { en: 'Your triggers', zh: '你的触发方式' }, body: { en: 'Open with a global shortcut, F4, a hot corner, the Dock, or the menu bar.', zh: '用全局快捷键、F4、触发角、Dock 或菜单栏打开。' } },
-      { title: { en: 'Free and native', zh: '免费且原生' }, body: { en: 'Built with SwiftUI and AppKit. No account, no ads, and your layout stays on your Mac.', zh: 'SwiftUI + AppKit 原生实现。无需账号、无广告，布局保存在本机。' } }
+      { title: { en: 'Native and private', zh: '原生且本地' }, body: { en: 'Built with SwiftUI and AppKit. No account, no ads, and your layout stays on your Mac.', zh: 'SwiftUI + AppKit 原生实现。无需账号、无广告，布局保存在本机。' } }
     ],
     specs: [
       { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 26+\nUniversal', zh: 'macOS 26+\nUniversal' } },
-      { label: { en: 'Price', zh: '价格' }, value: { en: 'Free', zh: '免费' } },
+      { label: { en: 'License', zh: '授权' }, value: { en: 'From $4.99\nLifetime license', zh: 'US$4.99 起\n买断授权' } },
       { label: { en: 'Updates', zh: '更新' }, value: { en: 'Sparkle\nSelf-updating', zh: 'Sparkle\n自动更新' } }
     ],
     tags: [{ en: 'Native launcher', zh: '原生启动台' }, { en: 'Pinyin search', zh: '拼音搜索' }, { en: 'Folders', zh: '文件夹' }],
@@ -176,7 +176,7 @@ export const apps: App[] = [
     accentSoft: '#e8efff',
     download: '/apps/launchpad/downloads/Launchpad-0.3.14.dmg',
     appcast: '/apps/launchpad/appcast.xml',
-    free: true
+    buy: '/apps/launchpad/buy/'
   },
   {
     slug: 'bubble',
@@ -199,11 +199,11 @@ export const apps: App[] = [
       { title: { en: 'Interactive result windows', zh: '可交互结果窗口' }, body: { en: 'Show translation or AI output in an HTML window, stream updates with append(), and receive form or button messages back in the action.', zh: '在 HTML 窗口中显示翻译或 AI 输出，用 append() 流式更新，并把表单或按钮消息送回 action。' } },
       { title: { en: 'App and website rules', zh: 'App 与网站规则' }, body: { en: 'Exclude apps or domains where Bubble should stay quiet. The global shortcut still works when you need it.', zh: '排除不希望 Bubble 自动出现的 App 或域名；需要时全局快捷键仍然可用。' } },
       { title: { en: 'Extension trust', zh: '扩展信任' }, body: { en: 'Installed extensions are fingerprinted, changed packages are blocked until reviewed, and permissions are enforced by the runtime.', zh: '已安装扩展会记录指纹，改动后的包在确认前会被阻止，权限由运行时强制执行。' } },
-      { title: { en: 'Local by default', zh: '本地优先' }, body: { en: 'Extensions, settings, and action history stay on your Mac. No account, no subscription, no in-app purchase.', zh: '扩展、设置和操作记录都保存在本机。无需账号、无订阅、无内购。' } }
+      { title: { en: 'Local by default', zh: '本地优先' }, body: { en: 'Extensions, settings, and action history stay on your Mac. No account and no subscription.', zh: '扩展、设置和操作记录都保存在本机。无需账号、不订阅。' } }
     ],
     specs: [
       { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 12+\nUniversal', zh: 'macOS 12+\nUniversal' } },
-      { label: { en: 'License', zh: '授权' }, value: { en: 'Free\nNo account', zh: '免费\n无需账号' } },
+      { label: { en: 'License', zh: '授权' }, value: { en: 'From $4.99\nLifetime license', zh: 'US$4.99 起\n买断授权' } },
       { label: { en: 'Updates', zh: '更新' }, value: { en: 'Sparkle\nSelf-updating', zh: 'Sparkle\n自动更新' } }
     ],
     tags: [{ en: 'Selection bar', zh: '划词操作栏' }, { en: 'JavaScript extensions', zh: 'JavaScript 扩展' }, { en: 'Result windows', zh: '结果窗口' }],
@@ -212,8 +212,43 @@ export const apps: App[] = [
     accentSoft: '#e8eaff',
     download: '/apps/bubble/downloads/Bubble-0.4.1.dmg',
     appcast: '/apps/bubble/appcast.xml',
-    free: true
+    buy: '/apps/bubble/buy/'
+  },  {
+    slug: 'crate',
+    index: '06',
+    name: 'Crate',
+    category: { en: 'Disk image builder', zh: '磁盘映像工具' },
+    platform: 'macOS 12+',
+    tagline: { en: 'Turn anything into a polished disk image.', zh: '把任何东西做成一张漂亮的磁盘映像。' },
+    description: {
+      en: 'Crate turns apps, folders, and files into polished disk images. Drop something into the crate, pick a preset, and Crate handles the Finder layout, background, Applications shortcut, license agreement, encryption, signing, and checksum.',
+      zh: 'Crate 把应用、文件夹和文件做成精致的 DMG。拖进 Crate，选一个预设，窗口布局、背景、Applications 快捷方式、许可协议、加密、签名和校验和都会自动完成。'
+    },
+    deck: {
+      en: 'A native DMG builder for the Mac — Finder layouts, Retina backgrounds, licenses, encryption, signing, and verification.',
+      zh: '为 Mac 打造的原生 DMG 工具——Finder 布局、Retina 背景、许可协议、加密、签名和校验。'
+    },
+    features: [
+      { title: { en: 'Drop and build', zh: '拖入即构建' }, body: { en: 'Drop in an app, folder, file, archive, or existing disk image. Queue several items and build them in order.', zh: '拖入应用、文件夹、文件、压缩包或现有磁盘映像，可排队依次构建。' } },
+      { title: { en: 'Finder layouts', zh: 'Finder 布局' }, body: { en: 'Set window size, icon and label size, background picture, and exact icon positions. Crate applies the layout through Finder.', zh: '设置窗口大小、图标与标签尺寸、背景图以及精确的图标位置，由 Finder 应用布局。' } },
+      { title: { en: 'Installer or archive', zh: '安装包或归档' }, body: { en: 'Apps get an Applications symlink and installer layout; folders use an adaptive grid; files are packed as single items.', zh: '应用自动加入 Applications 快捷方式和安装布局；文件夹使用自适应网格；单个文件直接打包。' } },
+      { title: { en: 'Presets and options', zh: '预设与选项' }, body: { en: 'Format, compression, HFS+ or APFS, naming, layout, license, encryption, signing, and verification can be saved as presets.', zh: '格式、压缩、HFS+/APFS、命名、布局、许可、加密、签名和校验都可以保存为预设。' } },
+      { title: { en: 'License agreements', zh: '许可协议' }, body: { en: 'Embed a plain-text agreement in the image. macOS shows the Agree / Disagree dialog before mounting.', zh: '在映像中嵌入纯文本许可协议，macOS 挂载前会显示同意/不同意对话框。' } },
+      { title: { en: 'Native and local', zh: '原生且本地' }, body: { en: 'Built with Swift and AppKit. No account, no cloud upload, and no source files leave your Mac.', zh: 'Swift + AppKit 原生实现。无需账号、不上传云端，源文件不会离开本机。' } }
+    ],
+    specs: [
+      { label: { en: 'Platform', zh: '平台' }, value: { en: 'macOS 12+\nApple silicon and Intel', zh: 'macOS 12+\nApple 芯片和 Intel' } },
+      { label: { en: 'License', zh: '授权' }, value: { en: 'From $4.99\nLifetime license', zh: 'US$4.99 起\n买断授权' } },
+      { label: { en: 'Privacy', zh: '隐私' }, value: { en: 'Local builds\nNo account', zh: '本地构建\n无需账号' } }
+    ],
+    tags: [{ en: 'DMG builder', zh: 'DMG 构建' }, { en: 'Finder layouts', zh: 'Finder 布局' }, { en: 'Signing', zh: '签名' }],
+    icon: '/assets/crate-icon.png',
+    accent: '#b47a4f',
+    accentSoft: '#f5e9dd',
+    download: '/apps/crate/downloads/Crate-0.1.0.dmg',
+    buy: '/apps/crate/buy/'
   }
+
 ];
 
 export const appBySlug = Object.fromEntries(apps.map((app) => [app.slug, app]));
