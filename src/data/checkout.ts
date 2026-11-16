@@ -55,10 +55,12 @@ const liveProducts: Record<string, ProductMap> = {
     duo: 'pdt_0Ns4lXz9KE2KdFqe2EzBz',
     family: 'pdt_0Ns4lYCQ1mgblEYXlt4mQ',
   },
+  // Porthole live products are not published in Dodo yet. Leave the map empty
+  // so the buy page shows "Checkout opening soon" instead of a 404.
   porthole: {
-    solo: 'pdt_0Ns4lYXySjpXAVgvjtC4U',
-    duo: 'pdt_0Ns4lYk38gY9YT5Ubppy1',
-    family: 'pdt_0Ns4lYvisNUjMh25oMe7e',
+    solo: '',
+    duo: '',
+    family: '',
   },
   tessera: {
     solo: 'pdt_0Ns4lZEtENl3Ekj94zg3c',
