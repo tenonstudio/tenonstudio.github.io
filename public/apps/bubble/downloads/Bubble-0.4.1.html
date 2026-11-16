@@ -1,0 +1,37 @@
+<h2>Bubble 0.4.1</h2>
+<p>This release focuses on extension safety, richer plugin output, and Swift 6 quality.</p>
+
+<h3>Plugin windows</h3>
+<ul>
+  <li>Actions can open an HTML result window with <code>bubble.showWindow()</code>.</li>
+  <li>Window handles support <code>update</code>, <code>append</code>, <code>eval</code>, and <code>close</code> for streaming AI or translation output.</li>
+  <li>Interactive windows can send form and button messages back to the action with <code>bubbleHost.postMessage()</code> and <code>onMessage</code>.</li>
+  <li>Native Copy, Close, and URL actions are available in result windows.</li>
+</ul>
+
+<h3>Extensions</h3>
+<ul>
+  <li>Extension files are fingerprinted; changed or revoked packages are blocked until reviewed.</li>
+  <li>The Add menu manages installed extensions without a separate sheet.</li>
+  <li>Static action submenus and nested action paths are supported.</li>
+  <li>ESM imports/exports are converted for the Bubble JavaScript runtime.</li>
+  <li>Bundled libraries include axios, case-anything, js-yaml, linkedom, sucrase, and Turndown.</li>
+  <li>Secret options are stored outside action layout and Cloud sync.</li>
+</ul>
+
+<h3>OAuth</h3>
+<ul>
+  <li>Module <code>auth()</code> supports API tokens and loopback authorization-code flows.</li>
+  <li>Stable callback port, provider error handling, and Sign In / Sign Out UI.</li>
+</ul>
+
+<h3>App and quality</h3>
+<ul>
+  <li>Search palette for actions with folder and dynamic action support.</li>
+  <li>Result cards for long action output.</li>
+  <li>Swift 6 language mode with complete strict concurrency and zero source warnings.</li>
+  <li>Automatic menu-bar icon tinting with <code>ellipsis.bubble.fill</code>.</li>
+  <li>Updated app icon.</li>
+</ul>
+
+<p>Bubble remains a local-first utility: no account, subscription, or in-app purchase is required.</p>
