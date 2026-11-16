@@ -10,8 +10,7 @@ import { apps } from '../../data/apps';
 import { SITE } from '../../data/site';
 
 export function getStaticPaths() {
-  // Launchpad is served from public/apps/launchpad/index.html (LaunchOS mirror).
-  return apps.filter((app) => app.slug !== 'launchpad').map((app) => ({ params: { slug: app.slug }, props: { app } }));
+  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 const { app } = Astro.props;
 ---

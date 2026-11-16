@@ -57,7 +57,12 @@ uses LaunchOS's original Google Fonts (Albert Sans, Geist, Plus Jakarta Sans).
 
 ## Launchpad page
 
-`/apps/launchpad/` is a local mirror of <https://launchosapp.com/>, built from the
+`/apps/launchpad/` now uses the shared Astro app page with the paid Tenon
+Launchpad license and Dodo checkout. The old LaunchOS mirror landing page was
+removed; its nested reference pages and assets remain under
+`public/apps/launchpad/` but are no longer the product landing page.
+
+The LaunchOS mirror was built from the
 original server-rendered HTML, CSS, JavaScript, and images (used with permission
 from the LaunchOS team). Upstream project:
 <https://github.com/Remix-Design/LaunchOS>. It is not an Astro page: the document lives at
