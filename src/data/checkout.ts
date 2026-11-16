@@ -57,6 +57,10 @@ const liveProducts: Record<string, ProductMap> = {
   },
   // Porthole live products are not published in Dodo yet. Leave the map empty
   // so the buy page shows "Checkout opening soon" instead of a 404.
+  // Previously configured live IDs (currently /not-found):
+  // solo pdt_0Ns4lYXySjpXAVgvjtC4U
+  // duo pdt_0Ns4lYk38gY9YT5Ubppy1
+  // family pdt_0Ns4lYvisNUjMh25oMe7e
   porthole: {
     solo: '',
     duo: '',
