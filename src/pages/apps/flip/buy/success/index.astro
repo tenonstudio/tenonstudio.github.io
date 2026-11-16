@@ -34,8 +34,8 @@ import { SITE } from '../../../../../data/site';
           <li><Text en="Go to About → License." zh="进入「关于」→「许可证」。" /></li>
           <li>
             <Text
-              en="Enter the email used at checkout and the license key above."
-              zh="输入购买时使用的邮箱和上面的许可证密钥。"
+              en="Enter the license key above."
+              zh="输入上面的许可证密钥。"
             />
           </li>
         </ol>
@@ -57,7 +57,6 @@ import { SITE } from '../../../../../data/site';
     (() => {
       const params = new URLSearchParams(window.location.search);
       const key = params.get('license_key') || '';
-      const email = params.get('email') || '';
       const keyNode = document.getElementById('license-key');
       const copy = document.getElementById('copy-license');
       if (keyNode) keyNode.textContent = key || 'Check your email';
@@ -73,10 +72,6 @@ import { SITE } from '../../../../../data/site';
             keyNode?.focus();
           }
         });
-      }
-
-      if (email && keyNode) {
-        keyNode.title = email;
       }
     })();
   </script>
