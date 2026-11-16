@@ -65,7 +65,7 @@ export const apps: App[] = [
     icon: '/assets/flip-icon.png',
     accent: '#7b8cff',
     accentSoft: '#e8eaff',
-    download: '/apps/flip/downloads/Flip-0.29.20.dmg',
+    download: '/apps/flip/downloads/Flip-0.30.3.dmg',
     appcast: '/apps/flip/appcast.xml',
     buy: '/apps/flip/buy/',
     featured: true

@@ -3,13 +3,65 @@
     <channel>
         <title>Flip</title>
         <item>
-            <title>0.29.20</title>
-            <pubDate>Sat, 14 Nov 2026 03:48:27 +0800</pubDate>
+            <title>0.30.3</title>
+            <pubDate>Mon, 16 Nov 2026 22:28:22 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/flip/</link>
-            <sparkle:version>20261113.95</sparkle:version>
-            <sparkle:shortVersionString>0.29.20</sparkle:shortVersionString>
+            <sparkle:version>20261116.3</sparkle:version>
+            <sparkle:shortVersionString>0.30.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip-0.29.20.zip" length="4384082" type="application/octet-stream" sparkle:edSignature="AT7cIaidV6hr2RP/r/OxEOb3oVDxDdM8xVMewh0JihejiOG4uVHOyLqnhIVUYDdV87U2vPpzOjEP2IVucF8aAw=="/>
+            <description><![CDATA[<h2>Flip 0.30.3</h2>
+<ul>
+  <li>购买成功页可以一键打开 Flip 并自动激活许可证。</li>
+  <li>新增 flip://activate deep link，仍由 Dodo License API 验证。</li>
+</ul>
+]]></description>
+            <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip-0.30.3.zip" length="6239198" type="application/octet-stream" sparkle:edSignature="lKggPpRadnNxZPis/wP2d+vpgM0nclnd1u3QnqDftT/WrqDzAEOD5Wg6LLpUCWkqg54KW83c4TDW/rBL91KbDQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.3-20261116.2.delta" sparkle:deltaFrom="20261116.2" length="495890" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="cQ28X7dP9I1FUmxcDaWtYhJrsnuVCBwn+AazN0r7RxXWOn22cLg8dBdOjSe8Fnl27872eG/pJkgU0TxX+7ODCA=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.3-20261116.1.delta" sparkle:deltaFrom="20261116.1" length="516762" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="YYDve7plvi9/tAJCrnZpNC8ndQLbc+Zc9Nt+5Ghv1MdaxxMIcaKoiTmUTl9TzxcM4ObaLl4SALBYsmohExLiDA=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.3-20261116.delta" sparkle:deltaFrom="20261116" length="594738" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="vzUKVeRWQLJ92tbXW+tpzaoInsk6syruZDGRs2luutpafqXTZjfP5MLoxRz7UoAOv55tbXmWEpR+QSHvwY7xAg=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.3-20261113.95.delta" sparkle:deltaFrom="20261113.95" length="3104738" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Gj3VWy1MvgL9oPWE4IyvgdJiYQSHF9CtSmZWOZ8EBU48zvzDK8LpDTskxRw4Jk1zg+Ujj7H0s8oAPkNiFqzXDQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>0.30.2</title>
+            <pubDate>Mon, 16 Nov 2026 21:37:57 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/flip/</link>
+            <sparkle:version>20261116.2</sparkle:version>
+            <sparkle:shortVersionString>0.30.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h2>Flip 0.30.2</h2>
+<ul>
+  <li>激活许可证不再要求填写邮箱，只需输入 License Key。</li>
+  <li>Dodo 结账成功页会直接显示许可证密钥。</li>
+</ul>
+]]></description>
+            <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip-0.30.2.zip" length="6231960" type="application/octet-stream" sparkle:edSignature="zadt3vjKQ1s7E0hYZBjV+9Mmt2/VT9hYRlnfj0ezO5F+MOBwQVk5Ep/6F6bLsQlJzew+a+i/fGQfKmD7rDJtCQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.2-20261116.1.delta" sparkle:deltaFrom="20261116.1" length="420314" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="b/QAhYPYHtqv0ZcjshPMWCGTRStuoDtZYO26a2hX/Xyt0Wnd8/Lbseyp5Vud1c9a+HVAYT59siPJrrduhhQPAw=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.2-20261116.delta" sparkle:deltaFrom="20261116" length="562202" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="2MbPYExxOhMTtWMn+B+71s7yIS17QvqFBgVJQdtqw/BlpIk/gEc9cXvBvRLP1BEYEuGfFlhuaePdf0PEYWNsBg=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.2-20261113.95.delta" sparkle:deltaFrom="20261113.95" length="3097774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="d+WCwkQKGwMsc625W80kXxsYVI/aHGK34gR8uNgg/ItVLVwkQ7HR3LVKEBS1mnuTB5g1leen8PYeF+qS7ka/AQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>0.30.1</title>
+            <pubDate>Mon, 16 Nov 2026 21:06:25 +0800</pubDate>
+            <link>https://tenonstudio.github.io/apps/flip/</link>
+            <sparkle:version>20261116.1</sparkle:version>
+            <sparkle:shortVersionString>0.30.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<h2>Flip 0.30.1</h2>
+<ul>
+  <li>许可证服务切换为 Dodo Payments，支持中国商户和本地支付方式。</li>
+  <li>新增 1 / 2 / 5 台 Mac 三档买断授权。</li>
+  <li>激活达到设备上限时给出停用旧设备的提示。</li>
+</ul>
+]]></description>
+            <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip-0.30.1.zip" length="6237518" type="application/octet-stream" sparkle:edSignature="Gah5UyQaPZ2xA8Rce49A7J8k007gYA7ZRfJ0wVHvSdCmGUHHreJKRr8s4NYX+TlRF6X2+Q1oOvC6AyT7FzMoDA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.1-20261116.delta" sparkle:deltaFrom="20261116" length="480954" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="LKcfUGPyi1c8kT62/nNZ7lYfyC61ZHo9mrfg4/h8Mo0nIAWnQ2ddQVq6PhB3VU9sIafMCYPtTGMEyAnOU+uYBw=="/>
+                <enclosure url="https://tenonstudio.github.io/apps/flip/downloads/Flip20261116.1-20261113.95.delta" sparkle:deltaFrom="20261113.95" length="3086514" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="jkUJxAFIq05D7PVXgxe70+wTTVi+wJ/Znkbnd/3wq7SvItL86zfJj8OK9sDc6yfXuQChQYfB72CYkU/x+PbbBQ=="/>
+            </sparkle:deltas>
         </item>
     </channel>
 </rss>
