@@ -60,5 +60,8 @@ export function checkoutURL(tier: CheckoutTier): string | null {
   const host = checkoutMode === 'live'
     ? 'https://checkout.dodopayments.com'
     : 'https://test.checkout.dodopayments.com';
-  return `${host}/buy/${productID}`;
+  const success = new URL('https://tenonstudio.github.io/apps/flip/buy/success/');
+  const url = new URL(`${host}/buy/${productID}`);
+  url.searchParams.set('redirect_url', success.toString());
+  return url.toString();
 }
