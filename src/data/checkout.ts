@@ -10,7 +10,7 @@ export type CheckoutTier = {
 };
 
 export const checkoutMode: 'test' | 'live' =
-  import.meta.env.PUBLIC_DODO_MODE === 'live' ? 'live' : 'test';
+  import.meta.env.PUBLIC_DODO_MODE === 'test' ? 'test' : 'live';
 
 const testProductIDs: Record<CheckoutTier['id'], string> = {
   solo: 'pdt_0Ns4X4Vp2x7T821IT9Ydx',
