@@ -86,10 +86,12 @@ this is a mirror. The other app pages still use the shared Astro template.
 
 `/apps/flip/buy/` is wired to Dodo Payments through `src/data/checkout.ts`.
 
-The default is **test mode**, so the buy buttons open
-`https://test.checkout.dodopayments.com/buy/{test_product_id}` and the page shows
-a “Test mode checkout” notice. This is safe for local review but must not be
-deployed as the public store.
+The default is **live mode**. If no live product IDs are set, the buy buttons
+render disabled rather than falling back to a test checkout.
+
+For local test checkout, set `PUBLIC_DODO_MODE=test` in `.env`; the page then
+opens `https://test.checkout.dodopayments.com/buy/{test_product_id}` and shows a
+“Test mode checkout” notice.
 
 For production:
 
