@@ -3,14 +3,14 @@
     <channel>
         <title>Porthole</title>
         <item>
-            <title>0.0.8</title>
-            <pubDate>Tue, 17 Nov 2026 03:30:53 +0800</pubDate>
+            <title>0.0.9</title>
+            <pubDate>Sat, 21 Nov 2026 19:01:46 +0800</pubDate>
             <link>https://tenonstudio.github.io/apps/porthole/</link>
-            <sparkle:version>0.0.8.435</sparkle:version>
-            <sparkle:shortVersionString>0.0.8</sparkle:shortVersionString>
+            <sparkle:version>0.0.9.440</sparkle:version>
+            <sparkle:shortVersionString>0.0.9</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://tenonstudio.github.io/apps/porthole/downloads/Porthole-0.0.8.zip" length="4038323" type="application/octet-stream" sparkle:edSignature="HjmlYz9XqUUo5ATozispphhsZhacxdhZ1284G3F05vM5erjvI3M6IIdAzioP9/Xnxg5JM0Jh6t1VpO28fNDHCg=="/>
+            <enclosure url="https://tenonstudio.github.io/apps/porthole/downloads/Porthole-0.0.9.zip" length="4062572" type="application/octet-stream" sparkle:edSignature="GefYxzBlPvxKTiTsPHghEVXznrB/bi8XJZzpRplh9Wd5Q1bO4LQfcsCJhEsZaagpssM6RhbYSbaxLQdIzPfZDA=="/>
         </item>
     </channel>
 </rss>
