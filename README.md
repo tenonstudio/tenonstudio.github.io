@@ -41,7 +41,7 @@ not imported; update them separately when the name changes.
 ## Homepage
 
 The landing page is a single-page studio layout: the compact header and hero,
-six full-width horizontal app cards, a compact workshop directory for apps in
+six full-width horizontal app cards, a second set of app cards for apps in
 development, and the contact rows. It lives in
 `src/pages/index.astro`, `src/layouts/HomeLayout.astro`, and
 `src/styles/home.css`, with its card art in `src/components/home/`.

@@ -6,6 +6,7 @@ import LaunchpadMock from '../components/home/LaunchpadMock.astro';
 import MacIconCloud from '../components/home/MacIconCloud.astro';
 import PortholeVisual from '../components/home/PortholeVisual.astro';
 import BubbleVisual from '../components/home/BubbleVisual.astro';
+import WorkshopVisual from '../components/home/WorkshopVisual.astro';
 import { homeMeta, work, contacts } from '../data/home';
 import { apps } from '../data/apps';
 import { SITE } from '../data/site';
@@ -227,30 +228,28 @@ const contactIcons = {
           </p>
         </div>
 
-        <div class="workshop-list">
+        <div class="projects-grid workshop-grid">
           {workshopApps.map((app) => (
             <a
-              class="workshop-item"
+              class={`project-card workshop-card ${app.slug}-card`}
               href={`/apps/${app.slug}/`}
               style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}
             >
-              <span class="workshop-icon">
-                <img src={app.icon} alt="" width="44" height="44" loading="lazy" decoding="async" />
-              </span>
-              <span class="workshop-copy">
-                <span class="workshop-heading">
-                  <span class="workshop-name">{app.name}</span>
-                  <span class="workshop-badge"><Text en="In development" zh="开发中" /></span>
-                </span>
-                <span class="workshop-tagline">
-                  <Text en={app.tagline.en} zh={app.tagline.zh} />
-                </span>
-              </span>
-              <span class="workshop-meta">
-                <span>{app.platform}</span>
-                <Text en={app.category.en} zh={app.category.zh} />
-              </span>
-              <span class="workshop-arrow" aria-hidden="true">↗</span>
+              <div class="card-content">
+                <div class="project-icon">
+                  <img src={app.icon} alt="" width="36" height="36" decoding="async" />
+                </div>
+                <h3 class="project-title">
+                  <Text en={`${app.name} - ${app.category.en}`} zh={`${app.name} - ${app.category.zh}`} />
+                </h3>
+                <div class="project-tags">
+                  <span class="tag">{app.platform}</span>
+                  <span class="badge workshop-badge"><Text en="In development" zh="开发中" /></span>
+                </div>
+              </div>
+              <div class={`card-visual ${app.slug}-visual`} aria-hidden="true">
+                <WorkshopVisual app={app} />
+              </div>
             </a>
           ))}
         </div>
