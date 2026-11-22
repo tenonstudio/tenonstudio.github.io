@@ -66,7 +66,6 @@ export const apps: App[] = [
     icon: '/assets/flip-icon.png',
     accent: '#7b8cff',
     accentSoft: '#e8eaff',
-    download: '/apps/flip/downloads/Flip-0.30.3.dmg',
     appcast: '/apps/flip/appcast.xml',
     buy: '/apps/flip/buy/',
     featured: true
@@ -103,7 +102,6 @@ export const apps: App[] = [
     icon: '/assets/porthole-icon.png',
     accent: '#ff6259',
     accentSoft: '#ffe8e5',
-    download: '/apps/porthole/downloads/Porthole-0.0.9.dmg',
     appcast: '/apps/porthole/appcast.xml',
     buy: '/apps/porthole/buy/'
   },
@@ -139,7 +137,6 @@ export const apps: App[] = [
     icon: '/assets/tessera-icon.png',
     accent: '#28b8c7',
     accentSoft: '#e0f8fb',
-    download: '/apps/tessera/downloads/Tessera-0.1.0.dmg',
     appcast: '/apps/tessera/appcast.xml',
     buy: '/apps/tessera/buy/'
   },
@@ -175,7 +172,6 @@ export const apps: App[] = [
     icon: '/assets/launchpad-icon.png',
     accent: '#4f7cff',
     accentSoft: '#e8efff',
-    download: '/apps/launchpad/downloads/Launchpad-0.3.36.dmg',
     appcast: '/apps/launchpad/appcast.xml',
     buy: '/apps/launchpad/buy/'
   },
@@ -211,7 +207,6 @@ export const apps: App[] = [
     icon: '/assets/bubble-icon.png',
     accent: '#5f6dff',
     accentSoft: '#e8eaff',
-    download: '/apps/bubble/downloads/Bubble-0.4.1.dmg',
     appcast: '/apps/bubble/appcast.xml',
     buy: '/apps/bubble/buy/'
   },  {
@@ -246,7 +241,6 @@ export const apps: App[] = [
     icon: '/assets/crate-icon.png',
     accent: '#b47a4f',
     accentSoft: '#f5e9dd',
-    download: '/apps/crate/downloads/Crate-0.1.0.dmg',
     buy: '/apps/crate/buy/'
   },
   {

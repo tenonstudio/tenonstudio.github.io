@@ -6,6 +6,7 @@ import FeatureGrid from '../../components/FeatureGrid.astro';
 import Specs from '../../components/Specs.astro';
 import DownloadPanel from '../../components/DownloadPanel.astro';
 import DevelopmentPanel from '../../components/DevelopmentPanel.astro';
+import DownloadsPausedPanel from '../../components/DownloadsPausedPanel.astro';
 import { apps } from '../../data/apps';
 import { SITE } from '../../data/site';
 
@@ -43,8 +44,10 @@ const notifyHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`Notify me
         <div class="detail-actions">
           {app.download ? (
             <a class="button button-dark" href={app.download}><Text en={`Download ${app.name}`} zh={`下载 ${app.name}`} /> <span aria-hidden="true">↓</span></a>
-          ) : (
+          ) : inDevelopment ? (
             <button class="button button-dark" type="button" disabled><Text en="Coming soon" zh="即将推出" /></button>
+          ) : (
+            <button class="button button-dark" type="button" disabled><Text en="Downloads paused" zh="下载暂停" /></button>
           )}
           {app.buy && <a class="text-link" href={app.buy}><Text en="License" zh="授权" /> <span aria-hidden="true">→</span></a>}
           {inDevelopment && <a class="text-link" href={notifyHref}><Text en="Get notified" zh="获取通知" /> <span aria-hidden="true">→</span></a>}
@@ -53,9 +56,11 @@ const notifyHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`Notify me
         <p class="detail-note">
           {inDevelopment
             ? <Text en={`In development · ${app.platform}`} zh={`开发中 · ${app.platform}`} />
-            : app.free
-              ? <Text en="Free · Universal · macOS" zh="免费 · Universal · macOS" />
-              : <Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" />}
+            : app.download
+              ? app.free
+                ? <Text en="Free · Universal · macOS" zh="免费 · Universal · macOS" />
+                : <Text en="14-day trial · One-time purchase · macOS" zh="14 天试用 · 买断授权 · macOS" />
+              : <Text en={`Downloads paused · ${app.platform}`} zh={`下载暂停 · ${app.platform}`} />}
         </p>
       </div>
       <AppVisual app={app} />
@@ -64,7 +69,7 @@ const notifyHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`Notify me
     <FeatureGrid app={app} />
     <section class="shell"><Specs app={app} /></section>
     <div class="shell">
-      {app.download ? <DownloadPanel app={app} /> : <DevelopmentPanel app={app} />}
+      {app.download ? <DownloadPanel app={app} /> : inDevelopment ? <DevelopmentPanel app={app} /> : <DownloadsPausedPanel app={app} />}
     </div>
     <div class="shell app-links">
       <span class="app-links-label"><Text en="Help & legal" zh="帮助与法律" /></span>

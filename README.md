@@ -98,6 +98,14 @@ Google Fonts, App Store, Paddle/download, social, and other external links
 remain external. The LaunchOS canonical/`hreflang` tags are kept as-is because
 this is a mirror. The other app pages still use the shared Astro template.
 
+## Downloads paused
+
+Direct downloads are temporarily disabled. The app data has no `download`
+fields, the app header shows a non-link “Downloads paused” status, product pages
+use `DownloadsPausedPanel`, and the old DMG files have been removed from
+`public/apps/*/downloads`. To restore downloads, add `download` back to the app
+entries and the existing download UI will return.
+
 ## Checkout
 
 All six shipping apps have paid Dodo Payments checkout:

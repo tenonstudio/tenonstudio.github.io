@@ -80,8 +80,10 @@ const navigation = [
           <a class="app-header-cta" href={app.download}>
             <Text en="Download" zh="下载" /> <span aria-hidden="true">↓</span>
           </a>
-        ) : (
+        ) : app.status === 'in-development' ? (
           <span class="app-header-cta is-soon"><Text en="In development" zh="开发中" /></span>
+        ) : (
+          <span class="app-header-cta is-soon"><Text en="Downloads paused" zh="下载暂停" /></span>
         )}
       </div>
       <nav class="app-nav" aria-label={`${app.name} navigation`}>
