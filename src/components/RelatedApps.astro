@@ -3,7 +3,10 @@ import { apps } from '../data/apps';
 import Text from './Text.astro';
 import { SITE } from '../data/site';
 const { current } = Astro.props;
-const related = apps.filter((app) => app.slug !== current);
+const related = [...apps]
+  .sort((a, b) => Number(a.status === 'in-development') - Number(b.status === 'in-development'))
+  .filter((app) => app.slug !== current)
+  .slice(0, 4);
 ---
 <section class="related section">
   <div class="shell">

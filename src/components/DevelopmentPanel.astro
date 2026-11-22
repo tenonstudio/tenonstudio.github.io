@@ -1,0 +1,37 @@
+---
+import type { App } from '../data/apps';
+import Text from './Text.astro';
+import { SITE } from '../data/site';
+const { app } = Astro.props as { app: App };
+const notifyHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`Notify me when ${app.name} is available`)}`;
+---
+<section class="download-panel development-panel" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
+  <div class="download-copy">
+    <p class="eyebrow"><Text en="In development" zh="开发中" /></p>
+    <h2><Text en={`${app.name} is still on the bench.`} zh={`${app.name} 还在工坊里。`} /></h2>
+    <p>
+      <Text
+        en="There is no download yet. Leave us a note and we will tell you when it ships."
+        zh="目前还没有开放下载。留下联系方式，上线时我们会告诉你。"
+      />
+    </p>
+    <div class="download-actions">
+      <a class="button button-dark" href={notifyHref}><Text en="Notify me" zh="通知我" /> <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="/#workshop"><Text en="More in the workshop" zh="看看工坊里的其他 App" /> <span aria-hidden="true">→</span></a>
+    </div>
+    <p class="fine-print"><Text en={`${app.platform} · In development`} zh={`${app.platform} · 开发中`} /></p>
+  </div>
+  <img class="download-icon" src={app.icon} alt="" width="120" height="120" loading="lazy" />
+</section>
+
+<style>
+  .development-panel {
+    background:
+      radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--app-accent) 14%, white), transparent 55%),
+      linear-gradient(135deg, #f7f7fb, #ffffff 72%);
+  }
+
+  .development-panel .download-icon {
+    opacity: .92;
+  }
+</style>

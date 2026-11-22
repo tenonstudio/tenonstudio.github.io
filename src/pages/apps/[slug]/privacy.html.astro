@@ -5,7 +5,9 @@ import { apps } from '../../../data/apps';
 import { privacyFor } from '../../../data/legal';
 
 export function getStaticPaths() {
-  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+  return apps
+    .filter((app) => app.status !== 'in-development')
+    .map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 const { app } = Astro.props;
 const doc = privacyFor(app);

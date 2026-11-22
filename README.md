@@ -41,7 +41,8 @@ not imported; update them separately when the name changes.
 ## Homepage
 
 The landing page is a single-page studio layout: the compact header and hero,
-five full-width horizontal app cards, and the contact rows. It lives in
+six full-width horizontal app cards, a compact workshop directory for apps in
+development, and the contact rows. It lives in
 `src/pages/index.astro`, `src/layouts/HomeLayout.astro`, and
 `src/styles/home.css`, with its card art in `src/components/home/`.
 
@@ -89,7 +90,7 @@ this is a mirror. The other app pages still use the shared Astro template.
 
 ## Checkout
 
-All six apps have paid Dodo Payments checkout:
+All six shipping apps have paid Dodo Payments checkout:
 
 - Flip
 - Porthole
@@ -100,7 +101,7 @@ All six apps have paid Dodo Payments checkout:
 
 Each app has three products: `Solo` (1 Mac), `Duo` (2 Macs), and
 `Family` (5 Macs). Each app also has one Dodo Product Collection containing its
-three products.
+three products. The five workshop apps do not have checkout yet.
 
 The product IDs and test/live selection live in `src/data/checkout.ts`. The
 website never calls the Dodo API and never contains an API key: it only opens
@@ -124,6 +125,10 @@ page shows a “Test mode checkout” notice.
 
 Do not deploy a test-mode build as the public store.
 
+Apps in `src/data/apps.ts` may set `status: 'in-development'`. They appear in
+the homepage workshop list, get a coming-soon app page, and are skipped by the
+checkout and legal routes until a download and license exist.
+
 ## Development
 
 ```bash
@@ -133,10 +138,10 @@ npm run build     # static output in dist/
 npm run preview
 ```
 
-The shared app pages (Flip, Porthole, Tessera, Bubble) use automatic
-browser-language detection, with `?lang=zh` and `?lang=en` as explicit
-overrides. English is the fallback. The Launchpad mirror uses LaunchOS's own
-client-side locale selection instead of the shared `?lang` scheme.
+The shared app pages use automatic browser-language detection, with `?lang=zh`
+and `?lang=en` as explicit overrides. English is the fallback. The Launchpad
+mirror uses LaunchOS's own client-side locale selection instead of the shared
+`?lang` scheme.
 
 Unknown routes are handled by `src/pages/404.astro`: paths under
 `/apps/{known-slug}/...` redirect to that app (so `/apps/flip/sdsf` goes to

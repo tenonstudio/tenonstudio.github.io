@@ -1,7 +1,7 @@
 import { readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-const apps = ['flip', 'porthole', 'tessera'];
+const apps = ['flip', 'porthole', 'tessera', 'launchpad', 'bubble', 'crate'];
 for (const slug of apps) {
   for (const doc of ['privacy', 'terms']) {
     const dir = join('dist', 'apps', slug, `${doc}.html`);
