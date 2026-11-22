@@ -22,8 +22,8 @@ Every `/apps/{slug}/` page (product, buy, support, privacy, and terms) uses
 header and footer. The header carries the app icon, name, Overview / Support /
 Privacy / Terms navigation, and a download or in-development CTA. The footer
 shows the app tagline, platform, category, legal links, and a small Tenon Studio
-credit. Support is the single help surface; the old scripting-guide pages were
-removed.
+credit. The browser tab favicon is the current app's icon. Support is the single
+help surface; the old scripting-guide pages were removed.
 
 ## Site config
 
