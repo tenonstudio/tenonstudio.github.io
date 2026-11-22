@@ -110,12 +110,8 @@ const privacyHref = `/apps/${app.slug}/privacy.html`;
     <p class="legal-contact">
       <Text en="See also:" zh="另见：" />
       <a href={privacyHref}><Text en="Privacy Policy" zh="隐私政策" /></a>
-      {app.status !== 'in-development' && (
-        <>
-          <span aria-hidden="true">·</span>
-          <a href={`/apps/${app.slug}/terms.html`}><Text en="Terms of Use" zh="使用条款" /></a>
-        </>
-      )}
+      <span aria-hidden="true">·</span>
+      <a href={`/apps/${app.slug}/terms.html`}><Text en="Terms of Use" zh="使用条款" /></a>
     </p>
   </article>
 </BaseLayout>

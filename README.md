@@ -126,9 +126,9 @@ page shows a “Test mode checkout” notice.
 Do not deploy a test-mode build as the public store.
 
 Apps in `src/data/apps.ts` may set `status: 'in-development'`. They appear in
-the homepage workshop list and get a coming-soon app page, with privacy and
-support pages generated for every app. Checkout and terms routes stay limited
-to shipping apps until a download and license exist.
+the homepage workshop list and get a coming-soon app page. Privacy, support,
+and terms pages are generated for every app; checkout stays limited to shipping
+apps until a download and license exist.
 
 ## Development
 
@@ -139,9 +139,10 @@ npm run build     # static output in dist/
 npm run preview
 ```
 
-Each app exposes `/apps/{slug}/privacy.html` and `/apps/{slug}/support.html`
-for App Store Connect and the About/paywall links. Those paths are fixed through
-`scripts/fix-legal-routes.mjs` after the Astro build.
+Each app exposes `/apps/{slug}/privacy.html`, `/apps/{slug}/support.html`, and
+`/apps/{slug}/terms.html` for App Store Connect and the About/paywall links.
+Those paths are fixed through `scripts/fix-legal-routes.mjs` after the Astro
+build.
 
 The privacy and terms copy is a product-specific draft, not legal advice.
 Before App Store submission, confirm the legal entity, business address,
