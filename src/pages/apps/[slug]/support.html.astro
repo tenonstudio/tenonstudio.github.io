@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Text from '../../../components/Text.astro';
+import { apps } from '../../../data/apps';
+import { supportFor } from '../../../data/support';
+import { SITE } from '../../../data/site';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+const { app } = Astro.props;
+const support = supportFor(app);
+const inDevelopment = app.status === 'in-development';
+const emailHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`${app.name} support`)}`;
+const privacyHref = `/apps/${app.slug}/privacy.html`;
+---
+<BaseLayout
+  title={`Support — ${app.name} — ${SITE.shortName}`}
+  description={`Get help with ${app.name}.`}
+  image={app.icon}
+  current="apps"
+>
+  <article class="legal support-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
+    <a class="back-link" href={`/apps/${app.slug}/`}><span aria-hidden="true">←</span> <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} /></a>
+
+    <header class="support-hero">
+      <img class="support-icon" src={app.icon} alt="" width="76" height="76" />
+      <div>
+        <p class="eyebrow"><Text en="Support" zh="支持" /> / {app.name}</p>
+        <h1><Text en={`How can we help with ${app.name}?`} zh={`${app.name} 遇到问题了吗？`} /></h1>
+      </div>
+    </header>
+
+    <p class="legal-lead">
+      <Text
+        en={`Start with the answers below, or email us directly. We read every message sent to ${SITE.email}.`}
+        zh={`先看看下面的常见问题，也可以直接发邮件。${SITE.email} 的每封信我们都会看。`}
+      />
+    </p>
+
+    <div class="support-actions">
+      <a class="button button-dark" href={emailHref}><Text en="Email support" zh="邮件支持" /> <span aria-hidden="true">→</span></a>
+      <a class="text-link" href={privacyHref}><Text en="Privacy Policy" zh="隐私政策" /> <span aria-hidden="true">→</span></a>
+      <a class="text-link" href={`/apps/${app.slug}/`}><Text en="Product page" zh="产品页" /> <span aria-hidden="true">→</span></a>
+    </div>
+
+    <p class="support-note">
+      <Text
+        en="Include the app version, your system version, and the steps that led to the problem. A screenshot or short recording helps."
+        zh="请附上 App 版本、系统版本和复现步骤。截图或简短录屏会很有帮助。"
+      />
+    </p>
+
+    {inDevelopment && (
+      <p class="support-status">
+        <Text
+          en="This app is still in development and has no public download yet. You can still email us about availability or a problem you found in a build."
+          zh="这款 App 仍在开发中，尚未开放公开下载。你仍然可以来信询问进度，或反馈在测试版本里遇到的问题。"
+        />
+      </p>
+    )}
+
+    <div class="legal-body">
+      <section>
+        <h2><Text en="Before you write" zh="来信之前" /></h2>
+        <p>
+          <Text
+            en={`Check that ${app.name} is up to date, that your device meets the system requirement (${app.platform}), and that the problem happens again after reopening the app. If it only happens in one app, include that app’s name and version.`}
+            zh={`确认 ${app.name} 是最新版本、设备满足系统要求（${app.platform}），并在重新打开 App 后再次尝试。如果问题只出现在某个 App 中，请附上那个 App 的名称和版本。`}
+          />
+        </p>
+      </section>
+
+      {support.topics.map((topic) => (
+        <section>
+          <h2><Text en={topic.question.en} zh={topic.question.zh} /></h2>
+          <p><Text en={topic.answer.en} zh={topic.answer.zh} /></p>
+        </section>
+      ))}
+
+      <section>
+        <h2><Text en="Permissions" zh="权限" /></h2>
+        <p><Text en={support.permission.en} zh={support.permission.zh} /></p>
+      </section>
+
+      <section>
+        <h2><Text en="Updates and licenses" zh="更新与授权" /></h2>
+        <p><Text en={support.updates.en} zh={support.updates.zh} /></p>
+      </section>
+
+      <section>
+        <h2><Text en="Your data" zh="你的数据" /></h2>
+        <p><Text en={support.data.en} zh={support.data.zh} /></p>
+      </section>
+
+      <section>
+        <h2><Text en="Still stuck?" zh="还是没有解决？" /></h2>
+        <p>
+          <Text
+            en={`Email ${SITE.email} with the details above. You can also reach us on X at @${SITE.x.handle}.`}
+            zh={`请把上面的信息发到 ${SITE.email}。也可以在 X 上联系 @${SITE.x.handle}。`}
+          />
+        </p>
+        <p class="support-fallback">
+          <a class="text-link" href={emailHref}><Text en="Open a support email" zh="写一封支持邮件" /> <span aria-hidden="true">→</span></a>
+        </p>
+      </section>
+    </div>
+
+    <p class="legal-contact">
+      <Text en="See also:" zh="另见：" />
+      <a href={privacyHref}><Text en="Privacy Policy" zh="隐私政策" /></a>
+      {app.status !== 'in-development' && (
+        <>
+          <span aria-hidden="true">·</span>
+          <a href={`/apps/${app.slug}/terms.html`}><Text en="Terms of Use" zh="使用条款" /></a>
+        </>
+      )}
+    </p>
+  </article>
+</BaseLayout>

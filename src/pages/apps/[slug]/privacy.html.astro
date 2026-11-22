@@ -5,9 +5,7 @@ import { apps } from '../../../data/apps';
 import { privacyFor } from '../../../data/legal';
 
 export function getStaticPaths() {
-  return apps
-    .filter((app) => app.status !== 'in-development')
-    .map((app) => ({ params: { slug: app.slug }, props: { app } }));
+  return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 const { app } = Astro.props;
 const doc = privacyFor(app);
@@ -27,5 +25,9 @@ const doc = privacyFor(app);
         </section>
       ))}
     </div>
+
+    <p class="legal-contact">
+      <Text en="Need help?" zh="需要帮助？" /> <a href={`/apps/${app.slug}/support.html`}><Text en="Contact support" zh="联系支持" /></a>
+    </p>
   </article>
 </BaseLayout>

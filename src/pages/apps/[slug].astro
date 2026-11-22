@@ -76,6 +76,14 @@ const notifyHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`Notify me
     <div class="shell">
       {app.download ? <DownloadPanel app={app} /> : <DevelopmentPanel app={app} />}
     </div>
+    <div class="shell app-links">
+      <span class="app-links-label"><Text en="Help & legal" zh="帮助与法律" /></span>
+      <a href={`/apps/${app.slug}/support.html`}><Text en="Support" zh="支持" /></a>
+      <a href={`/apps/${app.slug}/privacy.html`}><Text en="Privacy Policy" zh="隐私政策" /></a>
+      {app.status !== 'in-development' && (
+        <a href={`/apps/${app.slug}/terms.html`}><Text en="Terms of Use" zh="使用条款" /></a>
+      )}
+    </div>
     <RelatedApps current={app.slug} />
   </article>
 </BaseLayout>
