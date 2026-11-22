@@ -303,11 +303,25 @@ export function privacyFor(app: App): LegalDocument {
     updated,
     sections: [
       {
-        title: { en: 'What the app stores', zh: 'App 存储的内容' },
+        title: { en: 'Scope', zh: '适用范围' },
+        body: {
+          en: 'This policy applies to the app, this website, and our support email. It does not cover third-party websites, apps, or services you open from the app; those are governed by their own policies.',
+          zh: '本政策适用于 App、本网站以及我们的支持邮箱。它不覆盖你从 App 打开的第三方网站、应用或服务；这些由各自的政策约束。'
+        }
+      },
+      {
+        title: { en: 'Information we collect', zh: '我们收集的信息' },
+        body: {
+          en: 'We do not require an account and the app does not include third-party analytics or advertising SDKs. The app does not collect your name, email address, clipboard content, keystrokes, or files. If you email support, we receive your email address and the message you send. If you choose to share crash reports with Apple, Apple may make those reports available to us under its own policy.',
+          zh: '我们不需要账号，App 也不包含第三方分析或广告 SDK。App 不会收集你的姓名、邮箱地址、剪贴板内容、按键输入或文件。如果你发邮件给支持，我们会收到你的邮箱地址和邮件内容。如果你选择向 Apple 共享崩溃报告，Apple 可能按其政策让我们看到这些报告。'
+        }
+      },
+      {
+        title: { en: 'Data stored on your device', zh: '保存在设备上的数据' },
         body: profile.storage
       },
       {
-        title: { en: 'Your content', zh: '你的内容' },
+        title: { en: 'How your content is handled', zh: '你的内容如何处理' },
         body: profile.content
       },
       {
@@ -319,15 +333,46 @@ export function privacyFor(app: App): LegalDocument {
         body: profile.purchases
       },
       {
-        title: { en: 'Analytics', zh: '分析数据' },
+        title: { en: 'Sharing', zh: '共享' },
         body: {
-          en: 'The app does not include third-party analytics or advertising SDKs. We do not sell personal data.',
-          zh: 'App 不包含第三方分析或广告 SDK。我们不会出售个人数据。'
+          en: 'We do not sell personal data. Depending on the app and how you obtained it, we share data only with the providers involved: Apple for App Store distribution, StoreKit purchases, and crash reports you choose to share; Dodo Payments for license purchases; RevenueCat for Follow Pro; and update hosting for Sparkle. These providers process data under their own privacy policies and may process it in other countries. We may also disclose data when required by law.',
+          zh: '我们不会出售个人数据。视 App 和获取渠道而定，我们只会与相关服务商共享数据：Apple（App Store 分发、StoreKit 购买，以及你选择共享的崩溃报告）、Dodo Payments（授权购买）、RevenueCat（Follow Pro）和 Sparkle 更新托管。这些服务商按各自隐私政策处理数据，可能在其它国家处理。法律要求时，我们也可能披露数据。'
         }
       },
       {
-        title: { en: 'Your choices', zh: '你的选择' },
-        body: profile.choices
+        title: { en: 'Retention and deletion', zh: '保留与删除' },
+        body: {
+          en: `${profile.choices.en} Support emails are kept only as long as needed to resolve the request. Purchase records are retained by the payment provider under its policy.`,
+          zh: `${profile.choices.zh} 支持邮件只在处理请求所需的时间内保留。购买记录由支付服务商按其政策保留。`
+        }
+      },
+      {
+        title: { en: 'Security', zh: '安全' },
+        body: {
+          en: 'App data stays on your device and is protected by the device’s security. Protect your device with a passcode and keep your Apple ID secure. No method of storage or transmission is completely secure.',
+          zh: 'App 数据保存在你的设备上，并由设备的安全机制保护。请使用密码保护设备，并妥善保管 Apple ID。没有任何存储或传输方式是绝对安全的。'
+        }
+      },
+      {
+        title: { en: 'Your rights', zh: '你的权利' },
+        body: {
+          en: 'Depending on where you live, you may have the right to access, correct, delete, or port your personal data, or to object to processing. Email us to exercise these rights. You may also contact your local data protection authority. For App Store purchases, Apple handles purchase data and refunds under its own policy.',
+          zh: '根据你所在地区的法律，你可能有权访问、更正、删除或导出个人数据，或反对处理。请发邮件给我们行使这些权利。你也可以联系当地的数据保护机构。通过 App Store 购买的数据和退款由 Apple 按其政策处理。'
+        }
+      },
+      {
+        title: { en: 'Children', zh: '儿童' },
+        body: {
+          en: 'The apps are not directed to children under 13, or the minimum age required in your country. We do not knowingly collect personal data from children.',
+          zh: '这些 App 不面向 13 岁以下（或你所在国家规定的最低年龄以下）的儿童。我们不会有意收集儿童的个人数据。'
+        }
+      },
+      {
+        title: { en: 'Changes', zh: '变更' },
+        body: {
+          en: 'We may update this policy as the apps evolve. The date at the top of this page will change, and material changes will be announced on this page or in the app.',
+          zh: '随着 App 发展，我们可能更新本政策。页面顶部的日期会更新；重大变更会在本页或 App 内说明。'
+        }
       },
       {
         title: { en: 'Contact', zh: '联系' },
@@ -350,38 +395,129 @@ export function termsFor(app: App): LegalDocument {
     updated,
     sections: [
       {
+        title: { en: 'Agreement', zh: '协议' },
+        body: {
+          en: `These terms govern your use of ${app.name}. By installing or using the app, you agree to them. If you do not agree, do not install or use the app.`,
+          zh: `这些条款适用于你对 ${app.name} 的使用。安装或使用 App 即表示你同意这些条款；如果不同意，请不要安装或使用。`
+        }
+      },
+      {
         title: { en: 'License', zh: '授权' },
         body: {
-          en: `A valid license grants a non-exclusive, non-transferable right to use ${app.name} on the number of Macs stated at purchase. The trial is provided for evaluation.`,
-          zh: `有效授权授予你在购买时注明的 Mac 数量上使用 ${app.name} 的非独占、不可转让权利。试用版仅供评估。`
+          en: `We grant you a personal, limited, non-exclusive, non-transferable, revocable license to install and use ${app.name} on the devices covered by your purchase or license, for lawful purposes and in accordance with these terms.`,
+          zh: `我们授予你一项个人、有限、非独占、不可转让且可撤销的授权，允许你在购买或授权所覆盖的设备上，为合法目的并按照这些条款安装和使用 ${app.name}。`
         }
       },
       {
         title: { en: 'Restrictions', zh: '限制' },
         body: {
-          en: 'Do not redistribute, resell, or sublicense the app or license keys. Do not remove proprietary notices.',
-          zh: '不得重新分发、转售或再授权 App 或 License Key，也不得移除所有权声明。'
+          en: 'Do not reverse engineer, decompile, or disassemble the app except where the law permits it. Do not redistribute, rent, lend, sublicense, resell, or host the app. Do not modify it, create derivative works, remove proprietary notices, or use it for unlawful purposes.',
+          zh: '除法律允许的情况外，不得对 App 进行逆向工程、反编译或反汇编。不得重新分发、出租、出借、再授权、转售或托管 App。不得修改 App、创建衍生作品、移除所有权声明，或将其用于非法目的。'
         }
       },
       {
-        title: { en: 'Third-party components', zh: '第三方组件' },
+        title: { en: 'Ownership', zh: '所有权' },
         body: {
-          en: 'The app includes third-party open-source components. Their licenses and notices are provided with the app.',
-          zh: 'App 包含第三方开源组件，其许可证和声明随 App 提供。'
+          en: `Tenon Studio and its licensors own the app, its design, documentation, and trademarks. The app is licensed, not sold; these terms do not transfer ownership of any part of it.`,
+          zh: `Tenon Studio 及其许可方拥有 App、其设计、文档和商标。App 是授权使用，而非出售；这些条款不转移 App 任何部分的所有权。`
         }
       },
       {
-        title: { en: 'No warranty', zh: '免责声明' },
+        title: { en: 'Privacy', zh: '隐私' },
         body: {
-          en: 'The app is provided “as is,” without warranties of merchantability, fitness for a particular purpose, or non-infringement, to the extent permitted by law.',
-          zh: '在法律允许的范围内，App 按“现状”提供，不附带适销性、特定用途适用性或不侵权保证。'
+          en: 'Our Privacy Policy explains how the app handles data and forms part of these terms. Please read it together with these terms.',
+          zh: '我们的隐私政策说明了 App 如何处理数据，并构成本条款的一部分。请与这些条款一起阅读。'
+        }
+      },
+      {
+        title: { en: 'Minors', zh: '未成年人' },
+        body: {
+          en: 'You must be old enough to enter into a contract in your country. If you are below the age of majority, use the app only with the consent of a parent or legal guardian.',
+          zh: '你必须达到所在国家订立合同的年龄。如果尚未成年，请在父母或法定监护人同意的情况下使用 App。'
+        }
+      },
+      {
+        title: { en: 'Trials and purchases', zh: '试用与购买' },
+        body: {
+          en: 'Trials are provided for evaluation. Paid licenses are one-time unless stated otherwise at checkout. App Store purchases are processed by Apple; Dodo Payments purchases are processed by Dodo Payments. We do not receive or store your card details.',
+          zh: '试用版仅供评估。除结账页另有说明外，付费授权为一次买断。App Store 购买由 Apple 处理；Dodo Payments 购买由 Dodo Payments 处理。我们不会接收或存储你的银行卡信息。'
+        }
+      },
+      {
+        title: { en: 'Refunds', zh: '退款' },
+        body: {
+          en: 'Refunds for App Store purchases are handled by Apple under its policy. For Dodo Payments purchases, refunds follow the terms shown at checkout, or contact us. Nothing in these terms limits rights you have under mandatory consumer law.',
+          zh: 'App Store 购买的退款由 Apple 按其政策处理。Dodo Payments 购买的退款按结账页所示条款处理，也可以联系我们。这些条款不限制你依强制性消费者法律享有的权利。'
+        }
+      },
+      {
+        title: { en: 'Updates and availability', zh: '更新与可用性' },
+        body: {
+          en: 'We may provide updates, but we are not obligated to do so. Updates may change or remove features, and older versions may stop working with newer systems. Keep your own backups of important data.',
+          zh: '我们可能提供更新，但没有义务这样做。更新可能改变或移除功能，旧版本可能无法在新系统上继续工作。请自行备份重要数据。'
+        }
+      },
+      {
+        title: { en: 'Third-party services and components', zh: '第三方服务与组件' },
+        body: {
+          en: 'The app may include open-source components, each governed by its own license. Links to third-party websites or services are governed by their own terms and privacy policies; we are not responsible for them.',
+          zh: 'App 可能包含开源组件，各自受其许可证约束。第三方网站或服务的链接受其自身条款和隐私政策约束；我们不对它们负责。'
+        }
+      },
+      {
+        title: { en: 'Disclaimer', zh: '免责声明' },
+        body: {
+          en: 'The app is provided “as is” and “as available,” without warranties of merchantability, fitness for a particular purpose, or non-infringement, to the extent permitted by law. Some jurisdictions do not allow certain exclusions, so parts of this section may not apply to you.',
+          zh: '在法律允许的范围内，App 按“现状”和“现有可用”状态提供，不附带适销性、特定用途适用性或不侵权保证。部分司法辖区不允许某些排除条款，因此本节部分内容可能不适用于你。'
+        }
+      },
+      {
+        title: { en: 'Limitation of liability', zh: '责任限制' },
+        body: {
+          en: 'To the maximum extent permitted by law, we are not liable for indirect, incidental, special, or consequential damages, or for lost data, profits, or business. Our total liability for claims relating to the app will not exceed the amount you paid for it in the twelve months before the claim. This does not limit liability that cannot be limited by law.',
+          zh: '在法律允许的最大范围内，我们不对间接、附带、特殊或后果性损害负责，也不对数据、利润或业务损失负责。对于与 App 相关的索赔，我们的总责任不超过你在索赔前十二个月内为 App 支付的金额。法律不允许限制的责任不受本节限制。'
+        }
+      },
+      {
+        title: { en: 'Termination', zh: '终止' },
+        body: {
+          en: 'You may stop using the app and uninstall it at any time. We may suspend or terminate your license if you materially breach these terms. On termination, stop using the app and delete your copies.',
+          zh: '你可以随时停止使用并卸载 App。如果你严重违反这些条款，我们可以暂停或终止你的授权。终止后，请停止使用 App 并删除所有副本。'
+        }
+      },
+      {
+        title: { en: 'Apple App Store terms', zh: 'Apple App Store 条款' },
+        body: {
+          en: 'If you downloaded the app from the Apple App Store, Apple is not a party to these terms and has no obligation to provide maintenance or support. Apple is a third-party beneficiary of these terms and may enforce them. You must also comply with the App Store Terms of Service. Apple’s refund policy applies to App Store purchases.',
+          zh: '如果你从 Apple App Store 下载 App，Apple 不是这些条款的当事方，也没有义务提供维护或支持。Apple 是这些条款的第三方受益人，可以执行这些条款。你还必须遵守 App Store 服务条款。App Store 购买适用 Apple 的退款政策。'
         }
       },
       {
         title: { en: 'Changes', zh: '变更' },
         body: {
-          en: 'We may update these terms as the app evolves. The current version is always published on this page.',
-          zh: '随着 App 发展，我们可能更新这些条款。当前版本始终发布在本页。'
+          en: 'We may update these terms as the app evolves. The date at the top of this page will change, and material changes will be announced on this page or in the app. Continued use after the changes take effect means you accept the updated terms.',
+          zh: '随着 App 发展，我们可能更新这些条款。页面顶部的日期会更新；重大变更会在本页或 App 内说明。变更生效后继续使用即表示你接受更新后的条款。'
+        }
+      },
+      {
+        title: { en: 'Governing law and consumer rights', zh: '适用法律与消费者权利' },
+        body: {
+          en: 'These terms are governed by the laws of the jurisdiction where Tenon Studio is established, without regard to conflict-of-law rules. If you are a consumer, you also keep the protection of mandatory laws in your country of residence. Please contact us first so we can try to resolve any dispute.',
+          zh: '这些条款受 Tenon Studio 所在司法辖区的法律管辖，不考虑法律冲突规则。如果你是消费者，你仍然享有居住国强制性法律赋予的保护。请先联系我们，以便尝试解决争议。'
+        }
+      },
+      {
+        title: { en: 'Severability and entire agreement', zh: '可分割性与完整协议' },
+        body: {
+          en: 'If any provision of these terms is found unenforceable, the remaining provisions stay in effect. These terms, the Privacy Policy, and any checkout terms form the entire agreement between you and us regarding the app.',
+          zh: '如果这些条款中的任何规定被认定不可执行，其余规定仍然有效。这些条款、隐私政策以及任何结账条款构成你与我们之间关于 App 的完整协议。'
+        }
+      },
+      {
+        title: { en: 'Contact', zh: '联系' },
+        body: {
+          en: `Questions about these terms can be emailed to ${SITE.email}.`,
+          zh: `如对这些条款有疑问，请发邮件至 ${SITE.email}。`
         }
       }
     ]

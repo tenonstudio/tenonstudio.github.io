@@ -143,6 +143,10 @@ Each app exposes `/apps/{slug}/privacy.html` and `/apps/{slug}/support.html`
 for App Store Connect and the About/paywall links. Those paths are fixed through
 `scripts/fix-legal-routes.mjs` after the Astro build.
 
+The privacy and terms copy is a product-specific draft, not legal advice.
+Before App Store submission, confirm the legal entity, business address,
+governing law, and refund wording with counsel.
+
 The shared app pages use automatic browser-language detection, with `?lang=zh`
 and `?lang=en` as explicit overrides. English is the fallback. The Launchpad
 mirror uses LaunchOS's own client-side locale selection instead of the shared
