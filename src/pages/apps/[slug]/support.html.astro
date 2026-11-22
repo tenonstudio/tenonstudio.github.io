@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AppLayout from '../../../layouts/AppLayout.astro';
 import Text from '../../../components/Text.astro';
 import { apps } from '../../../data/apps';
 import { supportFor } from '../../../data/support';
@@ -14,11 +14,12 @@ const inDevelopment = app.status === 'in-development';
 const emailHref = `mailto:${SITE.email}?subject=${encodeURIComponent(`${app.name} support`)}`;
 const privacyHref = `/apps/${app.slug}/privacy.html`;
 ---
-<BaseLayout
+<AppLayout
+  app={app}
   title={`Support — ${app.name} — ${SITE.shortName}`}
   description={`Get help with ${app.name}.`}
   image={app.icon}
-  current="apps"
+  current="support"
 >
   <article class="legal support-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
     <a class="back-link" href={`/apps/${app.slug}/`}><span aria-hidden="true">←</span> <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} /></a>
@@ -114,4 +115,4 @@ const privacyHref = `/apps/${app.slug}/privacy.html`;
       <a href={`/apps/${app.slug}/terms.html`}><Text en="Terms of Use" zh="使用条款" /></a>
     </p>
   </article>
-</BaseLayout>
+</AppLayout>

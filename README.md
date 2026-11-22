@@ -7,19 +7,29 @@ The Tenon / 榫卯工坊 studio site, built with Astro and deployed to GitHub Pa
 ```text
 src/
 ├── components/     shared UI, plus components/home for the landing-page art
-├── data/           app, legal, and landing-page content
-├── layouts/        BaseLayout (app pages) and HomeLayout (landing page)
+├── data/           app, legal, support, and landing-page content
+├── layouts/        AppLayout (app pages) and HomeLayout (landing page)
 ├── pages/          routes
 └── styles/         global.css (shared app pages) and home.css
 public/             icons, downloads, appcasts, static assets, self-hosted fonts
 scripts/            post-build route fixes
 ```
 
+## App pages
+
+Every `/apps/{slug}/` page (product, buy, support, privacy, and terms) uses
+`AppLayout`. It renders that app's own header and footer instead of the studio
+header and footer. The header carries the app icon, name, Overview / Support /
+Privacy / Terms navigation, and a download or in-development CTA. The footer
+shows the app tagline, platform, category, legal links, and a small Tenon Studio
+credit. Support is the single help surface; the old scripting-guide pages were
+removed.
+
 ## Site config
 
 `src/data/site.ts` is the single source for the studio name, Chinese name, brand,
 email, GitHub handle/URL, and X handle/URL. It is imported at build time by the
-homepage, `Header`, `Footer`, `BaseLayout`, and the JSON-LD in `HomeLayout`.
+homepage, `AppLayout`, and the JSON-LD in `HomeLayout`.
 
 ```ts
 export const SITE = {

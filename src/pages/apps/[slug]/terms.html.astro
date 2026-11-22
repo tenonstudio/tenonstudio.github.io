@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AppLayout from '../../../layouts/AppLayout.astro';
 import Text from '../../../components/Text.astro';
 import { apps } from '../../../data/apps';
 import { termsFor } from '../../../data/legal';
@@ -11,7 +11,7 @@ const { app } = Astro.props;
 const doc = termsFor(app);
 const inDevelopment = app.status === 'in-development';
 ---
-<BaseLayout title={`${doc.title.en} — ${app.name}`} description={doc.lead.en} image={app.icon}>
+<AppLayout app={app} title={`${doc.title.en} — ${app.name}`} description={doc.lead.en} image={app.icon} current="terms">
   <article class="legal shell">
     <a class="back-link" href={`/apps/${app.slug}/`}><span aria-hidden="true">←</span> <Text en={`Back to ${app.name}`} zh={`返回 ${app.name}`} /></a>
     <p class="eyebrow"><Text en="Legal" zh="法律信息" /></p>
@@ -39,4 +39,4 @@ const inDevelopment = app.status === 'in-development';
       <Text en="Need help?" zh="需要帮助？" /> <a href={`/apps/${app.slug}/support.html`}><Text en="Contact support" zh="联系支持" /></a>
     </p>
   </article>
-</BaseLayout>
+</AppLayout>

@@ -25,15 +25,15 @@ const profiles: Record<string, SupportProfile> = {
       {
         question: { en: 'My custom command is missing', zh: '自定义命令不见了' },
         answer: {
-          en: 'Check that the command is enabled in Settings → Custom. Custom commands are plain scripts stored in ~/.config/flip/commands; the scripting guide on the Flip page explains the expected environment.',
-          zh: '检查「设置 → 自定义」里命令是否启用。自定义命令是普通脚本，保存在 ~/.config/flip/commands；Flip 页面上的脚本指南说明了环境变量协议。'
+          en: 'Check that the command is enabled in Settings → Custom. Custom commands are plain scripts stored in ~/.config/flip/commands. Flip passes FLIP_ACTION, FLIP_CHOICE, FLIP_STATE_DIR, and FLIP_COMMAND_ID to the script.',
+          zh: '检查「设置 → 自定义」里命令是否启用。自定义命令是普通脚本，保存在 ~/.config/flip/commands；Flip 会向脚本传入 FLIP_ACTION、FLIP_CHOICE、FLIP_STATE_DIR 和 FLIP_COMMAND_ID。'
         }
       },
       {
         question: { en: 'How do I add a command?', zh: '怎么添加命令？' },
         answer: {
-          en: 'Create one in Settings → Custom, choose a type (action, toggle, or choice), then edit the script. Flip ships with a scripting guide that covers the format and examples.',
-          zh: '在「设置 → 自定义」中新建，选择类型（一次性动作、开关或选项），再编辑脚本。Flip 自带脚本指南，包含格式和示例。'
+          en: 'Create one in Settings → Custom, choose a type (action, toggle, or choice), then edit the script. The editor shows the environment variables passed to the command.',
+          zh: '在「设置 → 自定义」中新建，选择类型（一次性动作、开关或选项），再编辑脚本。编辑器会显示传给命令的环境变量。'
         }
       }
     ],
@@ -99,8 +99,8 @@ const profiles: Record<string, SupportProfile> = {
       {
         question: { en: 'How do I edit a wallpaper?', zh: '怎么编辑壁纸？' },
         answer: {
-          en: 'Each built-in theme is a p5.js sketch. Open the Wallpaper Script project, edit the source, save, then reload from the Tessera menu. The scripting guide on the Tessera page covers the project format.',
-          zh: '每个内置主题都是一段 p5.js 草图。打开 Wallpaper Script 项目，修改源码并保存，然后从 Tessera 菜单重新载入。Tessera 页面上的脚本指南说明了项目格式。'
+          en: 'Each built-in theme is a p5.js sketch. Open the Wallpaper Script project, edit the source, save, then reload from the Tessera menu.',
+          zh: '每个内置主题都是一段 p5.js 草图。打开 Wallpaper Script 项目，修改源码并保存，然后从 Tessera 菜单重新载入。'
         }
       },
       {

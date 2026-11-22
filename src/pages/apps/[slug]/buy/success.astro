@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import AppLayout from '../../../../layouts/AppLayout.astro';
 import Text from '../../../../components/Text.astro';
 import { appBySlug } from '../../../../data/apps';
 import { SITE } from '../../../../data/site';
@@ -11,10 +11,12 @@ export function getStaticPaths() {
 }
 const { app } = Astro.props;
 ---
-<BaseLayout
+<AppLayout
+  app={app}
   title={`Thank you — ${app.name} — ${SITE.shortName}`}
   description={`Your ${app.name} license key and activation steps.`}
   image={app.icon}
+  current="buy"
 >
   <section class="success-page shell" style={`--app-accent:${app.accent};--app-soft:${app.accentSoft};`}>
     <div class="success-card">
@@ -89,4 +91,4 @@ const { app } = Astro.props;
       }
     })();
   </script>
-</BaseLayout>
+</AppLayout>

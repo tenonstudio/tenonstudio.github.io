@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AppLayout from '../../../layouts/AppLayout.astro';
 import Text from '../../../components/Text.astro';
-import RelatedApps from '../../../components/RelatedApps.astro';
 import { SITE } from '../../../data/site';
+import { appBySlug } from '../../../data/apps';
 
 const features = [
   { title: { en: 'Smart select', zh: '智能选择' }, body: { en: 'Hover and click any element, or drag a custom region. Whole-page mode is there when you need it.', zh: '悬停点击任意元素，或拖拽自定义区域；需要时也可以镜像整个页面。' } },
@@ -13,8 +13,9 @@ const features = [
   { title: { en: 'No account', zh: '无需账号' }, body: { en: 'Free, no license key, no account. Install it and start mirroring.', zh: '免费，无需激活码或账号，安装即可使用。' } }
 ];
 const chromeURL = 'https://chromewebstore.google.com/detail/magic-mirror/jfapgohnocglaaminogpmjgabkokgnfl';
+const porthole = appBySlug.porthole;
 ---
-<BaseLayout title={`Porthole for Chrome — ${SITE.shortName}`} description="Mirror any part of a web page into a floating, live window." image="/assets/porthole-icon.png">
+<AppLayout app={porthole} title={`Porthole for Chrome — ${SITE.shortName}`} description="Mirror any part of a web page into a floating, live window." image="/assets/porthole-icon.png" current="overview">
   <article class="app-detail chrome-page" style="--app-accent:#5b7cfa;--app-soft:#dfe6ff;">
     <div class="shell"><a class="back-link" href="/apps/porthole/"><span aria-hidden="true">←</span> <Text en="Porthole for macOS" zh="Porthole macOS 版" /></a></div>
     <header class="detail-hero shell">
@@ -79,6 +80,5 @@ const chromeURL = 'https://chromewebstore.google.com/detail/magic-mirror/jfapgoh
       <img class="download-icon" src="/assets/porthole-icon.png" alt="" width="120" height="120" />
     </section></div>
 
-    <RelatedApps current="porthole" />
   </article>
-</BaseLayout>
+</AppLayout>
