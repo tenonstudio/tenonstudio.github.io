@@ -27,13 +27,13 @@ Primary studio mark: **Tenon joint** — an interlocking, seven-piece tenon latt
 
 | Name | Hex |
 |---|---|
-| Paper | `#EAE6DA` |
-| Tenon | `#4F3F34` |
+| White | `#FFFFFF` |
+| Black | `#000000` |
 
 ## Usage
 
 - Keep at least 10% clear space around the mark.
-- Use the brown mark on the paper background; do not add a second accent color.
+- Use the black mark on the white background; do not add a second accent color.
 - The rounded square is part of the mark. Do not crop it to a circle.
 - Use `tenon-og.png` for social previews, link previews, and press material.
 
@@ -41,5 +41,5 @@ Primary studio mark: **Tenon joint** — an interlocking, seven-piece tenon latt
 
 - `HomeLayout.astro` and `BaseLayout.astro` use `favicon.ico`, `tenon-avatar.svg`, and `tenon-avatar-180.png`.
 - `site.webmanifest` uses the 192px and 512px avatars.
-- Favicon URLs include `?v=tenon` so browsers replace the previous mark instead of keeping it cached.
+- Favicon URLs include `?v=tenon-bw` so browsers replace the previous mark instead of keeping it cached.
 - App pages use each app's own icon rather than the studio mark.
