@@ -1,39 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#25211c"/>
-      <stop offset="1" stop-color="#121110"/>
-    </linearGradient>
-    <linearGradient id="lt" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f0d0a0"/>
-      <stop offset="1" stop-color="#d2a46e"/>
-    </linearGradient>
-    <linearGradient id="mt" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#d59a61"/>
-      <stop offset="1" stop-color="#ae703f"/>
-    </linearGradient>
-    <linearGradient id="dk" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#a46239"/>
-      <stop offset="1" stop-color="#79401f"/>
-    </linearGradient>
-  </defs>
-  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
-  <rect x="30" y="30" width="964" height="964" rx="198" fill="none" stroke="#f2eee6" stroke-opacity=".08" stroke-width="3"/>
-
-  <!-- top beam: left and right arms, with a thin bevel above -->
-  <path d="M214 300H512V404H214Z" fill="url(#lt)"/>
-  <path d="M512 300H810V404H512Z" fill="url(#mt)"/>
-  <path d="M214 300H512V316H214Z" fill="#f6ddb6" opacity=".55"/>
-  <path d="M512 300H810V316H512Z" fill="#e7b47b" opacity=".45"/>
-
-  <!-- center seam / joinery key -->
-  <path d="M500 300H524V404H500Z" fill="#171512" opacity=".8"/>
-  <path d="M500 382H524V404H500Z" fill="#f2eee6" opacity=".4"/>
-
-  <!-- vertical stem with beveled shoulder -->
-  <path d="M448 404H576V748H448Z" fill="url(#dk)"/>
-  <path d="M448 404H576V428H448Z" fill="#b97245"/>
-  <path d="M460 404H512V748H460Z" fill="#9b5934" opacity=".35"/>
-  <path d="M472 404H480V748H472Z" fill="#dca371" opacity=".3"/>
-  <circle cx="512" cy="738" r="7" fill="#f2eee6" fill-opacity=".25"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 380 380">
+  <rect width="380" height="380" rx="84" fill="#EAE6DA"/>
+  <g fill="#4F3F34">
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(127 44)"/>
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(38 94)"/>
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(218 94)"/>
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(127 144)"/>
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(38 194)"/>
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(218 194)"/>
+  <path d="M0 0H124V42H83V92H41V42H0Z" transform="translate(127 244)"/>
+  </g>
 </svg>

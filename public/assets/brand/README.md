@@ -1,6 +1,6 @@
 # Tenon brand assets
 
-Primary studio mark: **Tenon T**.
+Primary studio mark: **Tenon joint** — an interlocking, seven-piece tenon lattice.
 
 ## Files
 
@@ -17,7 +17,8 @@ Primary studio mark: **Tenon T**.
 | `tenon-avatar-48.png` | favicon source |
 | `tenon-avatar-32.png` | favicon |
 | `tenon-avatar-16.png` | browser tab |
-| `favicon.ico` | 16 / 32 / 48 favicon |
+| `../../favicon.ico` | 16 / 32 / 48 favicon |
+| `../../favicon.svg` | scalable favicon |
 | `tenon-og.png` | 1200 × 630 social preview |
 | `alternates/avatar-b.svg` | alternative: two-material joint |
 | `alternates/avatar-c.svg` | alternative: seal |
@@ -26,23 +27,19 @@ Primary studio mark: **Tenon T**.
 
 | Name | Hex |
 |---|---|
-| Ink | `#171512` |
-| Paper | `#F2EEE6` |
-| Brass | `#B4864D` |
-| Brass highlight | `#D0A46C` |
+| Paper | `#EAE6DA` |
+| Tenon | `#4F3F34` |
 
 ## Usage
 
 - Keep at least 10% clear space around the mark.
-- Use the mark on the dark ink background; do not recolor the brass stem.
-- The avatar is designed to remain readable inside a circular crop.
+- Use the brown mark on the paper background; do not add a second accent color.
+- The rounded square is part of the mark. Do not crop it to a circle.
 - Use `tenon-og.png` for social previews, link previews, and press material.
-
-The selected direction is A: a cream T-bar with a brass tenon stem. The two alternates are kept for reference only.
 
 ## Website integration
 
-- Favicons and Apple touch icon are already wired in `index.html`.
+- `HomeLayout.astro` and `BaseLayout.astro` use `favicon.ico`, `tenon-avatar.svg`, and `tenon-avatar-180.png`.
 - `site.webmanifest` uses the 192px and 512px avatars.
-- `tenon-og.png` is referenced by the Open Graph / Twitter meta tags.
-- Before production, change the OG image meta value to an absolute URL on the final domain, e.g. `https://tenon.studio/assets/brand/tenon-og.png`.
+- Favicon URLs include `?v=tenon` so browsers replace the previous mark instead of keeping it cached.
+- App pages use each app's own icon rather than the studio mark.
